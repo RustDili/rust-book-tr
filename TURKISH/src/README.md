@@ -6,12 +6,12 @@
 * [Rust Programlama Dili](title-page.md)
 * [Önsöz](foreword.md)
 * [Giriş](ch00-00-introduction.md)
-<!--
+
 # Başlarken
 * [Başlarken](ch01-00-getting-started.md)
     * [Kurulum](ch01-01-installation.md)
     * [Merhaba, Dünya](ch01-02-hello-world.md)
-    * [Merhaba, Cargo](ch01-03-hello-cargo.md)
+<!--    * [Merhaba, Cargo](ch01-03-hello-cargo.md)
 
 * [Bir Tahmin Oyunu Programlamak](ch02-00-guessing-game-tutorial.md)
 
