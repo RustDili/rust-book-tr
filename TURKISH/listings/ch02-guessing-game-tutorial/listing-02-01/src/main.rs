@@ -9,7 +9,7 @@ fn main() {
     // ANCHOR: print
     println!("Tuttuğum sayıyı tahmin edin!");
 
-    println!("Lütfen tahmininizi giriniz.");
+    println!("Tahmininizi girin.");
     // ANCHOR_END: print
 
     // ANCHOR: string
@@ -25,7 +25,7 @@ fn main() {
     // ANCHOR_END: expect
 
     // ANCHOR: print_guess
-    println!("Tahmin ettiğiniz sayı: {}", tahmin);
+    println!("Tahmininiz: {}", tahmin);
     // ANCHOR_END: print_guess
 }
-// ANCHOR: all 
+// ANCHOR: all
