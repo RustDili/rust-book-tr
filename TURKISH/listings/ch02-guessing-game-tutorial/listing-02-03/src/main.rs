@@ -21,7 +21,7 @@ fn main() {
         .read_line(&mut tahmin)
         .expect("Veri okuma hatası!");
 
-    println!("Tahmininiz:: {}", tahmin);
+    println!("Tahmininiz: {}", tahmin);
     // ANCHOR: ch07-04
 }
 // ANCHOR_END: ch07-04
