@@ -5,11 +5,11 @@ fn main() {
 
     println!("Tahmininizi girin.");
 
-    let mut guess = String::new();
+    let mut tahmin = String::new();
 
     io::stdin()
-        .read_line(&mut guess)
+        .read_line(&mut tahmin)
         .expect("Veri okuma hatası!");
 
-    println!("Tahmininiz: {}", guess);
+    println!("Tahmininiz: {}", tahmin);
 }
