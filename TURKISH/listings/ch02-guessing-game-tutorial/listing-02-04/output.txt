@@ -1,1 +1,13 @@
+cargo run
+   Compiling tahmin_oyunu v0.1.0 (/home/rusdili/projeler/tahmin_oyunu)
+error[E0308]: mismatched types
+   --> src/main.rs:107:21
+    |
+107 |     match guess.cmp(&secret_number) {
+    |                     ^^^^^^^^^^^^^^ expected struct `String`, found integer
+    |
+    = note: expected reference `&String`
+               found reference `&{integer}`
 
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `tahmin_oyunu` due to previous error
