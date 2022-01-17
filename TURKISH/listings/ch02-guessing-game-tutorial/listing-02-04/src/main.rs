@@ -8,22 +8,22 @@ fn main() {
     // ANCHOR_END: here
     println!("Tuttuğum sayıyı tahmin edin!");
 
-    let secret_number = rand::thread_rng().gen_range(1..101);
+    let gizli_sayı = rand::thread_rng().gen_range(1..101);
 
-    println!("Gizli sayı: {}", secret_number);
+    println!("Gizli sayı: {}", gizli_sayı);
 
     println!("Tahmininizi girin.");
 
-    let mut guess = String::new();
+    let mut tahmin = String::new();
 
     io::stdin()
-        .read_line(&mut guess)
+        .read_line(&mut tahmin)
         .expect("Veri okuma hatası!");
     // ANCHOR: here
 
-    println!("Tahmininiz: {}", guess);
+    println!("Tahmininiz: {}", tahmin);
 
-    match guess.cmp(&secret_number) {
+    match tahmin.cmp(&gizli_sayı) {
         Ordering::Less => println!("Sayınız küçük!"),
         Ordering::Greater => println!("Sayınız büyük!"),
         Ordering::Equal => println!("Kazandınız!"),
