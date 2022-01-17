@@ -7,7 +7,7 @@ fn main() {
 
     let gizli_sayı = rand::thread_rng().gen_range(1..101);
 
-    println!("Gizli sayı: {} {}", gizli_sayı);
+    println!("Gizli sayı: {}", gizli_sayı);
 
     println!("Tahmininizi girin.");
 
