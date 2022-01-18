@@ -28,9 +28,10 @@ fn main() {
         match tahmin.cmp(&gizli_sayı) {
             Ordering::Less => println!("Sayınız küçük!"),
             Ordering::Greater => println!("Sayınız büyük!"),
-            Ordering::Equal =>
-                        println!("Kazandınız!");
-                        break;
+            Ordering::Equal => {
+                println!("Kazandınız!");
+                break;
+            }
         }
     }
 }
