@@ -1,5 +1,5 @@
 $ cargo run
-   Compiling no-listing-01-variables-are-immutable v0.1.0 (/home/rusdili/projeler/degiskenler)
+   Compiling degiskenler v0.1.0 (/home/rustdili/projeler/degiskenler)
 error[E0384]: cannot assign twice to immutable variable `x`
  --> src/main.rs:4:5
   |
