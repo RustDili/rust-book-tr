@@ -377,7 +377,7 @@ Tahmininiz:: 88
 
 Program her çalıştırıldığında 1 ile 100 arasında tesadüfi bir sayı göstermelidir. Güzel iş!
 
-## "Tahmin Sayısının Gizli Sayı ile Karşılaştırılması"
+## Tahmin Sayısının Gizli Sayı ile Karşılaştırılması
 
 Elimizde kullanıcıdan alınan bir tahmin sayısı ve tasadüfi olarak üretilen bir `gizli_sayı` olduğuna göre bunları karşılaştırabiliriz. Kodun bu bölümü Örnek 2-4'te gösterilmekle beraber, henüz açıklayacağımız nedenlerden ötürü derlenmez. 
 <!-- Kaldım -->
