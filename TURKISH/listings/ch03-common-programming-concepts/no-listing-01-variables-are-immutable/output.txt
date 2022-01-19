@@ -1,0 +1,16 @@
+$ cargo run
+   Compiling no-listing-01-variables-are-immutable v0.1.0 (/home/rusdili/projeler/degiskenler)
+error[E0384]: cannot assign twice to immutable variable `x`
+ --> src/main.rs:4:5
+  |
+2 |     let x = 5;
+  |         -
+  |         |
+  |         first assignment to `x`
+  |         help: consider making this binding mutable: `mut x`
+3 |     println!("x'in değeri: {}", x);
+4 |     x = 6;
+  |     ^^^^^ cannot assign twice to immutable variable
+
+For more information about this error, try `rustc --explain E0384`.
+error: could not compile `no-listing-01-variables-are-immutable` due to previous error
