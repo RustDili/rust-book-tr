@@ -1,6 +1,6 @@
 fn main() {
     // ANCHOR: here
-    let bosluk = "   ";     // Üç boşluk
-    let bosluk = bosluk.len();
+    let boşluk = "   ";     // Üç boşluk
+    let boşluk = boşluk.len();
     // ANCHOR_END: here
 }
