@@ -14,9 +14,9 @@
     * [Merhaba, Cargo](ch01-03-hello-cargo.md)
 
 * [Bir Tahmin Oyunu Programlamak](ch02-00-guessing-game-tutorial.md)
-<!--
+
 * [Ortak Programlama Kavramları](ch03-00-common-programming-concepts.md)
-    * [Değişkenler ve Değişkenlik](ch03-01-variables-and-mutability.md)
+    * [Değişkenler ve Değişkenlik](ch03-01-variables-and-mutability.md)<!--
     * [Veri Türleri](ch03-02-data-types.md)
     * [İşlevler](ch03-03-how-functions-work.md)
     * [Yorumlar](ch03-04-comments.md)
