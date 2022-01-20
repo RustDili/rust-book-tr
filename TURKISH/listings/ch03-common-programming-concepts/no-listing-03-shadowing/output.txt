@@ -1,6 +1,0 @@
-$ cargo run
-   Compiling degiskenler v0.1.0 (/home/rustdili/projeler/degiskenler)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.29s
-     Running `target/debug/no-listing-02-adding-mut`
-x'in değeri: 5
-x'in değeri: 6
