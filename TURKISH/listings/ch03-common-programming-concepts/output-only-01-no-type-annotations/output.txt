@@ -1,0 +1,13 @@
+$ cargo run                                                                                                                   ✔
+   Compiling degiskenler v0.1.0 (/home/rusdili/projeler/degiskenler)
+warning: unused variable: `tahmin`
+  --> src/main.rs:54:9
+   |
+54 |     let tahmin: u32 = "42".parse().expect("Lütfen bir sayı türü girin!");
+   |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_tahmin`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: `degiskenler` (bin "degiskenler") generated 1 warning
+    Finished dev [unoptimized + debuginfo] target(s) in 0.72s
+     Running `/home/rusdili/projeler/degiskenler/target/debug/degiskenler`
