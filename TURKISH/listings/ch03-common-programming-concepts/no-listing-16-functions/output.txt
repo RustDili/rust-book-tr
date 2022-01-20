@@ -1,0 +1,6 @@
+ $ cargo run                                                                                                                          ✔
+   Compiling islevler v0.1.0 (/home/rusdili/projeler/islevler)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.67s
+     Running `target/debug/islevler`
+Merhaba dünya!
+Bir başka işlev.
