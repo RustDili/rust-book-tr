@@ -1,6 +1,6 @@
 $ cargo run
    Compiling degiskenler v0.1.0 (/home/rustdili/projeler/degiskenler)
     Finished dev [unoptimized + debuginfo] target(s) in 0.77s
-     Running `target/debug/no-listing-03-shadowing`
+     Running `target/debug/degiskenler`
 Kapsam içindeki x'in değeri: 12
 x'in değeri: 6
