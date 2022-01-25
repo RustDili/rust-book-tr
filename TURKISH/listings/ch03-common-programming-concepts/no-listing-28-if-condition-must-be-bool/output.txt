@@ -1,0 +1,10 @@
+cargo run
+   Compiling dallar v0.1.0 (/home/rusdili/projeler/dallar)
+error[E0601]: `main` function not found in crate `dallar`
+  --> src/main.rs:25:44
+   |
+25 | // no-listing-28-if-condition-must-be-bool
+   |                                            ^ consider adding a `main` function to `src/main.rs`
+
+For more information about this error, try `rustc --explain E0601`.
+error: could not compile `dallar` due to previous error
