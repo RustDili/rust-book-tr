@@ -1,0 +1,13 @@
+$ cargo run
+   Compiling donguler v0.1.0 (/home/rusdili/projeler/donguler)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.48s
+     Running `target/debug/donguler`
+sayaç: 0
+Kalan: 10
+Kalan: 9
+sayaç: 1
+Kalan: 10
+Kalan: 9
+sayaç: 2
+Kalan: 10
+Sayaç durdu: 2
