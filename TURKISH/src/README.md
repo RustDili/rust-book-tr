@@ -20,9 +20,9 @@
     * [Veri Türleri](ch03-02-data-types.md)
     * [İşlevler](ch03-03-how-functions-work.md)
     * [Yorumlar](ch03-04-comments.md)
-    <!-- * [Kontrol Akışı](ch03-05-control-flow.md)
+    * [Kontrol Akışı](ch03-05-control-flow.md)
 
-* [Mülkiyeti Anlamak](ch04-00-understanding-ownership.md)
+<!-- * [Mülkiyeti Anlamak](ch04-00-understanding-ownership.md)
 
 # Rust'a Göre Düşünmek 
 
