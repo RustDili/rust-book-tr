@@ -164,7 +164,7 @@ Yine hatırlayacağınız gibi tahmin oyunu programında, döngünün o anki tek
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-32-5-loop-labels/src/main.rs}}
 ```
 
-`saydır` etiketine sahip olan dış döngü 0'dan 2'ye kadar sayar. Etiketsiz olan iç döngü ise 10'dan 9'a doğru geri sayım yapar. Etiketsiz olan ilk `break` yalnızca iç döngüden, `break 'saydır;` ifadesiyse dış döngüden çıkar. Bu kod aşağıdaki çıktıyı üretir:
+`Saydır` etiketine sahip olan dış döngü 0'dan 2'ye kadar sayar. Etiketsiz olan iç döngü ise 10'dan 9'a doğru geri sayım yapar. Etiketsiz olan ilk `break` yalnızca iç döngüden, `break 'saydır;` ifadesiyse dış döngüden çıkar. Bu kod aşağıdaki çıktıyı üretir:
 
 ```console
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-32-5-loop-labels/output.txt}}
