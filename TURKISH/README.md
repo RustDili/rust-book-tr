@@ -12,7 +12,7 @@ Türkçe düzenlenmiş kodlar ise [`/TURKISH/listings/`][] dizininde yer almakta
 
 Katkıda bulunmak istiyorsanız [`/TURKISH/CONTRIBUTING.md`][] bölümünü okuyarak başlamalısınız.
 
-<!-- LINKS : -->
+<!-- Bağlantılar : -->
 
 [`/TURKISH/src/`]:
 https://github.com/RustDili/rust-book-tr/tree/main/TURKISH/src
