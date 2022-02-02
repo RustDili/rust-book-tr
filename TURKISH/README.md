@@ -23,4 +23,4 @@ https://github.com/RustDili/rust-book-tr/tree/main/TURKISH/listings
 [`/TURKISH/CONTRIBUTING.md`]:
 https://github.com/RustDili/rust-book-tr/blob/main/TURKISH/CONTRIBUTING.md
 
-## [Çevrim-içi Takip Et](https://rustdili.github.io/)
+## [Çevrim-içi Takip Et](https://rustdili.github.io/rust-book-tr/index.html)<!--(https://rustdili.github.io/) -->
