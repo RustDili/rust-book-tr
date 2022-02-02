@@ -10,3 +10,4 @@ book.toml
 ferris.css
 ferris.js
 rust-toolchain
+rustfmt.toml
