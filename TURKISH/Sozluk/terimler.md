@@ -1,6 +1,6 @@
-# Traduction des termes
+# Teknik terimlerin Türkçe karşılıklar
 
-Teknik terimlerin Türkçe karşılıkları
+ı
 <!--
 | İngilizce | Türkçe | Açıklama |
 | ------- | ------ | ------ |
