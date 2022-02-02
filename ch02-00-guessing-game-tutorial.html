@@ -1,0 +1,998 @@
+<!DOCTYPE HTML>
+<html lang="tr" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bir Tahmin Oyunu Programlamak - Rust Progamlama Dili Türkçe Çevirisi-2021</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">Rust Programlama Dili</a></li><li class="chapter-item expanded affix "><a href="foreword.html">Önsöz</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Giriş</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Başlarken</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Kurulum</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> Merhaba, Dünya</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> Merhaba, Cargo</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html" class="active"><strong aria-hidden="true">2.</strong> Bir Tahmin Oyunu Programlamak</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> Ortak Programlama Kavramları</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> Değişkenler ve Değişkenlik</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> Veri Türleri</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> İşlevler</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> Yorumlar</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> Kontrol Akışı</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> Mülkiyeti Anlamak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> Mülkiyet Nedir?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> Referanslar ve Borçlanma</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> Dilim Türü</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> İlişkili Verileri Yapılandırmak için Yapıları Kullanmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> Yapıları Tanımlamak ve Örneklemek</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> Yapıları Kullanan Örnek Bir Program</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> Metod Sözdizimi</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> Enum'lar ve Örüntü Eşleme</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> Bir Enum Tanımlamak</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> Kontrol Akışı Yapısı match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> if let ile Özgün Kontrol Akışı</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-managing-growing-projects-with-packages-crates-and-modules.html"><strong aria-hidden="true">7.</strong> Büyüyen Projeleri Paketler, Sandıklar ve Modüller ile Yönetmek</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-packages-and-crates.html"><strong aria-hidden="true">7.1.</strong> Paketler ve Sandıklar</a></li><li class="chapter-item expanded "><a href="ch07-02-defining-modules-to-control-scope-and-privacy.html"><strong aria-hidden="true">7.2.</strong> Kapsam ve Gizlilik Kontrolü İçin Modül Tanımlamak</a></li><li class="chapter-item expanded "><a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html"><strong aria-hidden="true">7.3.</strong> Modül Ağacındaki Bir Öğeye Başvurmanın Yolları</a></li><li class="chapter-item expanded "><a href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html"><strong aria-hidden="true">7.4.</strong> use Anahtar Kelimesi ile Yolları Kapsama Getirmek</a></li><li class="chapter-item expanded "><a href="ch07-05-separating-modules-into-different-files.html"><strong aria-hidden="true">7.5.</strong> Modülleri Farklı Dosyalara Ayırmak</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> Ortak Koleksiyonlar</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> Değer Listelerini Vektör Kullanarak Depolamak</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> UTF-8 Kodlu Metinleri Dizgilerle Saklamak</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> İlişkili Değerlere Sahip Anahtarları Eşleme Haritalarında Saklamak</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> Hata Yönetimi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> panic! ile Kurtarılamaz Hatalar</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> Result ile Kurtarılabilir Hatalar</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> panic!lemek ya da panic!lememek</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> Generic Türler, Özellikler ve Yaşam Süreleri</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> Generic Veri Türleri</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> Özellikler: Paylaşılan Davranışı Tanımlamak</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> Referansları Yaşam Süreleri ile  Doğrulamak</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Otomatik Testler Yazmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Testler Nasıl Yazılır?</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Testlerin Nasıl Çalıştırılacağını Denetlemek</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organizasyonu</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> Bir I/O Projesi: Komut Satırı Programı Oluşturmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> Komut Satırı Argümanlarını Kabul Etmek</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> Bir Dosyayı Okumak</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> Modülerlik ve Hata Yönetimini Geliştirmek</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> Test Odaklı Geliştirme ile Kütüphane İşlevselliğini Artırmak</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> Ortam Değişkenleriyle Çalışmak</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> Hata Mesajlarını Standart Çıktı Yerine Standart Hataya Yazmak</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> İşlevsel Dil Özellikleri: Yineleyiciler ve Kapamalar</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Kapamalar: Ortam Değişkenlerini Yakalayabilen İsimsiz İşlevler</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Yineleyiciler ile Bir Dizi Öğeyi İşlemek</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> I/O Projemizi Geliştirmek</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Performansı Karşılaştırmak: Döngüler vs. Yineleyiciler</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> Cargo ve Crates.io Hakkında Daha Fazlası</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Derlemeleri Sürüm Profilleriyle Özelleştirmek</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Bir Sandığı Crates.io Üzerinde Yayınlamak</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Çalışma Alanları</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Crates.io Üzerindeki İkili Sandıkları cargo install Komutuyla Yüklemek</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Özel Komutlarla Cargo Olanaklarını Genişletmek</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> Akıllı İşaretçiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> Yığındaki Veriler İçin Box&lt;T&gt; Kullanmak</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> Akıllı İşaretçilere Deref Özelliğiyle Normal Referanslarmış Gibi Davranmak</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> Temizlik Amaçlı Kod Çalıştırmak İçin Drop Özelliğini Kullanmak</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> Referans Sayılan Akıllı İşaretçi: Rc&lt;T&gt;</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> RefCell&lt;T&gt; ve İç Değişkenlik Modeli</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> Referans Çevrimleri Bellek Sızıntısına Yol Açabilir</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Korkusuz Eşzamanlılık</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch16-01-threads.html"><strong aria-hidden="true">16.1.</strong> İş Parçacıklarını Kullanmak</a></li><li class="chapter-item expanded "><a href="ch16-02-message-passing.html"><strong aria-hidden="true">16.2.</strong> Mesajlaşma Yardımıyla Eş Zamanlı Programlama</a></li><li class="chapter-item expanded "><a href="ch16-03-shared-state.html"><strong aria-hidden="true">16.3.</strong> Paylaşılan Durum Eşzamanlılığı</a></li><li class="chapter-item expanded "><a href="ch16-04-extensible-concurrency-sync-and-send.html"><strong aria-hidden="true">16.4.</strong> Sync and Send Özellikleri ile Genişletilebilir Eşzamanlılık</a></li></ol></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> Rust'ın Nesne Yönelimli Programlama Özellikleri</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-what-is-oo.html"><strong aria-hidden="true">17.1.</strong> Nesne Yönelimli Dillerin Özellikleri</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> Farklı Türden Değerlere İzin Veren Özellik Nesnelerini Kullanmak</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> Nesne Yönelimli Tasarım Modeli Uygulamak</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Örüntüler ve Eşleme</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch18-01-all-the-places-for-patterns.html"><strong aria-hidden="true">18.1.</strong> Örüntüler Her Yerde Kullanılabilir</a></li><li class="chapter-item expanded "><a href="ch18-02-refutability.html"><strong aria-hidden="true">18.2.</strong> Çürütülebilirlik: Bir Örüntünün Eşleşmeme İhtimali</a></li><li class="chapter-item expanded "><a href="ch18-03-pattern-syntax.html"><strong aria-hidden="true">18.3.</strong> Örüntü Sözdizimi</a></li></ol></li><li class="chapter-item expanded "><a href="ch19-00-advanced-features.html"><strong aria-hidden="true">19.</strong> Gelişmiş Özellikler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch19-01-unsafe-rust.html"><strong aria-hidden="true">19.1.</strong> Güvensiz Kullanım</a></li><li class="chapter-item expanded "><a href="ch19-03-advanced-traits.html"><strong aria-hidden="true">19.2.</strong> Gelişmiş Özellikler</a></li><li class="chapter-item expanded "><a href="ch19-04-advanced-types.html"><strong aria-hidden="true">19.3.</strong> Gelişmiş Türler</a></li><li class="chapter-item expanded "><a href="ch19-05-advanced-functions-and-closures.html"><strong aria-hidden="true">19.4.</strong> Gelişmiş Kapamalar ve İşlevler</a></li><li class="chapter-item expanded "><a href="ch19-06-macros.html"><strong aria-hidden="true">19.5.</strong> Makrolar</a></li></ol></li><li class="chapter-item expanded "><a href="ch20-00-final-project-a-web-server.html"><strong aria-hidden="true">20.</strong> Son Proje: Çok İş Parçacıklı Bir Web Sunucusu Oluşturmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch20-01-single-threaded.html"><strong aria-hidden="true">20.1.</strong> Tek İş Parçacıklı Bir Web Sunucusu Oluşturmak</a></li><li class="chapter-item expanded "><a href="ch20-02-multithreaded.html"><strong aria-hidden="true">20.2.</strong> Tek İş Parçacıklı Sunucumuzu Çok İş Parçacıklı Bir Sunucuya Dönüştürmek</a></li><li class="chapter-item expanded "><a href="ch20-03-graceful-shutdown-and-cleanup.html"><strong aria-hidden="true">20.3.</strong> Sorunsuzca Kapatmak ve Temizlik</a></li></ol></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Ekler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> A - Anahtar Kelimeler</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> B - İşleçler ve Semboller</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> C - Türetilebilir Özellikler</a></li><li class="chapter-item expanded "><a href="appendix-04-useful-development-tools.html"><strong aria-hidden="true">21.4.</strong> D - Faydalı Geliştirme Araçları</a></li><li class="chapter-item expanded "><a href="appendix-05-editions.html"><strong aria-hidden="true">21.5.</strong> E - Sürümler</a></li><li class="chapter-item expanded "><a href="appendix-06-translation.html"><strong aria-hidden="true">21.6.</strong> F - Kitabın Çevirileri</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.7.</strong> G - Rust Nasıl “Nightly Rust” Yapılır? </a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Progamlama Dili Türkçe Çevirisi-2021</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="bir-tahmin-oyunu-programlamak"><a class="header" href="#bir-tahmin-oyunu-programlamak">Bir Tahmin Oyunu Programlamak</a></h1>
+<p>Birlikte uygulamalı bir proje üzerinde çalışarak Rust'ı kavramaya çalışalım! Bu bölümde size Rust'ın temel kavramlarından bazıları tanıtılacak ve bu kavramların gerçek bir programda nasıl kullanılacağı gösterilecektir. Bölüm boyunca <code>let</code> ve <code>match</code> anahtar kelimeleri, ilişkili metotlar ve işlevler, harici sandıklar gibi kavramlar üzerinde temel bilgilerinizi uygulayacak ve ilerleyen bölümlerde bu kavramlar ayrıntılarıyla incelenecektir.</p>
+<p>Projemizde klasik bir programlama problemi olan sayı tahmin oyununu kodlayacağız. Program 1 ile 100 arasında rastgele bir sayı oluşturacak ve oyuncudan bu sayıyı tahmin etmesini isteyecektir. Oyuncu tahmin ettiği sayıyı girdiğinde bu değer, programın oluşturduğu sayı ile karşılaştırılacak, sayı yüksek veya düşükse bu bilgi oyuncu ile paylaşılarak yeniden tahmin girilmesi istenecek, doğru sayı bulunduğunda bir tebrik mesajı yazdırılarak programdan çıkılacaktır.</p>
+<h2 id="yeni-bir-proje-oluşturmak"><a class="header" href="#yeni-bir-proje-oluşturmak">Yeni Bir Proje Oluşturmak</a></h2>
+<p>Yeni bir proje oluşturmak için 1. Bölümde oluşturduğumuz <em>projeler</em> dizinine giderek aşağıdaki komutları uygulayın:</p>
+<pre><code class="language-console">$ cargo new tahmin_oyunu
+$ cd tahmin_oyunu
+</code></pre>
+<p>İlk satırdaki <code>cargo new</code> komutu argüman olarak projeye verdiğimiz <em>tahmin_oyunu</em> adını alır. İkinci satırdaki <code>cd tahmin_oyunu</code> komutu bizi, Cargo tarafından oluşturulan bu yeni dizine yönlendirir. </p>
+<p>Cargo tarafından otomatik oluşturulan <em>Cargo.toml</em> dosyasına göz atalım:</p>
+<p><span class="filename">Dosya adı: Cargo.toml</span></p>
+<pre><code class="language-toml">[package]
+name = &quot;tahmin_oyunu&quot;
+version = &quot;0.1.0&quot;
+edition = &quot;2021&quot;
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+</code></pre>
+<p>Birinci bölümden hatırlayacağınız gibi <code>cargo new</code> komutu size hazır bir &quot;Hello, world!&quot; programı sunar. <code>src/main.rs</code> dosyasını kontrol edelim:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre></pre>
+<p>Ve bu programı <code>cargo run</code> komutu kullanarak tek seferde derleyip çalıştıralım:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling tahmin_oyunu v0.1.0 (/home/rusdili/projeler/tahmin_oyunu)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.80s
+     Running `target/debug/tahmin_oyunu`
+Hello, world!
+</code></pre>
+<p>Sıklıkla kullanılan <code>run</code> komutu, bir projeyi çabucak derleyip çalıştırmamız ve bir sonraki derleme adımına hızlıca gitmemiz gerektiğinde oldukça faydalıdır.</p>
+<p>Programımızı oluşturacağımız <em>src/main.rs</em> dosyasını yeniden açarak kodlamaya başlayalım!</p>
+<h2 id="tahmin-verisinin-İşlenmesi"><a class="header" href="#tahmin-verisinin-İşlenmesi">Tahmin Verisinin İşlenmesi</a></h2>
+<p>Tahmin oyununun ilk bölümü, kullanıcılardan tahmin verisi olarak işleyebileceği bir değer girmesini isteyecek ve bu verinin  beklenen biçimde olup olmadığını kontrol edecektir. Oyunun başlaması için oyuncunun bir tahmin değeri girmesine izin verilecektir.  Örnek 2-1'de yer alan kodu <em>src/main.rs</em> dosyasına ekleyelim:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><code class="language-rust ignore">use std::io;
+
+fn main() {
+    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+
+    println!(&quot;Tahmininizi girin.&quot;);
+
+    let mut tahmin = String::new();
+
+    io::stdin()
+    	.read_line(&amp;mut tahmin)
+    	.expect(&quot;Veri okuma hatası!&quot;);
+
+    println!(&quot;Tahmininiz: {}&quot;, tahmin);
+}
+</code></pre>
+<p><span class="caption"> Örnek 2-1: Bu kod kullanıcıdan tahmin verisini alarak ekrana yazdırır.</span></p>
+<p>Bu kod fazla bilgi içerdiğinden her satırının ayrı ayrı nceleyelim. Kullanıcı girdisini alarak sonucu çıktıta yazdırabilmek için Rust standart kütüphanesi <code>std</code>'nin bir parçası olan <code>io</code> (input/output) kütüphanesini içe aktarmamız gerekir.</p>
+<pre><code class="language-rust ignore">use std::io;
+<span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininizi girin.&quot;);
+</span><span class="boring">
+</span><span class="boring">    let mut tahmin = String::new();
+</span><span class="boring">
+</span><span class="boring">    io::stdin()
+</span><span class="boring">    	.read_line(&amp;mut tahmin)
+</span><span class="boring">    	.expect(&quot;Veri okuma hatası!&quot;);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininiz: {}&quot;, tahmin);
+</span><span class="boring">}
+</span></code></pre>
+<p>Standart kütüphanede tanımlanmış ve Rust'ın varsayılan olarak her program kapsamına otomatik olarak dahil ettiği bir kaç öğe vardır.</p>
+<p>Varsayılan haliyle Rust başlatılan her program kapsamına otomatik olarak birkaç türü dahil eder. <em>prelude</em>  olarak adlandırılan bu setin içindekileri <a href="https://doc.rust-lang.org/std/prelude/index.html">Standart kütüphane belgelerinde</a> bulabilirsiniz.</p>
+<p>Eğer kullanmak istediğiniz bir veri türü prelüd bölümünde bulunmuyorsa, bu türü <code>use</code> anahtar sözcüğü kullanarak açıkça kapsam içine almanız gerekir. Uygulamamızda kullandığımız <code>std::io</code> kütüphanesi, kullanıcı girdisini kabul etme yeteneği dahil bir dizi kullanışlı özellikle birlikte gelir.</p>
+<p>Birinci bölümden hatırlayacağınız üzere <code>main()</code> işlevi programın giriş noktasını oluşturur.</p>
+<pre><code class="language-rust ignore"><span class="boring">use std::io;
+</span><span class="boring">
+</span>fn main() {
+<span class="boring">    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininizi girin.&quot;);
+</span><span class="boring">
+</span><span class="boring">    let mut tahmin = String::new();
+</span><span class="boring">
+</span><span class="boring">    io::stdin()
+</span><span class="boring">    	.read_line(&amp;mut tahmin)
+</span><span class="boring">    	.expect(&quot;Veri okuma hatası!&quot;);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininiz: {}&quot;, tahmin);
+</span><span class="boring">}
+</span></code></pre>
+<p><em>Function</em> kelimesinin kısaltılmışı olan <code>fn</code> söz dizimi yeni bir işlev bildirirken, içi boş parantezler <code>()</code> işlevin herhangi bir giriş parametresi almadığını, <em>açılış ayracı</em> olarak da bilinen sağa bakan süslü parantez <code>{</code> ise işlev gövdesinin başlangıç noktasını gösterir.</p>
+<p>Yine 1. Bölüm'den hatırlayacağınız üzere <code>println!</code>, bir dizgiyi ekrana yazdırmak amacıyla kullandığımız bir makrodur:</p>
+<pre><code class="language-rust ignore"><span class="boring">use std::io;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span>    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+
+    println!(&quot;Tahmininizi girin.&quot;);
+<span class="boring">
+</span><span class="boring">    let mut tahmin = String::new();
+</span><span class="boring">
+</span><span class="boring">    io::stdin()
+</span><span class="boring">    	.read_line(&amp;mut tahmin)
+</span><span class="boring">    	.expect(&quot;Veri okuma hatası!&quot;);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininiz: {}&quot;, tahmin);
+</span><span class="boring">}
+</span></code></pre>
+<p>Bu kod oyun hakkında bilgi veren ve kullanıcıdan girdi bekleyen bir komut istemi yazdırır.</p>
+<h3 id="değerleri-değişkenlerde-saklamak"><a class="header" href="#değerleri-değişkenlerde-saklamak">Değerleri Değişkenlerde Saklamak</a></h3>
+<p>Şimdi aşağıda gösterildiği gibi kullanıcı girdisini depolayacağımız bir değişken oluşturacağız:</p>
+<pre><code class="language-rust ignore"><span class="boring">use std::io;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininizi girin.&quot;);
+</span><span class="boring">
+</span>    let mut tahmin = String::new();
+<span class="boring">
+</span><span class="boring">    io::stdin()
+</span><span class="boring">    	.read_line(&amp;mut tahmin)
+</span><span class="boring">    	.expect(&quot;Veri okuma hatası!&quot;);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininiz: {}&quot;, tahmin);
+</span><span class="boring">}
+</span></code></pre>
+<p>Çok şeyin gerçekleştiği bu satırda program ilginçleşmeye başlıyor. Bu satırın <em>değişken</em> oluşturmak için kullanılan bir <code>let</code> ifadesiyle başladığına dikkat edin. İşte size başka bir örnek:</p>
+<pre><code class="language-rust ignore">let elmalar = 5;
+</code></pre>
+<p>Bu satır <code>elmalar</code> adında yeni bir değişken oluşturarak onu <code>5</code> değerine bağlar. Rust'ta değişkenlerin varsayılan olarak değişmez oldukları kabul edilir. Bu kavramı 3. Bölümümüz olan <a href="ch03-01-variables-and-mutability.html#degiskenler-ve-degiskenlik">&quot;Değişkenler ve Değişkenlik&quot;</a><!-- ignore
+--> başlığı altında ayrıntılarıyla inceleyeceğiz. Bir değişkeni değiştirilebilir kılmak için  değişken adının önüne <code>mut</code> anahtar kelimesini ekleriz:</p>
+<pre><code class="language-rust ignore">let elmalar = 5;    // değişmez
+let mut muzlar = 5; // değişebilir
+</code></pre>
+<blockquote>
+<p>Not: <code>//</code> söz dizimi satır sonuna kadar devam eden bir yorumu başlatır. 
+Rust'ın derleme aşamasında görmezden geldiği yorum satırlarını <a href="ch03-04-comments.html">3. Bölümde</a><!-- ignore --> tartışacağız.</p>
+</blockquote>
+<p>Tahmin oyunumuzdaki <code>let mut tahmin</code> söz diziminin, <em>içeriği değiştirilebilir olarak saklanan</em> tahmin adında bir değişken tanımı olduğunu artık biliyorsunuz. Eşittir <code>=</code> işleciyle Rust'a, bu değişkene bir bir şeyler bağlamak istediğinizi bildirmiş olursunuz. 
+Eşittir <code>=</code> işlecinin sağ tarafında, yeni bir dizgi örneği almak için kullandığımız <code>String::new()</code> işlevinden dönen ve <code>tahmin</code> değişkeninin bağlandığı değer bulunmaktadır. Dizgiler, UTF-8 baytlarıyla kodlanmış, boyutları değiştirilebilen ve standart kütüphane tarafından sağlanan <a href="https://doc.rust-lang.org/std/string/struct.String.html"><code>String</code></a><!-- ignore --> türündeki metin parçalarıdır.</p>
+<p><code>String::new()</code> satırındaki <code>::</code> söz dizimi, <code>new()</code> işlevinin <code>String</code> türünün ilişkili işlevi olduğunu gösterir. İlişkili işlev; türe özgü, o türe ait bir uygulama olduğundan, bu durumda <code>new</code> işlevi yeni ve boş bir dizgi oluşturur. Genellikle <code>new</code> olarak adlandırılan ve ilişkili olduğu türün yeni bir değerini oluşturan bu işlevlerle Rust'ın birçok türünde karşılaşacaksınız.</p>
+<p>Özetle <code>let mut tahmin = String::new();</code> satırında bir String türünün yeni ve boş bir örneğiyle ilklendirilen değiştirilebilir bir değişken tanımlanmaktadır.</p>
+<h3 id="kullanıcının-girdiği-veriyi-yakalamak"><a class="header" href="#kullanıcının-girdiği-veriyi-yakalamak">Kullanıcının Girdiği Veriyi Yakalamak</a></h3>
+<p>Hatırlayacağınız gibi programın ilk satırında <code>use std::io</code> söz dizimini kullanarak Rust standart kütüphanesinden giriş/çıkış işlevselliğini uygulamıştık. Şimdiyse <code>io</code> modülünde bulunan <code>stdin</code> işlevini çağıracağız:</p>
+<pre><code class="language-rust ignore"><span class="boring">use std::io;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininizi girin.&quot;);
+</span><span class="boring">
+</span><span class="boring">    let mut tahmin = String::new();
+</span><span class="boring">
+</span>    io::stdin()
+    	.read_line(&amp;mut tahmin)
+<span class="boring">    	.expect(&quot;Veri okuma hatası!&quot;);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininiz: {}&quot;, tahmin);
+</span><span class="boring">}
+</span></code></pre>
+<p>Eğer <code>io</code> kütüphanesini programın en başındaki <code>use std::io</code> satırınyla ithal etmemiş olsaydık, <code>stdin</code> işlev çağrısını, kod içinde <code>std::io::stdin</code> şeklinde yazarakta kullanabilirdik. <code>stdin</code> işlevi terminalinizdeki standart girdinin tanıtıcısını temsil eden bir <a href="https://doc.rust-lang.org/std/io/struct.Stdin.html"><code>std::io::Stdin</code></a><!-- ignore --> tür örneği döndürür.</p>
+<p>Sonraki <code>.read_line(&amp;mut tahmin)</code> satırında, kullanıcıdan veri alacak olan standart girdi tanıtıcısındaki <a href="https://doc.rust-lang.org/std/io/struct.Stdin.html#method.read_line"><code>read_line</code></a><!-- ignore --> metodunu çağırılarak kendisine, girdisinin saklanacağı dizgi olan <code>&amp;mut tahmin</code> argümanı iletilir. <code>read_line</code> metodunun bütün işi, kullanıcı tarafından girilen her veriyi standart girişe almak ve bunları bir dizgi içine yerleştirmektir.Yöntemin, kullanıcı girdisi eklendikçe dizgi içeriğini değiştirilebilmesi için, kendisine iletilen argümanın değişebilir olması gerekmektedir.</p>
+<p><code>&amp;</code> belirteci, bu argümanın <em>referans</em> türünden olduğunu bildirdiğinden, kodun bazı bölümleri tarafından bu değişkenlere, bellekte defalarca kopyalanmaları gerekmeksizin erişilmesi sağlanmış olur. Referanslar dilin güçlü ve karmaşık bir özelliğidir.
+Rust'ın önemli avantajlarından biri de referans kullanımının kolay ve güvenli olmasıdır. Bu programı bitirebilmeniz için daha fazla ayrıntı bilmenize gerek yok. Şimdilik tıpkı değişkenler gibi referansların da varsayılan olarak değişmez olduklarını ve onları değiştirilebilir kılabilmek için <code>&amp;tahmin</code> yerine <code>&amp;mut tahmin</code> yazmamız  gerektiğini öğrenmemiz yeterlidir. (Referanslar konusu 4.Bölümde ayrıntılı olarak ele alınacaktır.)</p>
+<h3 id="result-türünü-kullanarak-olası-hataları-İşlemek"><a class="header" href="#result-türünü-kullanarak-olası-hataları-İşlemek"><code>Result</code> Türünü Kullanarak Olası Hataları İşlemek</a></h3>
+<p>İncelememize <code>io::stdin</code> ile başlayan ifadenin üçüncü satırıyla devam edelim. Her ne kadar ayrı bir satırmış gibi görünmesine rağmen, bu satır da tıpkı bir önceki satır gibi, aynı mantıksal kod satırının parçası olup koda <code>expect</code> metodunu eklemektedir:</p>
+<pre><code class="language-rust ignore"><span class="boring">use std::io;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininizi girin.&quot;);
+</span><span class="boring">
+</span><span class="boring">    let mut tahmin = String::new();
+</span><span class="boring">
+</span><span class="boring">    io::stdin()
+</span><span class="boring">    	.read_line(&amp;mut tahmin)
+</span>    	.expect(&quot;Veri okuma hatası!&quot;);
+<span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininiz: {}&quot;, tahmin);
+</span><span class="boring">}
+</span></code></pre>
+<p>Oysa bu kodu bu şekilde de yazabilirdik:</p>
+<pre><code class="language-rust ignore">io::stdin().read_line(&amp;mut tahmin).expect(&quot;Veri okuma hatası!&quot;);
+</code></pre>
+<p>Fakat böyle uzun satırları okumak zor olduğundan en iyisi onu parçalara ayırmaktır. Bir metodu .yöntem_adı() söz dizimiyle çağırdığınızda, uzun ifadeleri mantıksal parçalara bölebilmeniz için genellikle yeni satırlar ve boşluklar eklemeniz mantıklı olur. 
+Şimdi bu satırın ne anlama geldiğini inceleyelim.</p>
+<p>Daha önce bahsettiğimiz gibi <code>read_line</code> işlevi, kullanıcı tarafından girilen verileri kendisine ilettiğimiz dizgiye depolarken, bu işin gerçekleştirilmesi sırasında oluşabilecek hataların izlenebilmesi için <a href="https://doc.rust-lang.org/std/io/type.Result.html"><code>io::Result</code></a><!-- ignore --> türünde bir değer döndürür. Rust standart kitaplığı <a href="https://doc.rust-lang.org/std/result/enum.Result.html"><code>Result</code></a><!-- ignore --> olarak adlandırılan, generic türler ve <code>io::Result</code> gibi alt modüllerle kullanılmak üzere bir tür bulundurur. Varyant olarak bilinen ve sabit olasılık kümelerinden oluşan <a href="ch06-00-enums.html">enums</a><!-- ignore --> türleri genellikle eşleme işlemlerinde kullanılır. Enum kullanan eşleme işlemlerinde değerlendirilen koşul enum değerinin hangi varyantına uyuyorsa kodun o bölümü çalıştırılır. </p>
+<p>Hata işleme bilgilerinin kodlanmasını amaçlayan <code>Result</code> türünü 6. Bölümde ayrıntılarıyla ele alacağız.</p>
+<p><code>Result</code> türünün <code>Ok</code> ve <code>Err</code> adında iki varyantı bulunur. <code>Ok</code> varyantı, işlem sonucunun başarılı olması durumunda döndürülen değere ev sahipliği yaparken, işlemin başarısız olması anlamına gelen <code>Err</code> varyantında ise bu başarısızlığın nasıl ve neden olduğunu açıklayan bilgiler depolanır.</p>
+<p>Herhangi bir türün değerleri için olduğu gibi <code>Result</code> türünün değerleri için de tanımlanmış ilişkili metodlar bulunur. Bu bağlamda<code>io::Result</code> örneğinin de <a href="https://doc.rust-lang.org/std/result/enum.Result.html#method.expect"><code>expect</code></a><!-- ignore --> adında bir metodu bulunmaktadır. Bu metot çağrıldığında, <code>io..Result</code> örneği <code>Err</code> değeri taşıyorsa <code>expect</code> programın çökmesine neden olacak ve kendisine argüman olarak ilettiğiniz mesajı görüntüleyecektir. <code>read_line</code> metodunun <code>Err</code> değerini döndürmesi genellikle işletim sisteminden kaynaklanan bir hatadır. Bununla birlikte <code>io::Result</code> örneği <code>Ok</code> değerini taşıyorsa, <code>expect</code> metodu <code>Ok</code> içinde saklanan dönüş değerini alarak kullanmanız için size döndürecektir. Bu durumda döndürülen <code>Ok</code> değeri kullanıcı tarafından standart girdiye iletilen bayt sayısından ibaret olacaktır.</p>
+<p>Bu aşamada <code>expect</code> metodunu çağırmasanız bile programınız derlenir fakat aşağıdaki gibi bir uyarı alırsınız:</p>
+<pre><code class="language-console">$ cargo run 
+   Compiling no-listing-02-without-expect v0.1.0 (/home/rusdili/projeler/tahmin/oyunu)
+warning: unused `Result` that must be used
+  --&gt; src/main.rs:10:5
+   |
+10 |     io::stdin().read_line(&amp;mut guess);
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_must_use)]` on by default
+   = note: this `Result` may be an `Err` variant, which should be handled
+
+warning: `no-listing-02-without-expect` (bin &quot;no-listing-02-without-expect&quot;) generated 1 warning
+    Finished dev [unoptimized + debuginfo] target(s) in 0.86s
+</code></pre>
+<p>Rust <code>read_line</code> tarafından döndürülen <code>Result</code> değerini kullanmadığınızı ve programın olası bir hatayı işlemediğini bildirmektedir.</p>
+<p>Her ne kadar uyarıları bastırmanın doğru yolu bir hata işleyici yazmak olsada, şu aşamada sorun oluştuğunda programın çökmesini istediğimizden <code>expect</code> metodunu kullanmak zorundayız. Hata işlemek konusunu kitabın <a href="ch09-02-recoverable-errors-with-result.html">9. Bölümünde</a><!-- ignore -->.  ayrıntılarıyla inceleyeceğiz.</p>
+<h3 id="println-yer-tutucuları-ile-değerleri-yazdırmak"><a class="header" href="#println-yer-tutucuları-ile-değerleri-yazdırmak"><code>Println!</code> Yer Tutucuları ile Değerleri Yazdırmak</a></h3>
+<p>Kodun sonlandığı noktayı gösteren <em>kapanış ayracı</em> (sola bakan süslü parantez) haricinde değerlendirilmesi gereken bir satırımız daha var:</p>
+<pre><code class="language-rust ignore"><span class="boring">use std::io;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininizi girin.&quot;);
+</span><span class="boring">
+</span><span class="boring">    let mut tahmin = String::new();
+</span><span class="boring">
+</span><span class="boring">    io::stdin()
+</span><span class="boring">    	.read_line(&amp;mut tahmin)
+</span><span class="boring">    	.expect(&quot;Veri okuma hatası!&quot;);
+</span><span class="boring">
+</span>    println!(&quot;Tahmininiz: {}&quot;, tahmin);
+<span class="boring">}
+</span></code></pre>
+<p>Bu satır kullanıcı girdisini kaydettiğimiz dizgiyi ekrana yazdırabilmek için vardır. Yer tutucuları temsil eden süslü parantezleri <code>{}</code> ise bir değerin yerini tutan yengeç kıskaçlarına benzetebilirsiniz. Çok sayıda değerin gösterilmesi amacıyla da kullanabileceğiniz bu parantezlerin ilk çifti, biçimlendirilmiş dizgiden sonraki ilk değeri içerirken, sonraki parantez ikinci değeri, bir sonraki üçüncü değeri gösterecektir. İki farklı değişkenin değerlerini ekrana yazdıran örnek <code>println!</code> çağrısı aşağıdakine benzeyecektir:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5;
+let y = 10;
+
+println!(&quot;x değeri = {}, y değeri = {}&quot;, x, y);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Bu örnek ekrana <code>x değeri = 5, y değeri = 10</code> yazdıracaktır.</p>
+<h3 id="İlk-bölümü-test-etmek"><a class="header" href="#İlk-bölümü-test-etmek">İlk Bölümü Test Etmek</a></h3>
+<p>Programın ilk bölümünü test etmek için <code>cargo run</code> komutunu çalıştırın:</p>
+<!-- manual-regeneration
+cd listings/ch02-guessing-game-tutorial/listing-02-01/
+cargo clean
+cargo run
+input 6 -->
+<pre><code class="language-console">$ cargo run                                                   ✔ 
+   Compiling tahmin_oyunu v0.1.0 (/home/rusdili/projeler/tahmin_oyunu)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.34s
+     Running `/home/rusdili/projeler/tahmin_oyunu/target/debug/tahmin_oyunu`
+Tuttuğum sayıyı tahmin edin!
+Tahmininizi girin.
+6
+Tahmininiz: 6
+</code></pre>
+<p>Klavyeden girdi alıp onu ekrana yazdırabildiğimize göre oyunun ilk bölümü tamamlanmış demektir. </p>
+<h3 id="gizli-sayıyı-oluşturmak"><a class="header" href="#gizli-sayıyı-oluşturmak">Gizli Sayıyı Oluşturmak</a></h3>
+<p>Şimdi kullanıcının tahmin edeceği gizli sayıyı oluşturmamız gerekiyor. Oyunu eğlenceli ve tekrar oynanabilir kılabilmek amacıyla  gizli sayıyı her defasında değiştirmemiz gerekir. Oyunu kolaylaştırmak için de, tahmin edilecek sayıyı 1 ile 100 arasında ve tesadüfi biçimde seçmeliyiz. Rust'ın standart kitaplığı rastgele sayı oluşturabilecek işlevselliği henüz barındırmıyor. Ancak Rust ekibi bu işlevsellik için <a href="https://crates.io/crates/rand"><code>rand</code></a> adlı harici bir sandık sunar.</p>
+<h3 id="İlave-İşlevsellik-İçin-sandık-kullanmak"><a class="header" href="#İlave-İşlevsellik-İçin-sandık-kullanmak">İlave İşlevsellik İçin Sandık Kullanmak</a></h3>
+<p>Sandık, Rust kaynak kodu dosyalarının bir araya getirilmiş halidir. Geliştirmekte olduğumuz bu proje bile aslında bir çalıştırılabilir <em>ikili sandık</em> (binary crate) sandıktır. Bize harici olarak sunulan <code>rand</code> sandığı başka programlarda kullanılması amaçlanan kodları içeren bir <em>kitaplık sandığı</em>dır.</p>
+<p>Harici sandıkların koordinasyonu, <code>Cargo</code> özelliklerinin ışıldadığı yerdir. <code>Rand</code> sandığı kullanan bir kod yazabilmek için önceklikle <em>Cargo.toml</em> dosyasının bu bağımlılığı içerecek şekilde güncellenmesi gerekir. Bunu gerçekleştirebilmek için aşağıdaki satırları, <em>Cargo.toml</em> dosyasında yer alan <code>[dependencies]</code> başlığının altına doğru şekilde ekleyin. Kodun sağlıklı çalışabilmesi için Rand sandığını buradaki gibi aynı sürüm numarasıyla bildirdiğinizden emin olun:</p>
+<!-- When updating the version of `rand` used, also update the version of
+`rand` used in these files so they all match:
+* ch07-04-bringing-paths-into-scope-with-the-use-keyword.md
+* ch14-03-cargo-workspaces.md
+-->
+<p><span class="filename">Dosya adı: Cargo.toml</span></p>
+<pre><code class="language-toml">[dependencies]
+rand = &quot;0.8.3&quot;
+</code></pre>
+<p><code>Cargo.toml</code> dosyasındaki bölüm başlıklarının altına gelen her şey, başka bir bölüm başlayana dek o bölümün parçasıdır. Bağımlılıklar yani <code>[dependencies]</code> bölümünde Cargo'ya, projenizin çalışabilmesi için ihtiyaç duyduğu harici sandıkları ve bu sandıkların hangi sürümlerini kullanacağınızı bildirirsiniz. Bu durumda biz de projemizde kullanacağımız <code>rand</code> sandığı sürümünü <code>0.8.3</code> olarak beldireceğiz. Cargo, sürüm numaralarını bildirmekte standart olarak kullanılan <a href="http://semver.org">anlamsal sürümleme</a><!-- ignore --> sistemini -SemVer olarak da adlandırılır- yorumlamayı bildiğinden, <code>0.8.3</code>'ün aslında <code>^0.8.3</code>'ün kısaltması olduğunu anlar. Bağımlılık olarak bildirdiğimiz <code>rand</code> sandığının sürüm numarası <code>0.8.3</code>, projemizin en az <code>0.8.3</code> olan ancak <code>0.9.0</code>'ın altında kalan herhangi bir sürümle çalışabileceği anlamına gelmektedir. Bu durumda Cargo, <code>0.8.3</code>'den <code>0.9.0</code>'a kadar olan olası sandık sürümlerinin, <code>0.8.3</code> sürümüyle uyumlu genel API'ye sahip olduğunu varsayarak, projemizin derlenebilmesi için gereken en son sürümü ediner ve projemizin çalışmasını sağlar. Bununla birlikte <code>0.9.0</code> veya daha sonraki herhangi bir sürümün aşağıdaki örneklerin kullandığı API ile aynı API'ye sahip olacağı garanti edilmez.</p>
+<p>Şimdi herhangi bir kod değişikliği yapmadan Tıpkı Örnek 2-2'de gösterildiği haliyle projeyi oluşturalım.</p>
+<!-- manual-regeneration
+cd listings/ch02-guessing-game-tutorial/listing-02-02/
+cargo clean
+cargo build -->
+<pre><code class="language-console">$ cargo build
+  Updating crates.io index
+  Downloaded rand v0.8.3
+  Downloaded libc v0.2.86
+  Downloaded getrandom v0.2.2
+  Downloaded cfg-if v1.0.0
+  Downloaded ppv-lite86 v0.2.10
+  Downloaded rand_chacha v0.3.0
+  Downloaded rand_core v0.6.2
+  Compiling rand_core v0.6.2
+  Compiling libc v0.2.86
+  Compiling getrandom v0.2.2
+  Compiling cfg-if v1.0.0
+  Compiling ppv-lite86 v0.2.10
+  Compiling rand_chacha v0.3.0
+  Compiling rand v0.8.3
+  Compiling tahmin_oyunu v0.1.0 (/home/rusdili/projeler/tahmin_oyunu)
+   Finished dev [unoptimized + debuginfo] target(s) in 0.28s
+</code></pre>
+<p><span class="caption">Örnek 2-2: Bağımlılık olarak eklenen <code>rand</code> sandığı sonrasında <code>cargo build</code> komutuyla elde edilen çıktı.</span></p>
+<p>Derleme esnasında oluşan çıktı işletim sisteminize bağlı olarak değişebileceğinden derlenen paket adları ve sürüm numaraları ekranınızda farklı sırayla yansıtılabilir. Bununla birlikte yüklenen sürümler <em>anlamsal sürümleme</em> sayesinde kodumuzla uyumlu olacaktır.</p>
+<p>Harici bir bağımlılık eklediğimizde Cargo, <a href="https://crates.io/">Crates.io</a>'daki verilerin bir kopyası olan <em>kayıt defteri</em>nden, ihtiyaç duyduğumuz tüm bağımlılıkların en son sürümlerini çekecektir. Crates.io, Rust ekosistemindeki geliştiricilerin açık kaynak projelerini başkaları ile paylaşmak amacıyla sandıklar şeklinde yayınladıkları çevrimiçi bir kaynaktır.</p>
+<p>Kayıt defteri güncellendikten sonra Cargo, <code>[dependencies]</code> bölümünü kontrol ederek henüz sahip olmadığımız sandıkları indirir. Bağımlılık olarak yalnızca <code>rand</code> kütüphanesi eklense bile, Cargo bu kütüphanenin çalışabilmesi için gerekli diğer sandıkları da indirecektir. Gerekli sandıklar indirildikten sonra Rust önce bu sandıkları derleyecek, arkasından projemizi mevcut bağımlılıklar ile yeniden oluşturacaktır.</p>
+<p>Herhangi bir değişiklik yapmadan <code>cargo build</code> komutunu yeniden çalıştırırsanız, uçbiriminizde <code>Finished</code> satırınndan başka çıktı alamazsınız. Bu eylemsizlik Cargo'nun; bağımlılıkların indirilip derlendiğini, kodda değişiklik yapılmadığını ve <em>Cargo.toml</em> dosyasının aynı kaldığını bilmesinden kaynaklanır. Bu durumda yapacak bir şey olmadığını fark eden Cargo programı derlemeden süreci sonlandırır.</p>
+<p>Fakat <em>src/main.rs</em> dosyasını açıp üzerinde basit bir değişiklik yaparak kaydedip derlerseniz, yalnızca iki satırdan oluşan aşağıdaki çıktıyla karşılaşırsınız: </p>
+<!-- manual-regeneration
+cd listings/ch02-guessing-game-tutorial/listing-02-02/
+touch src/main.rs
+cargo build -->
+<pre><code class="language-console">$ cargo build
+   Compiling tahmin_oyunu v0.1.0 (/home/rusdili/projeler/tahmin_oyunu)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.29s
+</code></pre>
+<p>Bu satırlar derlemenin sadece <em>src/main.rs</em> dosyasındaki küçük değişiklikler gözetilerek gerçekleştirdildiğini gösterir. Bağımlılıkların değişmediğini ve projenin, önceden indirilip derlenen bağımlılıklarla kullanılmasının mümkün olduğunu anlayan Cargo, kodu sadece değişen kısmıyla yeniden oluşturur.</p>
+<h4 id="cargolock-dosyası-ile-yinelenebilir-derlemeler"><a class="header" href="#cargolock-dosyası-ile-yinelenebilir-derlemeler"><code>Cargo.lock</code> Dosyası ile Yinelenebilir Derlemeler</a></h4>
+<p>Cargo, siz veya başkaları tarafından kodunuzun her derlenişinde aynı yapıyı yeniden oluşturan bir mekanizmaya sahiptir. Bu Cargo'nun siz aksini söyleyene kadar sadece bildirdiğiniz bağımlılık ve sürümlerini kullanması anlamına gelir. Örneğin <code>rand</code> sandığının yeni sürümü 0.8.4'ün önemli bir hata düzeltmesiyle yakın bir zamanda yeniden yayınlanacağını varsayalım. Bu durumda ne olacağının yanıtı, <code>cargo build</code> komutunu ilk çalıştırdığınızda <em>tahmin_oyunu</em> dizininde oluşturulan <em>Cargo.lock</em> dosyasında bulunmaktadır.</p>
+<p>Bir projeyi ilk kez derlediğinizde kriterlere uyan tüm bağımlılık sürümleri Cargo tarafından belirlenerek <em>Cargo.lock</em> dosyasına yazılır. Daha sonra projenin yeniden derlemmesi gerektiğinde Cargo, <em>Cargo.lock</em> dosyasının halihazırda var olduğunu görecek ve tüm sürüm oluşturma işlemlerini yapmak yerine, orada belirtilmiş sürümleri kullanacaktır. Bu sizin otomatik olarak tekrarlanabilir derlemelere sahip olmanızı sağlar. Başka bir ifadeyle, <em>Cargo.lock</em> dosyası sayesinde projeniz siz yeniden ve açıkça yükseltme yapmadığınız sürece <code>0.8.3</code> sürümünde kalmaya devam eder.</p>
+<h4 id="bir-sandığı-yeni-bir-sürüme-güncellemek"><a class="header" href="#bir-sandığı-yeni-bir-sürüme-güncellemek">Bir Sandığı Yeni Bir Sürüme Güncellemek</a></h4>
+<p>Bir sandığı güncellemek istediğinizde Cargo size, <em>Cargo.lock</em> dosyasını yok sayacak ve <em>Cargo.toml</em> dosyanızdaki kriterlere uygun son sürümleri bulmanızı sağlayacak <code>update</code> adında bir komut daha sağlar. Süreç başarıyla tamamlanırsa güncellenen bu sürümler <em>Cargo.lock</em> dosyasına yazılır. Ancak güncelleme esnasında varsayılan olarak sadece <code>0.8.3</code>'ten büyük <code>0.9.0</code>'dan küçük olan sürümler aranacaktır. Eğer <code>rand</code> sandığı için <code>0.8.4</code> ve <code>0.9.0</code> olmak üzere iki yeni sürüm yayınlanmışsa <code>update</code> komutunu çalıştırdığınızda aşağıdaki gibi bir çıktı görünecektir:</p>
+<!-- manual-regeneration
+cd listings/ch02-guessing-game-tutorial/listing-02-02/
+cargo update
+Cargo'nun yeni sürümümnün 0.8.x olduğunu varsaydığımızda
+Diğer türlü burada sunulan varsayımsal çıktıyı elde edebilmek için
+Rehber olarak başka bir güncellemeden yararlanın -->
+<pre><code class="language-console">$ cargo update
+    Updating crates.io index
+    Updating rand v0.8.3 -&gt; v0.8.4
+</code></pre>
+<p>Bu noktada <em>Cargo.lock</em> dosyanızda kullanmakta olduğunuz <code>rand</code> sandığı sürümünün, 0.9.0 sürümünün yok sayılarak <code>0.8.4</code>'e yükseltildiğini belirten değişikliğin yapıldığını fark edeceksiniz. Eğer rand sandığının <code>0.9.0</code> veya <code>0.9.x</code> sürümlerinden birini kullanmak isterseniz, <em>Cargo.toml</em> dosyanızı aşağıdaki şekilde güncellemeniz gerekir:</p>
+<pre><code class="language-toml">[dependencies]
+rand = &quot;0.9.0&quot;
+</code></pre>
+<p><code>cargo build</code> komutunu yeniden çalıştırdığınızda, Cargo mevcut sandıkların kayıtlarını güncelleyerek <code>rand</code> kütüphanesi gereksinimlerini bildirdiğiniz yeni sürüme göre yeniden değerlendirecektir.</p>
+<p><a href="http://doc.crates.io">Cargo</a><!-- ignore --> ve <a href="http://doc.crates.io/crates-io.html">Ekosistemi</a><!-- ignore --> hakkında söylenecek çok şey olmasına rağmen bunları, 14. Bölümde enine boyuna tartışacağız. Şimdilik Cargo'nun, kitaplıkların yeniden kullanımını kolaylaştırarak geliştiricilerin, bir dizi paketten oluşan küçük projeler yazabilmelerini sağladığını bilmemiz yeterlidir. </p>
+<h3 id="rastgele-sayının-Üretilmesi"><a class="header" href="#rastgele-sayının-Üretilmesi">Rastgele Sayının Üretilmesi</a></h3>
+<p>Artık rastgele sayıyı üretebilmek için <code>rand</code> sandığını kullanabiliriz. Yapacağımız ilk şey <em>src/main.rs</em> dosyamızı örnek 2-3'te olduğu gibi güncellemektir.</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><code class="language-rust ignore">use std::io;
+use rand::Rng;
+
+fn main() {
+    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+
+    let gizli_sayı = rand::thread_rng().gen_range(1..101);
+
+    println!(&quot;Gizli sayı: {}&quot;, gizli_sayı);
+
+    println!(&quot;Tahmininizi girin.&quot;);
+
+    let mut tahmin = String::new();
+
+    io::stdin()
+        .read_line(&amp;mut tahmin)
+        .expect(&quot;Veri okuma hatası!&quot;);
+
+    println!(&quot;Tahmininiz: {}&quot;, tahmin);
+}
+</code></pre>
+<p><span class="caption">Örnek 2-3: Rastgele sayı üretmek için eklenen kodlar.</span></p>
+<p>Önce projemizin kapsam alanına <code>use rand::Rng</code> şeklinde bir <code>use</code> satırı ekliyoruz. Rand kitaplığının <code>Rng</code> özelliği, rastgele sayı üreteçlerinin uyguladığı metotları tanımladığından, bu yöntemin kullanabilmesi için kütüphanenin kapsama dahil edilmesi gerekir. Özellikler <em>(trait)</em> konusuna 10. Bölümde değineceğiz.</p>
+<p>Ardından ilk ekran çıktısını üreten satırdan sonra iki satır daha ekleyeceğiz. Bu satırlardan ilki olan <code>rand::thread_rng()</code> işlevinde, işletim sistemi tarafından başlatılan ve geçerli olan iş parçacığına özgü kullanılan rastgele sayı üreteci başlatılacak ve üretilecek olan sayı <code>ı</code> adlı değişkende saklanacaktır. Bu sayının üretiminde ise <code>rand::Rng</code> olarak kapsama alanına dahil ettiğimiz <code>Rng</code> özelliğinde tanımlanmış <code>gen_range()</code> metodundan yararlanılacaktır. Kendisine verilen bir aralığa göre rasgele sayı üreten <code>gen_range()</code> metodunda kullanılan aralık ifadesi <code>başlangıç..bitiş</code> şeklinde olup, başlangıç olarak verilen alt sınır değeri kapsanmakta, bitiş olarak verilen üst sınır değeri ise hariç tutulmaktadır. Bu nedenle 1 ile 100 arasındaki sayılar arasından birini rastgele olarak talep edebilmemiz için metoda ileteceğimiz aralık değerlerini, aralığa dahil edilecek olan 1 ile aralığa dahil edilmeyecek olan üst sayı sınırını bildiren 101 olarak bildirmemiz gerekir. Eğer bu ifade biçimi size karışık geliyorsa, aynı işi yapan ve hem başlangıç hem de bitiş değerlerini aralığa dahil olarak gösterebileceğiniz <code>1..=100</code> şeklindeki gösterimi <code>gen_range()</code> metoduna aralık olarak iletebilirsiniz.</p>
+<blockquote>
+<p>Bir sandığın hangi özellik, metot ve işlevlerinin kullanılabileceğini her zaman bilemeyebilirsiniz.
+Sandıkların nasıl kullanılması gerektiğine dair talimatlar o sandığa ait belgelerde yer almaktadır.
+Cargo'nun bir başka güzel özelliği de, tüm bağımlılıklarınız tarafından sağlanan dökümantasyonu yerel 
+olarak oluşturup, tarayıcınızda uyumlu olarak çalıştıracak olan <code>cargo doc --open</code> komutunu sağlamasıdır.
+örneğin <code>rand</code> sandığındaki bulunan diğer işlevler hakkında bilgilenmek istiyorsanız, <code>cargo doc --open</code>
+komutunu çalıştırarak, sol kenar çubuğunda yer alan <code>rand</code> seçeneğine tıklamanız yeterlidir.</p>
+</blockquote>
+<p>Eklediğimiz ikinci satır ise <code>gizli_sayı</code> değişkenini yazdırmak için kullanılacaktır. Kodumuzun gelişme aşamasında test amaçlı kullanacağımız bu satır, programımızın nihai sürümünde yer almayacaktır. Başlatılır başlatılmaz gizli kalması gereken sayıyı açık eden program oyun değildir!</p>
+<p>Programı birkaç defa çalıştırarak deneyin:</p>
+<!-- manual-regeneration
+cd listings/ch02-guessing-game-tutorial/listing-02-03/
+cargo run
+4
+cargo run
+5
+-->
+<pre><code class="language-console">$ cargo run
+   Compiling tahmin_oyunu v0.1.0 (/home/rusdili/projeler/tahmin_oyunu)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.59s
+     Running `/home/rusdili/projeler/tahmin_oyunu/target/debug/tahmin_oyunu`
+Tuttuğum sayıyı tahmin edin!
+Gizli sayı: 73
+Tahmininizi girin.
+11
+Tahmininiz:: 11
+
+$ cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `/home/rusdili/projeler/tahmin_oyunu/target/debug/tahmin_oyunu`
+Tuttuğum sayıyı tahmin edin!
+Gizli sayı: 69
+Tahmininizi girin.
+88
+Tahmininiz:: 88
+</code></pre>
+<p>Program her çalıştırıldığında 1 ile 100 arasında tesadüfi bir sayı göstermelidir. Güzel iş!</p>
+<h2 id="tahmin-sayısının-gizli-sayı-ile-karşılaştırılması"><a class="header" href="#tahmin-sayısının-gizli-sayı-ile-karşılaştırılması">Tahmin Sayısının Gizli Sayı ile Karşılaştırılması</a></h2>
+<p>Elimizde kullanıcıdan alınan bir tahmin sayısı ve tasadüfi olarak üretilen bir <code>gizli_sayı</code> olduğuna göre bunları karşılaştırabiliriz. Kodun bu bölümü Örnek 2-4'te gösterilmekle beraber, henüz açıklayacağımız nedenlerden ötürü derlenmez. </p>
+<!-- Kaldım -->
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><code class="language-rust ignore does_not_compile">use rand::Rng;
+use std::cmp::Ordering;
+use std::io;
+
+fn main() {
+    // --snip--
+<span class="boring">    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+</span><span class="boring">
+</span><span class="boring">    let gizli_sayı = rand::thread_rng().gen_range(1..101);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Gizli sayı: {}&quot;, gizli_sayı);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininizi girin.&quot;);
+</span><span class="boring">
+</span><span class="boring">    let mut tahmin = String::new();
+</span><span class="boring">
+</span><span class="boring">    io::stdin()
+</span><span class="boring">        .read_line(&amp;mut tahmin)
+</span><span class="boring">        .expect(&quot;Veri okuma hatası!&quot;);
+</span>
+    println!(&quot;Tahmininiz: {}&quot;, tahmin);
+
+    match tahmin.cmp(&amp;gizli_sayı) {
+        Ordering::Less =&gt; println!(&quot;Sayınız küçük!&quot;),
+        Ordering::Greater =&gt; println!(&quot;Sayınız büyük!&quot;),
+        Ordering::Equal =&gt; println!(&quot;Kazandınız!&quot;),
+    }
+}
+</code></pre>
+<p><span class="caption">Örnek 2-4: İki sayıyı karşılaştırarak olası dönüş değerlerini işlemek.</span></p>
+<p>Buradaki ilk yenilik standart kitaplıktaki, <code>std::cmp::Ordering;</code> türünün yeni bir <code>use</code> deyimi kullanılarak kod kapsamına getirilmiş olmasıdır. <code>Result</code> türü gibi bir <code>enum</code> olan <code>Ordering</code> türünün <code>less</code>, <code>Greater</code>, <code>Equal</code> şeklinde üç karşılaştırma varyantı vardır ve bunlar, iki değeri karşılaştırırken ortaya çıkan üç olası sonucu temsil etmekte kullanılırlar.</p>
+<p>Koda eklenen ikinci yenilik ise, <code>Ordering</code> türünü kullanmak amacıyla kodun en alt kısmına yerleştirdiğimiz beş yeni satır içeren bir eşleme ifadesidir. İfadenin kullandığı <code>cmp</code> metoduysa bir karşılaştırma işlevidir ve burada iki değerin karşılaştırılması amacıyla kullanılır. Karşılaştırılması istenen değerin referansını alarak çalışan bu metot, <code>tahmin</code> değişkeni içindeki değeri <code>gizli_sayı</code> değişkenindeki değer ile karşılaştıracak ve <code>use</code> anahtar kelimesiyle kod kapsamına aldığımız <code>Ordering</code> türünün varyantlarından uygun olan birini döndürecektir. Elde edilen dönüş değeriyle ne yapılacağına ise <code>tahmin</code> ve <code>gizli_sayı</code> değerlerini karşılaştıran <code>cmp</code> çağrısından döndürülecek olası sonuçlarla eşleştirilen ifadelerle karar verilecektir. </p>
+<p>Dilimize <em>eşleme</em> olarak çevirebileceğimiz <a href="ch06-02-match.html"><code>match</code></a><!-- ignore --> olası durumları ifade eden dallardan meydana gelir. Bu dallar, bir örüntü <em>(kalıp, şablon)</em> ve eşleme ifadesinin başlangıcında belirtilen değerin bu örüntüyle eşleşmesi halinde yürütülecek olan koddan ibarettir. Eşleştirilecek değeri alan Rust bunu sırasıyla her dalın örüntüsüyle karşılaştıracak ve eşleşen daldaki kodu işletecektir. Rust'ın <code>match</code> yapısı ve örüntüleri, kodunuzda karşılaşabileceğiniz çeşitli durumları ifade etmenize yarayan ve olası her durumun ele alındığından emin olmanızı sağlayan güçlü özelliklerdir. Bu özellikler sırasıyla 6. ve 18. bölümlerde ayrıntılı biçimde ele alınacaktır.</p>
+<p>Burada kullanılan eşleme ifadesinin nasıl çalışacağını anlayabilmek için kullanıcının tahmin ettiği sayının 50, rasgele üretilen sayının da 38 olduğunu varsayalım. Kod 50 ile 38 sayılarını karşılaştırdığında, 50 sayısı 38'den büyük olduğundan <code>cmp</code> metodu <code>Ordering::Greater</code> döndürecek ve <code>match</code> ifadesi <code>Ordering::Greater</code> değerini alarak her dalın örüntüsünü teker teker kontrol etmeye başlayacaktır. İlk dalın <code>Ordering::Less</code> örüntüsü kontrol edildiğinde, bu değerin <code>Ordering::Greater</code> ile eşleşmediği görülecek ve bu daldaki kodlar yok sayılarak hemen bir sonraki dala geçilecektir. Geçilen bu dal incelendiğinde, daldaki <code>Ordering::Greater</code> örüntüsünün <code>match</code> ifademizin almış olduğu <code>Ordering::Greater</code> değeriyle aynı olduğu görülecek ve bu koldaki kodlar çalıştırılarak ekrana <code>Sayınız büyük!</code> mesajı yazdırılacaktır. Artık bir eşleme bulunmuş olduğundan <code>match</code> ifadesi kalan son dala bakmaya gerek duymayacak ve çalışmasını sonlandıracaktır.</p>
+<p>Ancak Örnek 2-4'ü çalıştırdığımızda henüz derlenmediğini görürüz:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling libc v0.2.112
+   Compiling cfg-if v1.0.0
+   Compiling ppv-lite86 v0.2.16
+   Compiling getrandom v0.2.4
+   Compiling rand_core v0.6.3
+   Compiling rand_chacha v0.3.1
+   Compiling rand v0.8.4
+   Compiling tahmin_oyunu v0.1.0 (/home/rusdili/projeler/tahmin_oyunu)
+error[E0308]: mismatched types
+   --&gt; src/main.rs:343:22
+    |
+343 |     match tahmin.cmp(&amp;gizli_sayı) {
+    |                      ^^^^^^^^^^^ expected struct `String`, found integer
+    |
+    = note: expected reference `&amp;String`
+               found reference `&amp;{integer}`
+
+error[E0283]: type annotations needed for `{integer}`
+   --&gt; src/main.rs:328:41
+    |
+328 |     let gizli_sayı = rand::thread_rng().gen_range(1..101);
+    |         ----------                      ^^^^^^^^^ cannot infer type for type `{integer}`
+    |         |
+    |         consider giving `gizli_sayı` a type
+    |
+    = note: multiple `impl`s satisfying `{integer}: SampleUniform` found in the `rand` crate:
+            - impl SampleUniform for i128;
+            - impl SampleUniform for i16;
+            - impl SampleUniform for i32;
+            - impl SampleUniform for i64;
+            and 8 more
+note: required by a bound in `gen_range`
+   --&gt; /home/rusdili/.cargo/registry/src/github.com-1ecc6299db9ec823/rand-0.8.4/src/rng.rs:131:12
+    |
+131 |         T: SampleUniform,
+    |            ^^^^^^^^^^^^^ required by this bound in `gen_range`
+help: consider specifying the type arguments in the function call
+    |
+328 |     let gizli_sayı = rand::thread_rng().gen_range::&lt;T, R&gt;(1..101);
+    |                                                  ++++++++
+
+Some errors have detailed explanations: E0283, E0308.
+For more information about an error, try `rustc --explain E0283`.
+error: could not compile `tahmin_oyunu` due to 2 previous errors
+</code></pre>
+<p>Çıktıda sorunun <em>tür uyumsuzluğundan</em> kaynaklandığı belirtiliyor. Rust güçlü ve statik tür sistemiyle birlikte türün bağlamdan çıkarsanması özelliğine de sahip bir programlama dili olduğundan, tahmin değişkenini <code>let mut tahmin = String::new()</code> olarak bildirdiğimizde, değişkenin <code>String</code> türünde olacağını varsayar. Fakat programın rastgele ürettiği <code>gizli_sayı</code> ise sayı türüdür. Rust'ta 1 ile 100 arasındaki sayıları gösterebilecek belli başlı sayısal türler vardır. Bunlar, işaretli 32 bitlik sayılar için <code>i32</code>, işaretsiz 32 bitlik sayılar için <code>u32</code>, işaretli 64 bitlik sayılar için kullanılan <code>i64</code> gibi türleridir. Rust tamsayılar için varsayılan olarak <code>i32</code> türünü benimsediğinden, tür bilgisi kodun herhangi bir yerinde açıkça belirtilmedikçe <code>i32</code> olarak varsayılacak, <code>gizli_sayı</code> değişkeni <code>i32</code> olarak atanacaktır. Bu durumda bir <code>String</code> türüyle <code>i32</code> türü karşılaştırılamayacağından Rust, tam olarak karşılaştığımız hatayı üretecektir.</p>
+<p>Bu sorunu çözebilmemiz için, kullanıcı girdisi olarak okunan <code>String</code> türünü gerçek bir sayı türüne dönüştürüp, sayısal değerli <code>gizli_sayı</code> değişkeniyle karşılaştırmamız gerekir. Bunu <code>main()</code> işlevine ekleyeğimiz tek satır kod ile gerçekleştirebiliriz:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><code class="language-rust ignore"><span class="boring">use rand::Rng;
+</span><span class="boring">use std::cmp::Ordering;
+</span><span class="boring">use std::io;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+</span><span class="boring">
+</span><span class="boring">    let gizli_sayı = rand::thread_rng().gen_range(1..101);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Gizli sayı: {}&quot;, gizli_sayı);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Tahmininizi girin.&quot;);
+</span><span class="boring">
+</span>    // --snip--
+
+    let mut tahmin = String::new();
+
+    io::stdin()
+        .read_line(&amp;mut tahmin)
+        .expect(&quot;Veri okuma hatası!&quot;);
+
+    let tahmin: u32 = tahmin.trim().parse().expect(&quot;Lütfen bir sayı türü girin!&quot;);
+
+    println!(&quot;Tahmininiz: {}&quot;, tahmin);
+
+    match tahmin.cmp(&amp;gizli_sayı) {
+        Ordering::Less =&gt; println!(&quot;Sayınız küçük!&quot;),
+        Ordering::Greater =&gt; println!(&quot;Sayınız büyük!&quot;),
+        Ordering::Equal =&gt; println!(&quot;Kazandınız&quot;),
+    }
+<span class="boring">}
+</span></code></pre>
+<p>Eklenen yeni satır:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let tahmin: u32 = tahmin.trim().parse().expect(&quot;Lütfen bir sayı türü girin!&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Bu satır <code>tahmin</code> adında yeni bir değişken oluşturur. Hatırlarsanız programımızda kullanılan bir <code>tahmin</code> değişkeni zaten vardı. O halde bu satırda yeniden oluşturulan <code>tahmin</code> değişkenin anlamı nedir? Rust bir değişkeni, aynı adlı başka bir değişkenle değiştirmemize izin verir. Gölgeleme olarak adlandırılan bu özellik, bir değeri olduğu türden başka bir türe çevirmek istediğiniz durumlarda oldukça kullanışlıdır. Bu özellik örneğin <code>tahmin</code> ve <code>bir_başka_tahmin</code> gibi iki farklı değişken oluşturmak yerine <code>tahmin</code> değişken adını tekrar kullanmamıza izin verir. Sıklıkla bir türün başka bir türe dönüştürülmesinde kullanılan  Gölgeleme olanağını 3. Bölümde tartışacağız.</p>
+<p>Yeni<code>tahmin</code> değişkenini <code>tahmin.trim().parse()</code> ifadesine bağladığımızda, ifade içindeki <code>tahmin</code>, <code>String</code> türündeki kullanıcı girdisini içeren orjinal <code>tahmin</code> değişkenini gösterir. Bir <code>String</code> örneğine uygulanan <code>trim</code> metodu ise kendisine iletilen dizginin baş ve sonunda bulunan beyaz boşlukları temizler. Her ne kadar <code>u32</code> türü yalnızca sayısal karakterler içeriyor olsa da, kullanıcının <code>read_line</code> işlemini yerine getirmek için enter tuşuna basmasıyla dizgiye yeni bir satır eklenecektir. Örneğin, kullanıcı tahmini ettiği 5 rakamını yazıp enter tuşuna bastığında, <code>tahmin</code> içindeki veri <code>5\n</code> olarak görünecektir. Bu, kullanıcının girdiği rakama İngilizce karşılığı &quot;newline&quot; olan ve <em>yeni bir satırı</em> temsil eden <code>\n</code> karakterinin eklenmesi anlamına gelir. <code>trim</code> metodunun kullanılması, <code>\n</code> karakterinin temizlenerek girdinin sadece 5 olarak kalmasını sağlar. </p>
+<p>Dizgilerle kullanılan <a href="https://doc.rust-lang.org/std/primitive.str.html#method.parse"><code>parse</code></a><!-- ignore --> metodu ise, dizgiyi sayı türüne ayrıştırır. Bu metot çeşitli sayı türlerini ayrıştırabildiğinden, istenilen sayı türünün Rust'a tam olarak <code>let tahmin: u32 </code> şeklinde açıkça bildirilmesi gerekir. <code>tahmin</code> değişkeninden sonra gelen <code>(:)</code> iki nokta ise, bildirilen değişkene tür açıklaması ekleneceğini gösterir. Rust'ta birkaç yerleşik sayısal tür bulunur ve burada kullandığımız <code>u32</code> türü, işaretsiz 32 bitlik bir tamsayıyı olduğundan, küçük bir pozitif sayı için uygun bir seçimdir (Diğer sayı türlerini 3. Bölümde inceleyeceğiz.).  <code>tahmin</code> değişkenine <code>u32</code> olarak eklenen tür açıklaması ve <code>tahmin</code> değişkeninin <code>gizli_sayı</code> ile karşılaştırılması sayesinde Rust, bu bağlamdan <code>gizli_sayı</code> değişken türünün <code>u32</code> olacağını çıkarır. Artık karşılaştırma işlemi, aynı türden iki değer arasında gerçekleştirilecektir!</p>
+<p>Dizgi içeriğinde <code>A👍%</code> şeklinde bir değerin bulunması halinde, bu değeri bir sayıya sorunsuzca dönüştürmenin herhangi bir yolu olmadığından, <code>parse</code> çağrısı kolaylıkla bir hata üretebilir. Bu nedenle <code>parse</code> metodu, başarısız olma ihtimaline karşı daha önce <a href="#result-t%C3%BCr%C3%BC-ile-olas%C4%B1-hatalar%C4%B1-i%CC%87%C5%9Flemek"><em><code>Result</code> Türü ile Olası Hataları İşlemek</em></a><!-- ignore --> başlığında incelediğimiz gibi ve <code>read_line</code> metoduna benzer şekilde bir <code>Result</code> türü döndürür. Döndürülen <code>Result</code> türünü ise <code>expect</code> metodunu kullanarak değerlendireceğiz. Eğer <code>parse</code> metoduyla dizgiden bir sayı elde edilemez ve <code>Result</code> türü <code>Err</code> varyantını döndürürse <code>expect</code> çağrısı programı çökertecek ve kendisine parametre olarak ilettiğimiz <em>Lütfen bir sayı türü girin!</em> mesajını gösterecektir. Fakat <code>parse</code> metodu başarılı olur ve bir sayı üretebilirse, <code>Result</code> türü <code>Ok</code> varyantını döndüreceğinden <code>expect</code> çağrısından da <code>Ok</code> varyantı içinde depolanan bu değer döndürülmüş olacaktır.</p>
+<p>Şimdi programımız yeniden çalıştıralım!</p>
+<!-- manual-regeneration
+cd listings/ch02-guessing-game-tutorial/no-listing-03-convert-string-to-number/
+cargo run
+  76
+-->
+<pre><code class="language-console">$ ccargo run                                          ✔  5s  
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/tahmin_oyunu`
+Tuttuğum sayıyı tahmin edin!
+Gizli sayı: 14
+Tahmininizi girin.
+76
+Tahmininiz: 76
+Sayınız büyük!
+
+</code></pre>
+<p>Kullanıcı girdisiyle alınan 76 sayısının önünde boşluklar olmasına rağmen kodun, tahmin değerini 76 olarak alınabiliyor olması güzel! Lütfen programınızı &quot;Sayınız küçük!&quot;, &quot;Sayınız büyük!&quot; ve &quot;Bildiniz!&quot; seçeneklerini üretecek şekilde birkaç defa çalıştırarak gözlemleyin.</p>
+<p>Oyunun büyük bölümü doğru çalışıyor olsa da kullanıcıların yalnızca bir tahmin hakkı olması bütün eğlenceyi bozuyor. Koda bir döngü ekleyerek bu durumu değiştirebiliriz!</p>
+<h2 id="döngü-kullanarak-farklı-tahminler-almak"><a class="header" href="#döngü-kullanarak-farklı-tahminler-almak">Döngü Kullanarak Farklı Tahminler Almak</a></h2>
+<p>Bir anahtar kelime olan <code>loop</code> sonsuz döngü oluşturur. Kullanıcıların doğru sayıya ulaşmalarını kolaylaştırmak amacıyla programımıza <code>loop</code> döngüsü ekleyecek ve onlara daha fazla şans vereceğiz.</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><code class="language-rust ignore"><span class="boring">use rand::Rng;
+</span><span class="boring">use std::cmp::Ordering;
+</span><span class="boring">use std::io;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+</span><span class="boring">
+</span><span class="boring">    let gizli_sayı = rand::thread_rng().gen_range(1..101);
+</span><span class="boring">
+</span>    // --snip--
+
+    println!(&quot;Gizli sayı: {}&quot;, gizli_sayı);
+
+    loop {
+        println!(&quot;Tahmininizi girin.&quot;);
+
+        // --snip--
+
+<span class="boring">
+</span><span class="boring">        let mut tahmin = String::new();
+</span><span class="boring">
+</span><span class="boring">        io::stdin()
+</span><span class="boring">            .read_line(&amp;mut tahmin)
+</span><span class="boring">            .expect(&quot;Veri okuma hatası!&quot;);
+</span><span class="boring">
+</span><span class="boring">        let tahmin: u32 = tahmin.trim().parse().expect(&quot;Lütfen bir sayı türü girin!&quot;);
+</span><span class="boring">
+</span><span class="boring">        println!(&quot;Tahmininiz: {}&quot;, tahmin);
+</span><span class="boring">
+</span>        match tahmin.cmp(&amp;gizli_sayı) {
+            Ordering::Less =&gt; println!(&quot;Sayınız küçük!&quot;),
+            Ordering::Greater =&gt; println!(&quot;Sayınız büyük!&quot;),
+            Ordering::Equal =&gt; println!(&quot;Kazandınız!&quot;),
+        }
+    }
+}
+</code></pre>
+<p>Göreceğiniz gibi 'tahmin giriş talebi'nden itibaren olan her şeyi döngü kapsamına taşıyarak, her satır için dört boşluk değerinde girinti oluşturduk. Programı çalıştırdığınızda kodun tam olarak istediğimiz şeyi yapmakla beraber, sonsuza kadar tahmin yapılmasını bekleyen yeni bir sorunun oluştuğunu ve kullanıcıların bu döngüden çıkmasının engellediğini fark edeceksiniz!</p>
+<p>Kullanıcılar <em>ctrl+d</em> klavye kısa yolunu kullanarak programı her zaman sonlandırabilirler. Ancak bu doyumsuz canavardan kaçmanın başka bir yolu daha var. Hatırlarsanız <a href="#tahmin-say%C4%B1s%C4%B1n%C4%B1n-gizli-say%C4%B1-ile-kar%C5%9F%C4%B1la%C5%9Ft%C4%B1r%C4%B1lmas%C4%B1">Tahmin Sayısının Gizli Sayı ile Karşılaştırılması</a><!-- ignore --> başlığındaki <code>parse</code> konusundan tartıştığımız gibi, tahmin verisine sayısal olmayan bir değer verilmesiyle programın çökerek sonlanıyordu. O haldei kullanıcıların döngüyü kırarak programdan çıkmalarını sağlamak için bundan yararlanabiliriz.</p>
+<!-- manual-regeneration
+cd listings/ch02-guessing-game-tutorial/no-listing-04-looping/
+cargo run
+(too small guess)
+(too big guess)
+(correct guess)
+quit
+-->
+<pre><code class="language-console">$ cargo run 
+   Compiling tahmin_oyunu v0.1.0 (/home/rusdili/projeler/tahmin_oyunu)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.37s
+     Running `target/debug/tahmin_oyunu`
+Tuttuğum sayıyı tahmin edin!
+Gizli sayı: 26
+Tahmininizi girin.
+45
+Tahmininiz: 45
+Sayınız büyük!
+Tahmininizi girin.
+11
+Tahmininiz: 11
+Sayınız küçük!
+Tahmininizi girin.
+30
+Tahmininiz: 30
+Sayınız büyük!
+Tahmininizi girin.
+çıkış
+thread 'main' panicked at 'Lütfen bir sayı türü girin!: ParseIntError { kind: InvalidDigit }', src/main.rs:178:49
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+</code></pre>
+<p>Tahmin değişkenine <em>çıkış</em> gibi sayısal olmayan herhangi bir ifadenin girilmesi programdan çıkılmasına yetiyor gibi görünse de bu mekanizma, &quot;Tahmin sayısının doğru girilmesi halinde programın otomatik olarak sonlanması&quot; talebimizi henüz karşılamıyor.</p>
+<h3 id="doğru-tahmin-sonrası-oyundan-Çıkmak"><a class="header" href="#doğru-tahmin-sonrası-oyundan-Çıkmak">Doğru Tahmin Sonrası Oyundan Çıkmak</a></h3>
+<p>Kullanıcının doğru tahmin yaparak oyunu kazanması durumunda, programdan çıkılmasını sağlayan <code>break</code> anahtar kelimesini kodlarımıza ekleyelim:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><code class="language-rust ignore"><span class="boring">use rand::Rng;
+</span><span class="boring">use std::cmp::Ordering;
+</span><span class="boring">use std::io;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+</span><span class="boring">
+</span><span class="boring">    let gizli_sayı = rand::thread_rng().gen_range(1..101);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Gizli sayı: {}&quot;, gizli_sayı);
+</span><span class="boring">
+</span><span class="boring">    loop {
+</span><span class="boring">        println!(&quot;Tahmininizi girin.&quot;);
+</span><span class="boring">
+</span><span class="boring">        let mut tahmin = String::new();
+</span><span class="boring">
+</span><span class="boring">        io::stdin()
+</span><span class="boring">            .read_line(&amp;mut tahmin)
+</span><span class="boring">            .expect(&quot;Veri okuma hatası!&quot;);
+</span><span class="boring">
+</span><span class="boring">        let tahmin: u32 = tahmin.trim().parse().expect(&quot;Lütfen bir sayı türü girin!&quot;);
+</span><span class="boring">
+</span><span class="boring">        println!(&quot;Tahmininiz: {}&quot;, tahmin);
+</span><span class="boring">
+</span>        // --snip--
+
+        match tahmin.cmp(&amp;gizli_sayı) {
+            Ordering::Less =&gt; println!(&quot;Sayınız küçük!&quot;),
+            Ordering::Greater =&gt; println!(&quot;Sayınız büyük!&quot;),
+            Ordering::Equal =&gt; {
+                println!(&quot;Kazandınız!&quot;);
+                break;
+            }
+        }
+    }
+}
+</code></pre>
+<p>Kullanıcın doğru tahmini yaptığı ve &quot;Bildiniz!&quot; mesajının ekrana yazdırıldığı satırın ardına eklenen <code>break</code> ifadesi programın döngüden çıkmasını sağlar. Döngü <code>main</code> işlevinin son bölümü olduğundan döngüden çıkmak aynı zamanda programdan çıkmak anlamına da gelir.</p>
+<h3 id="geçersiz-veri-girişlerini-İşlemek"><a class="header" href="#geçersiz-veri-girişlerini-İşlemek">Geçersiz Veri Girişlerini İşlemek</a></h3>
+<p>Oyunun davranışını daha da iyileştirebilmek amacıyla, sayısal olmayan bir değer alındığında programı çökertmek yerine, bu değerlerin yok sayılmasını ve kullanıcının doğru sayıyı bulana kadar tahmine devam etmesini sağlayalım. Bu iyileştirmeyi Örnek 2-5'te gösterildiği şekilde, <code>String</code> türündeki <code>tahmin</code> değişkenini, <code>u32</code> türüne dönüştüren satırda değişiklik yaparak gerçekleştirebiliriz.</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><code class="language-rust ignore"><span class="boring">use rand::Rng;
+</span><span class="boring">use std::cmp::Ordering;
+</span><span class="boring">use std::io;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+</span><span class="boring">
+</span><span class="boring">    let gizli_sayı = rand::thread_rng().gen_range(1..101);
+</span><span class="boring">
+</span><span class="boring">    println!(&quot;Gizli sayı: {}&quot;, gizli_sayı);
+</span><span class="boring">
+</span><span class="boring">    loop {
+</span><span class="boring">        println!(&quot;Tahmininizi girin.&quot;);
+</span><span class="boring">
+</span><span class="boring">        let mut tahmin = String::new();
+</span><span class="boring">
+</span>        // --snip--
+
+        io::stdin()
+            .read_line(&amp;mut tahmin)
+            .expect(&quot;Satır okuma hatası!&quot;);
+
+        let tahmin: u32 = match tahmin.trim().parse() {
+            Ok(sayı) =&gt; sayı,
+            Err(_) =&gt; continue,
+        };
+
+        println!(&quot;Tahmininiz: {}&quot;, tahmin);
+
+        // --snip--
+<span class="boring">
+</span><span class="boring">        match tahmin.cmp(&amp;gizli_sayı) {
+</span><span class="boring">            Ordering::Less =&gt; println!(&quot;Sayınız küçük!&quot;),
+</span><span class="boring">            Ordering::Greater =&gt; println!(&quot;Sayınız büyük!!&quot;),
+</span><span class="boring">            Ordering::Equal =&gt; {
+</span><span class="boring">                println!(&quot;Kazandınız!&quot;);
+</span><span class="boring">                break;
+</span><span class="boring">            }
+</span><span class="boring">        }
+</span><span class="boring">    }
+</span><span class="boring">}
+</span></code></pre>
+<p><span class="caption">Örnek 2-5: Sayı olmayan veriyle programı çökertmek yerine yeni bir tahmin istemek</span></p>
+<p><code>expect</code> çağrısının <code>match</code> ifadesiyle değiştirilmesi, programı çökerten hatadan düzgün şekilde işlenen hataya geçilmesini sağlar. Ayrıştırma işlemini gerçekleştiren <code>parse</code> metodunun bir <code>Result</code> türü döndürdüğünü ve bu türün <code>OK</code> veya <code>Err</code> varyantlarına sahip bir <code>enum</code> türü olduğunu unutmayın. Tıpkı <code>cmp</code> metodunun <code>Ordering</code> türünden döndürdüğü sonuçları işlediğimiz gibi burada da bir <code>match</code> ifadesi kullandıyoruz.</p>
+<p><code>parse</code> metodu dizgiyi bir sayıya düzgünce dönüştürebilirse, elde edilen sayıyı içeren bir <code>Ok</code> değeri döndürülür. Bu değer ilk dalın örüntüsüyle eşleştiğinde <code>match</code> ifadesi, <code>parse</code> ile oluşturulan <code>sayi</code> değerini alarak <code>Ok</code> değerinini içine yerleştirecek ve bu sayı yeni oluşturulan <code>tahmin</code> değişkeninde saklanacaktır.</p>
+<p>Dizgi sayıya dönüştürülemiyorsa da, hata hakkında detaylı bilgi içeren <code>Err</code> değeri döndürülücektir. Bu değer <code>match</code> ifadesinin <code>Ok(sayi)</code> dalıylae değil, ikinci daldaki <code>Err(_)</code> kalıbıyla eşleşecektir. Bu kalıpta yer alan alt çizgi <code>_</code> bize, içindeki değerlere bakılmaksızın <code>Err</code> varyantındaki tüm değerlerin bu dal ile eşleştirileceğini söylemektedir. Burası çalıştığında, döngünün bir sonraki yinelemesine atlanarak yeni bir tahmin verisi istemesini sağlayan <code>continue</code> ifadesi işletilecek, böylece <code>parse</code> metodunun karşılaşabileceği olası tüm hatalar yok sayılmış olacaktır.</p>
+<p>Bu aşamada artık programımızdaki her şey beklendiği gibi çalışacaktır. Deneyelim:</p>
+<!-- manual-regeneration
+cd listings/ch02-guessing-game-tutorial/listing-02-05/
+cargo run
+(Küçük sayı tahmini)
+(büyük sayı tahmini)
+çıkış
+(doğru tahmin)
+-->
+<pre><code class="language-console">$ cargo run
+   Compiling tahmin_oyunu v0.1.0 (/home/rusdili/projeler/tahmin_oyunu)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.37s
+     Running `target/debug/tahmin_oyunu`
+Tuttuğum sayıyı tahmin edin!
+Gizli sayı: 63
+Tahmininizi girin.
+20
+Tahmininiz: 20
+Sayınız küçük!
+Tahmininizi girin.
+99
+Tahmininiz: 99
+Sayınız büyük!
+Tahmininizi girin.
+çıkış
+Tahmininizi girin.
+63
+Tahmininiz: 63
+Kazandınız!
+
+</code></pre>
+<p>Mükemmel! Küçük ve son bir ince ayar daha yaptıktan sonra oyunu bitireceğiz. Test aşamasında gizli sayının ekrana yazdırılması önemli bir detayken, bunun sonuç aşamasında halen var olması oyunu mahvediyor. Bu durumu <code>gizli_sayı</code> değişkenini ekrana yazdıran <code>println!</code> satırını silerek düzeltelim. Örnek 2-6 kodun son halini gösterir.</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><code class="language-rust ignore">use rand::Rng;
+use std::cmp::Ordering;
+use std::io;
+
+fn main() {
+    println!(&quot;Tuttuğum sayıyı tahmin edin!&quot;);
+
+    let gizli_sayı = rand::thread_rng().gen_range(1..101);
+
+    loop {
+        println!(&quot;Tahmininizi girin.&quot;);
+
+        let mut tahmin = String::new();
+
+        io::stdin()
+            .read_line(&amp;mut tahmin)
+            .expect(&quot;Satır okuma hatası!&quot;);
+
+            let tahmin: u32 = match tahmin.trim().parse() {
+            Ok(sayı) =&gt; sayı,
+            Err(_) =&gt; continue,
+        };
+
+        println!(&quot;Tahmininiz: {}&quot;, tahmin);
+
+        match tahmin.cmp(&amp;gizli_sayı) {
+            Ordering::Less =&gt; println!(&quot;Sayınız küçük!&quot;),
+            Ordering::Greater =&gt; println!(&quot;Sayınız büyük!!&quot;),
+            Ordering::Equal =&gt; {
+                println!(&quot;Kazandınız!&quot;);
+                break;
+            }
+        }
+    }
+}
+</code></pre>
+<p><span class="caption">Örnek 2-6: Tahmin oyunu programının son hali</span></p>
+<h2 id="Özet"><a class="header" href="#Özet">Özet</a></h2>
+<p>Tebrikler! Başarıyla çalışan bir sayı tahmin oyunu programladınız.</p>
+<p>Bu proje, <code>let</code>, <code>match</code>, <em>metotlar</em>, <em>ilişkili işlevler</em>, harici sandıkların kullanılması gibi birçok Rust kavramını size tanıtmanın uygulamalı bir yoluydu. Kitabın ilerleyen bölümlerinde bu kavramlar hakkında daha çok şey öğreneceksiniz. 
+3. Bölümde değişkenler, veri türleri, işlevler gibi çoğu programlama dili tarafından kullanılan kavramları kapsanacak ve bunların Rust ile nasıl kullanıldığı gösterilecektir. 4. Bölümde ise Rust'ı diğer dillerden ayıran önemli bir özellik olan mülkiyet kavramı incelenecek, 5. Bölümde yapı ve metot söz dizimleri tartışılacak, 6. bölümdeyse <code>enum</code> türünün çalışması irdelenecektir.</p>
+<!-- 
+std bağlantıları kontrol edildi
+örnek kontrolü yapılacak
+-->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch01-03-hello-cargo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="ch03-00-common-programming-concepts.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch01-03-hello-cargo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="ch03-00-common-programming-concepts.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

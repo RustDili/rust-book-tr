@@ -1,0 +1,518 @@
+<!DOCTYPE HTML>
+<html lang="tr" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Kontrol Akışı - Rust Progamlama Dili Türkçe Çevirisi-2021</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">Rust Programlama Dili</a></li><li class="chapter-item expanded affix "><a href="foreword.html">Önsöz</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Giriş</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Başlarken</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Kurulum</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> Merhaba, Dünya</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> Merhaba, Cargo</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> Bir Tahmin Oyunu Programlamak</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> Ortak Programlama Kavramları</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> Değişkenler ve Değişkenlik</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> Veri Türleri</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> İşlevler</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> Yorumlar</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html" class="active"><strong aria-hidden="true">3.5.</strong> Kontrol Akışı</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> Mülkiyeti Anlamak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> Mülkiyet Nedir?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> Referanslar ve Borçlanma</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> Dilim Türü</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> İlişkili Verileri Yapılandırmak için Yapıları Kullanmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> Yapıları Tanımlamak ve Örneklemek</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> Yapıları Kullanan Örnek Bir Program</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> Metod Sözdizimi</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> Enum'lar ve Örüntü Eşleme</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> Bir Enum Tanımlamak</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> Kontrol Akışı Yapısı match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> if let ile Özgün Kontrol Akışı</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-managing-growing-projects-with-packages-crates-and-modules.html"><strong aria-hidden="true">7.</strong> Büyüyen Projeleri Paketler, Sandıklar ve Modüller ile Yönetmek</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-packages-and-crates.html"><strong aria-hidden="true">7.1.</strong> Paketler ve Sandıklar</a></li><li class="chapter-item expanded "><a href="ch07-02-defining-modules-to-control-scope-and-privacy.html"><strong aria-hidden="true">7.2.</strong> Kapsam ve Gizlilik Kontrolü İçin Modül Tanımlamak</a></li><li class="chapter-item expanded "><a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html"><strong aria-hidden="true">7.3.</strong> Modül Ağacındaki Bir Öğeye Başvurmanın Yolları</a></li><li class="chapter-item expanded "><a href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html"><strong aria-hidden="true">7.4.</strong> use Anahtar Kelimesi ile Yolları Kapsama Getirmek</a></li><li class="chapter-item expanded "><a href="ch07-05-separating-modules-into-different-files.html"><strong aria-hidden="true">7.5.</strong> Modülleri Farklı Dosyalara Ayırmak</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> Ortak Koleksiyonlar</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> Değer Listelerini Vektör Kullanarak Depolamak</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> UTF-8 Kodlu Metinleri Dizgilerle Saklamak</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> İlişkili Değerlere Sahip Anahtarları Eşleme Haritalarında Saklamak</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> Hata Yönetimi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> panic! ile Kurtarılamaz Hatalar</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> Result ile Kurtarılabilir Hatalar</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> panic!lemek ya da panic!lememek</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> Generic Türler, Özellikler ve Yaşam Süreleri</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> Generic Veri Türleri</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> Özellikler: Paylaşılan Davranışı Tanımlamak</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> Referansları Yaşam Süreleri ile  Doğrulamak</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Otomatik Testler Yazmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Testler Nasıl Yazılır?</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Testlerin Nasıl Çalıştırılacağını Denetlemek</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organizasyonu</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> Bir I/O Projesi: Komut Satırı Programı Oluşturmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> Komut Satırı Argümanlarını Kabul Etmek</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> Bir Dosyayı Okumak</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> Modülerlik ve Hata Yönetimini Geliştirmek</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> Test Odaklı Geliştirme ile Kütüphane İşlevselliğini Artırmak</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> Ortam Değişkenleriyle Çalışmak</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> Hata Mesajlarını Standart Çıktı Yerine Standart Hataya Yazmak</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> İşlevsel Dil Özellikleri: Yineleyiciler ve Kapamalar</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Kapamalar: Ortam Değişkenlerini Yakalayabilen İsimsiz İşlevler</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Yineleyiciler ile Bir Dizi Öğeyi İşlemek</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> I/O Projemizi Geliştirmek</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Performansı Karşılaştırmak: Döngüler vs. Yineleyiciler</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> Cargo ve Crates.io Hakkında Daha Fazlası</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Derlemeleri Sürüm Profilleriyle Özelleştirmek</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Bir Sandığı Crates.io Üzerinde Yayınlamak</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Çalışma Alanları</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Crates.io Üzerindeki İkili Sandıkları cargo install Komutuyla Yüklemek</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Özel Komutlarla Cargo Olanaklarını Genişletmek</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> Akıllı İşaretçiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> Yığındaki Veriler İçin Box&lt;T&gt; Kullanmak</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> Akıllı İşaretçilere Deref Özelliğiyle Normal Referanslarmış Gibi Davranmak</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> Temizlik Amaçlı Kod Çalıştırmak İçin Drop Özelliğini Kullanmak</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> Referans Sayılan Akıllı İşaretçi: Rc&lt;T&gt;</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> RefCell&lt;T&gt; ve İç Değişkenlik Modeli</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> Referans Çevrimleri Bellek Sızıntısına Yol Açabilir</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Korkusuz Eşzamanlılık</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch16-01-threads.html"><strong aria-hidden="true">16.1.</strong> İş Parçacıklarını Kullanmak</a></li><li class="chapter-item expanded "><a href="ch16-02-message-passing.html"><strong aria-hidden="true">16.2.</strong> Mesajlaşma Yardımıyla Eş Zamanlı Programlama</a></li><li class="chapter-item expanded "><a href="ch16-03-shared-state.html"><strong aria-hidden="true">16.3.</strong> Paylaşılan Durum Eşzamanlılığı</a></li><li class="chapter-item expanded "><a href="ch16-04-extensible-concurrency-sync-and-send.html"><strong aria-hidden="true">16.4.</strong> Sync and Send Özellikleri ile Genişletilebilir Eşzamanlılık</a></li></ol></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> Rust'ın Nesne Yönelimli Programlama Özellikleri</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-what-is-oo.html"><strong aria-hidden="true">17.1.</strong> Nesne Yönelimli Dillerin Özellikleri</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> Farklı Türden Değerlere İzin Veren Özellik Nesnelerini Kullanmak</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> Nesne Yönelimli Tasarım Modeli Uygulamak</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Örüntüler ve Eşleme</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch18-01-all-the-places-for-patterns.html"><strong aria-hidden="true">18.1.</strong> Örüntüler Her Yerde Kullanılabilir</a></li><li class="chapter-item expanded "><a href="ch18-02-refutability.html"><strong aria-hidden="true">18.2.</strong> Çürütülebilirlik: Bir Örüntünün Eşleşmeme İhtimali</a></li><li class="chapter-item expanded "><a href="ch18-03-pattern-syntax.html"><strong aria-hidden="true">18.3.</strong> Örüntü Sözdizimi</a></li></ol></li><li class="chapter-item expanded "><a href="ch19-00-advanced-features.html"><strong aria-hidden="true">19.</strong> Gelişmiş Özellikler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch19-01-unsafe-rust.html"><strong aria-hidden="true">19.1.</strong> Güvensiz Kullanım</a></li><li class="chapter-item expanded "><a href="ch19-03-advanced-traits.html"><strong aria-hidden="true">19.2.</strong> Gelişmiş Özellikler</a></li><li class="chapter-item expanded "><a href="ch19-04-advanced-types.html"><strong aria-hidden="true">19.3.</strong> Gelişmiş Türler</a></li><li class="chapter-item expanded "><a href="ch19-05-advanced-functions-and-closures.html"><strong aria-hidden="true">19.4.</strong> Gelişmiş Kapamalar ve İşlevler</a></li><li class="chapter-item expanded "><a href="ch19-06-macros.html"><strong aria-hidden="true">19.5.</strong> Makrolar</a></li></ol></li><li class="chapter-item expanded "><a href="ch20-00-final-project-a-web-server.html"><strong aria-hidden="true">20.</strong> Son Proje: Çok İş Parçacıklı Bir Web Sunucusu Oluşturmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch20-01-single-threaded.html"><strong aria-hidden="true">20.1.</strong> Tek İş Parçacıklı Bir Web Sunucusu Oluşturmak</a></li><li class="chapter-item expanded "><a href="ch20-02-multithreaded.html"><strong aria-hidden="true">20.2.</strong> Tek İş Parçacıklı Sunucumuzu Çok İş Parçacıklı Bir Sunucuya Dönüştürmek</a></li><li class="chapter-item expanded "><a href="ch20-03-graceful-shutdown-and-cleanup.html"><strong aria-hidden="true">20.3.</strong> Sorunsuzca Kapatmak ve Temizlik</a></li></ol></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Ekler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> A - Anahtar Kelimeler</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> B - İşleçler ve Semboller</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> C - Türetilebilir Özellikler</a></li><li class="chapter-item expanded "><a href="appendix-04-useful-development-tools.html"><strong aria-hidden="true">21.4.</strong> D - Faydalı Geliştirme Araçları</a></li><li class="chapter-item expanded "><a href="appendix-05-editions.html"><strong aria-hidden="true">21.5.</strong> E - Sürümler</a></li><li class="chapter-item expanded "><a href="appendix-06-translation.html"><strong aria-hidden="true">21.6.</strong> F - Kitabın Çevirileri</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.7.</strong> G - Rust Nasıl “Nightly Rust” Yapılır? </a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Progamlama Dili Türkçe Çevirisi-2021</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="kontrol-akışı"><a class="header" href="#kontrol-akışı">Kontrol Akışı</a></h2>
+<p>Bir kodun doğruluğuna bağlı olarak kodun başka bir bölümünün çalıştırılması veya bazı kodların bir koşul doğru olduğu sürece çalıştırılması çoğu programlama dilinin temel yapı taşlarıdır. Rust'ta kod yürütme akışını kontrol edebilmenizi sağlayan en yaygın kontrol yapıları <code>if</code> ifadeleri ve <code>loop</code> döngüleridir.</p>
+<h3 id="if-İfadeleri"><a class="header" href="#if-İfadeleri"><code>if</code> İfadeleri</a></h3>
+<p><code>If</code> ifadesi kodunuzu koşullara göre bölerek yürütmenize olanak sağlar. Bir koşul belirleyip ardından &quot;Bu şart sağlanırsa şu kod bloğunu çalıştırın, koşul sağlanmıyorsa çalıştırmayın.&quot; demeye benzer.</p>
+<p><code>If</code> ifadesini daha iyi kavrayabilmek için <em>projeler</em> dizininde <em>dallar</em> adında yeni bir proje oluşturup <em>src/main</em> dosyasına aşağıdaki kodları ekleyin: </p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let sayı = 3;
+
+    if sayı &lt; 5 {
+        println!(&quot;Koşul doğru.&quot;);
+    } else {
+        println!(&quot;Koşul yanlış!&quot;);
+    }
+}
+</code></pre></pre>
+<p>Tüm <code>if</code> ifadeleri, <code>if</code> anahtar kelimesiyle başlar ve bunu bir koşul takip eder. Örneğimizdeki koşul <code>sayı</code> değişkeninin 5'ten küçük olup olmadığını kontrol eder. Koşulun <code>true</code> (doğru) olması durumunda yürütülecek kod bloğu koşulun hemen ardından eklenen süslü parantezler içine yerleştirilir. <code>If</code> ifadesinin koşulunu denetleyen kod blokları, kitabın 2. Bölümündeki <a href="ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number">Tahmin Sayısının Gizli Sayı ile Karşılaştırılması</a><!-- ignore -->  konusunda yer alan eşleme ifadesinde olduğu gibi bazen kol bazen dal olarak adlandırılabilir.</p>
+<p>Dilerseniz örnekte yaptığımız gibi, koşulun <code>false</code> (yanlış) olması halinde alternatif bir kod bloğu olarak işletilecek bir <code>else</code> ifadesini de kodunuza ekleyebilirsiniz. Eğer koşul yanlış ve bir <code>else</code> ifadesi bildirilmemişse program <code>if</code> bloğunu geçerek sonraki kod parçasına atlayacaktır.</p>
+<p>Kodu çalıştırdığınızda aşağıdaki çıktıyı görmelisiniz:</p>
+<pre><code class="language-console">$ cargo run                                                                                                                            ✔
+   Compiling dallar v0.1.0 (/home/rusdili/projeler/dallar)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.82s
+     Running `target/debug/dallar`
+Koşul doğru.
+</code></pre>
+<p>Ne olacağını görmek için <code>sayı</code> değerini, koşulu <code>false</code> yapacak bir değerle değiştirelim:</p>
+<pre><code class="language-rust ignore"><span class="boring">fn main() {
+</span>    let sayı = 7;
+<span class="boring">
+</span><span class="boring">    if sayı &lt; 5 {
+</span><span class="boring">        println!(&quot;Koşul doğru.&quot;);
+</span><span class="boring">    } else {
+</span><span class="boring">        println!(&quot;Koşul yanlış!&quot;);
+</span><span class="boring">    }
+</span><span class="boring">}
+</span></code></pre>
+<p>Ve programı yeniden çalıştırıp çıktıyı inceleyin:</p>
+<pre><code class="language-console">$ cargo run                                                                                                                            ✔ 
+   Compiling dallar v0.1.0 (/home/rusdili/projeler/dallar)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.30s
+     Running `target/debug/dallar`
+Koşul yanlış!
+</code></pre>
+<p>Bu koddaki koşulun bir <code>bool</code> olması gerektiğini belirtmekte yarar var. Koşulun <code>bool</code> olmaması halinde hata ile karşılaşırız. Örnekteki kodu çalıştırmayı deneyin:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><code class="language-rust ignore does_not_compile">fn main() {
+    let sayı = 3;
+
+    if number {
+        println!(&quot;Sayı üç&quot;);
+    }
+}
+</code></pre>
+<p>Artık <code>if</code> koşulu 3 değerine ayarlanmış olduğundan Rust bir hata döndürecektir:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling dallar v0.1.0 (/home/rusdili/projeler/dallar)
+error[E0308]: mismatched types
+  --&gt; src/main.rs:29:8
+   |
+29 |     if sayı {
+   |        ^^^^ expected `bool`, found integer
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `dallar` due to previous error
+</code></pre>
+<p>Bu hata bize, Rust'ın <code>bool</code> türünde bir değer beklediğini ancak tam sayı türünde değer aldığını gösterir. Ruby veya Javascript gibi dillerin tersine Rust, boolean olmayan türleri otomatik olarak boolean türüne dönüştürmeye kalkışmaz. Açık olmanız ve <code>if</code> koşulunun daima boolean olmasını sağlamanız gerekir. Örneğin sayı <code>0</code> olmadıkça <code>if</code> kod bloğunun yürütülmesini istiyorsak, <code>if</code> ifadesini aşağıdaki gibi değiştirebiliriz:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let sayı = 3;
+
+    if sayı != 0 {
+        println!(&quot;Bu sayı sıfır değil!&quot;);
+    }
+}
+</code></pre></pre>
+<p>Bu kod çalıştırıldığında ekrana <code>Bu sayı sıfır değil!</code> mesajını yazdıracaktır.</p>
+<h4 id="else-if-ile-koşulları-İşlemek"><a class="header" href="#else-if-ile-koşulları-İşlemek"><code>else if</code> ile Koşulları İşlemek</a></h4>
+<p>Bir <code>else if</code> ifadesinde <code>if</code> ve <code>else</code> kelimelerini birleştirerek çok sayıda koşulu denetleyebilirsiniz:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let sayı = 6;
+
+    if sayı % 4 == 0 {
+        println!(&quot;Sayı 4' e kalansız bölünebilir.&quot;);
+    } else if sayı % 3 == 0 {
+        println!(&quot;Sayı 3' e kalansız bölünebilir.&quot;);
+    } else if sayı % 2 == 0 {
+        println!(&quot;Sayı 2' ye kalansız bölünebilir.&quot;);
+    } else {
+        println!(&quot;Sayı 4, 3 veya 2'ye kalansız bölünemez!&quot;);
+    }
+}
+</code></pre></pre>
+<p>Bu programın gidebileceği dört olası yol vardır. Progamı çalıştırdığınızda aşağıdaki çıktıyı görmelisiniz:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling dallar v0.1.0 (/home/rusdili/projeler/dallar)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.27s
+     Running `target/debug/dallar`
+Sayı 3' e kalansız bölünebilir.
+</code></pre>
+<p>Program yürütüldüğünde <code>if</code> ifadelerinin her birini sırayla kontrol edecek ve bulduğu ilk doğru koşulu işletecektir. 6 sayısının 2'ye kalansız bölünüyor olmasına rağmen, çıktıda <code>Sayı 2' ye kalansız bölünebilir.</code> mesajını veya <code>else</code> bloğunda yer alan <code>Sayı 4, 3 veya 2'ye kalansız bölünemez!</code> mesajını görmediğimize dikkat edin. Bunun nedeni Rust'ın kontrol sırasındaki ilk doğru koşulu bularak onu işletmesi ve diğer koşulların doğu olup olmamasıyla ilgilenmemesidir. </p>
+<p>Çok sayıda <code>else if</code> ifadesi kullanmak kodunuzu karıştırabilir. Gereğinden fazla <code>else if</code> ifadesi kullandığınızı düşünüyorsanız kodunuzu yeniden düzenlemelisiniz. Kitabın 6. bölümünde böyle durumlarda kullanabileceğiniz güçlü bir dallanma yapısına sahip <code>match</code>  (eşleme) adlı bir yapı anlatılır. </p>
+<h4 id="bir-let-deyiminde-if-kullanmak"><a class="header" href="#bir-let-deyiminde-if-kullanmak">Bir <code>let</code> Deyiminde <code>if</code> Kullanmak</a></h4>
+<p>Örnek 3-2'de olduğu gibi <code>if</code>'in bir ifade olması, sonucunun herhangi bir değişkene atanmak üzere <code>let</code> deyiminin sağ tarafında kullanabilmesni sağlar.</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let koşul = true;
+    
+    let sayı = if koşul {5} else {6};
+    
+    println!(&quot;Sayının değeri : {}&quot;, sayı);
+}
+</code></pre></pre>
+<p><span class="caption"> Örnek 3-2: Bir <code>if</code> ifadesi sonucunu değişkene atamak.</span></p>
+<p><code>Sayı</code> değişkeni <code>if</code> ifadesinin sonucuna göre oluşan bir değere bağlanacaktır. Bu kodu çalıştırdığınızda aşağıdaki çıktıyı elde edeceksiniz:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling dallar v0.1.0 (/home/rusdili/projeler/dallar)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.36s
+     Running `target/debug/dallar`
+Sayının değeri: 5
+</code></pre>
+<p>Kod bloklarının, içlerinde bulunan son ifadeyi değerlendirdiğini ve sayıların da birer ifade olduğunu unutmayın. Bizim durumumuzda tüm <code>if</code> ifadesinin değeri yürütülecek olan kod bloğunun değerine bağlıdır. Bu da, <code>if</code> ifadesindeki sonuç üretme potansiyeline sahip her dalın aynı türden olması gerektiği anlamına gelmektedir. Örnek 3-2'de bulunan <code>if</code> ve <code>else</code> dallarının her biri <code>i32</code> türünde birer tam sayıdır. Aşağıdaki örnekten de anlaşılacağı gibi, türlerin uyumsuz olması hata alınmasına neden olur:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><code class="language-rust ignore does_not_compile">fn main() {
+    let koşul = true;
+
+    let sayı = if koşul {5} else { &quot;Altı&quot; };
+
+    println!(&quot;Sayının değeri: {}&quot;, sayı);
+}
+</code></pre>
+<p>Kodu derlemeye çalıştığımızda <code>if</code> ve <code>else</code> kollarının uyumsuz türlerden oluştuğu ve bu hatanın hangi satırda bulunduğunu gösteren bir hata raporuyla karşılaşırız:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling dallar v0.1.0 (/home/rusdili/projeler/dallar)
+error[E0308]: `if` and `else` have incompatible types
+  --&gt; src/main.rs:70:36
+   |
+70 |     let sayı = if koşul {5} else { &quot;Altı&quot; };
+   |                          -         ^^^^^^ expected integer, found `&amp;str`
+   |                          |
+   |                          expected because of this
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `dallar` due to previous error
+</code></pre>
+<p><code>If</code> bloğundaki ifade tam sayı olarak değerlendirilirken <code>else</code> bloğundaki ifadeyse dizgi olarak olarak değerlendirilecektir. Değişkenlerin aynı türden olması ve <code>sayı</code> değişkeni türünün Rust tarafından derleme zamanında kesinlikle biliniyor olması gerektiğinden bu kod işe yaramaz. <code>Sayı</code> türünün derleme zamanında biliniyor olması, bu değişkenin kullanıldığı her yerde, derleyici tarafından türünün doğru ve geçerli olduğunun garantilenmesini sağlar. Eğer <code>sayı</code> değişkeninin türü sadece çalışma zamanında belirlenmiş olsaydı; herhangi bir değişken için çok sayıda varsayımsal türün takip edilmesi gerekecek, buna bağlı olarak derleyici karmaşıklaşacak ve kod hakkında daha az garanti verebileceğinden Rust bunu yapamamış olacaktı.</p>
+<h3 id="döngüler-ile-tekrarlama"><a class="header" href="#döngüler-ile-tekrarlama">Döngüler ile Tekrarlama</a></h3>
+<p>Bazen bir kod bloğunu defalarca çalıştırmak gerekir. Rust bu amaçla döngü gövdesi içinde kalan kodun tamamını çalıştırıp hemen ardından yeniden baştan başlatan çeşitli <em>döngüler</em> sağlar. Döngülerle çalışabilmek için <em>projeler</em> dizininde <em>donguler</em> adında yeni bir proje başlatalım.</p>
+<p>Rust'ta <code>loop</code>, <code>while</code> ve <code>for</code> olmak üzere üç çeşit döngü vardır. Bunların her birini birlikte deneyelim:</p>
+<h4 id="loop-ile-kod-tekrarı"><a class="header" href="#loop-ile-kod-tekrarı"><code>loop</code> ile Kod Tekrarı</a></h4>
+<p>Bir anahtar sözcük olan <code>loop</code> Rust'a, ait olduğu kod bloğunu sonsuza dek ya da siz onu açıkça durdurana kadar tekrar tekrar çalıştırmasını söyler. Şimdi <em>donguler</em> dizinindeki <em>src/main.rs</em> dosyasını örnektekine benzer şekilde değiştirin:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><code class="language-rust ignore">fn main() {
+    loop {
+        println!(&quot;Tekrar!&quot;);
+    }
+}
+</code></pre>
+<p>Programı çalıştırdığınızda terminalinizi elle kapatana kadar <code>Tekrar!</code> mesajının yazdırıldığını göreceksiniz. Pekçok terminal sonsuz döngüye kapılan programların sonlandırılmasını sağlayan <span class="keystroke">ctrl+c</span> klavye kısa yolunu destekler. Demeyelim:</p>
+<!-- manual-regeneration
+cd listings/ch03-common-programming-concepts/no-listing-32-loop
+cargo run
+CTRL-C
+-->
+<pre><code class="language-console">$ cargo run
+   Compiling donguler v0.1.0 (/home/rusdili/projeler/donguler)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.29s
+     Running `target/debug/donguler`
+Tekrar!
+Tekrar!
+Tekrar!
+Tekrar!
+^CTekrar!
+</code></pre>
+<p><code>^C</code> işareti <span class="keystroke">ctrl-c</span> tuşuna bastığınız yeri gösterir. <code>^C</code>'den sonra <code>Tekrar!</code> yazısını görmeniz, kodun kesme sinyalini aldığında döngünün neresinde bulunduğuna bağlı olduğundan bu mesajı göremeyebilirsiniz.</p>
+<p>Neyse ki Rust, bu tür döngülerden kod kullanarak çıkmanın bir yolunu sağlar. Programa işletilen döngünün durdurulacağı yeri, o noktaya bir <code>break</code> anahtar sözcüğü yerleştirerek bildirebilirsiniz. Bu yöntemi 2. Bölümdeki <a href="ch02-00-guessing-game-tutorial.html#dogru-tahmin-s%C4%B1nrasi-oyundan-cikmak">“Doğru Tahmin Sonrası Oyundan Çıkmak”</a><!-- ignore --> bölümünden hatırlayor olmanız gerek.</p>
+<p>Yine hatırlayacağınız gibi tahmin oyunu programında, döngünün o anki tekrarını durdurup bir sonraki tekrara atlayan <code>continue</code> anahtar kelimesini de kullanmıştık. </p>
+<p>İçiçe döngüler söz konusu olduğunda <code>break</code> ve <code>continue</code> anahtar kelimeleri en içteki döngüye uygulanır. Dilerseniz döngü üzerinde daha sonra <code>break</code> ya da <code>continue</code> ile kullanabileceğiniz bir <em>döngü etiketi</em> bildirebilirsiniz. Bu durumda <code>break</code> ve <code>continue</code> anahtar kelimeleri en içteki döngüye değil etiketlenen döngüye uygulanırlar. Aşağıda iki adet içiçe geçmiş döngü örneği yer almaktadır:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut sayaç = 0;
+
+    'saydır: loop {
+        println!(&quot;sayaç: {}&quot;, sayaç);
+        let mut kalan = 10;
+
+        loop {
+            println!(&quot;Kalan: {}&quot;, kalan);
+            if kalan == 9 {
+                break;
+            }
+            if sayaç == 2 {
+                break 'saydır;
+            }
+            kalan -= 1;
+        }
+        sayaç += 1;
+    }
+    println!(&quot;Sayaç durdu: {}&quot;, sayaç);
+}
+</code></pre></pre>
+<p><code>Saydır</code> etiketine sahip olan dış döngü 0'dan 2'ye kadar sayar. Etiketsiz olan iç döngü ise 10'dan 9'a doğru geri sayım yapar. Etiketsiz olan ilk <code>break</code> yalnızca iç döngüden, <code>break 'saydır;</code> ifadesiyse dış döngüden çıkar. Bu kod aşağıdaki çıktıyı üretir:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling donguler v0.1.0 (/home/rusdili/projeler/donguler)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.48s
+     Running `target/debug/donguler`
+sayaç: 0
+Kalan: 10
+Kalan: 9
+sayaç: 1
+Kalan: 10
+Kalan: 9
+sayaç: 2
+Kalan: 10
+Sayaç durdu: 2
+</code></pre>
+<h4 id="döngülerden-değer-döndürmek"><a class="header" href="#döngülerden-değer-döndürmek">Döngülerden Değer Döndürmek</a></h4>
+<p>Döngü kullanımlarından biri de, iş parçacıklarının işlerini bitirip bitirmediğinin kontrolü gibi başarısız olması muhtemel işlemleri yeniden denemektir. Hem ayrıca işlem sonucunu bu döngünün dışında kalan kod bölümüne de aktarmanız gerekebilir. Bunu yapabilmek için döngüyü döngüyü sonlandıracak olan <code>break</code> ifadesinden ardından döndürülmesini istediğiniz değeri eklemek yeterlidir. Bu değer örnekte gösterildiği gibi döngüden döndürülecektir:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut sayaç = 0;
+
+    let sonuç = loop {
+        sayaç += 1;
+
+        if sayaç == 10 {
+            break sayaç * 2;
+        }
+    };
+
+    println!(&quot;Sonuç: {}&quot;, sonuç);
+}
+</code></pre></pre>
+<p>Döngüden önce <code>sayaç</code> adında bir değişken tanımlıyarak <code>0</code> değeriyle başlatıyoruz. Hemen ardından döngüden dönecek olan değeri depolayacağımız <code>sonuç</code> değişkenini tanımlıyoruz. Döngü tekrarlandıkça sayaç değerine <code>1</code> ekleneceğinden sayacın <code>10</code>'a eşit olup olmadığını kontrol ediyor, değer <code>10</code> olduğunda <code>break</code> anahtar sözcüğüne ek olarak <code>sayaç * 2</code> değerini ekliyoruz. Döngü bitiminde değeri <code>sonuç</code> değişkenine atayacak olan ifadeyi noktalı virgül ile bitirdiğimize dikkat edin. Nihayetinde programı <code>sonuç</code> değişkenine atanan 20 değerini yazdıracak şekilde tamamlayıp bitiriyoruz.</p>
+<h4 id="while-ile-koşullu-döngüler"><a class="header" href="#while-ile-koşullu-döngüler"><code>while</code> ile Koşullu Döngüler</a></h4>
+<p>Programların genellikle döngü içinde bulunan koşulları değerlendirmeleri gerekir. Koşul doğru olduğu sürece çalışan döngü, koşulun yanlış olması durumunda programın <code>break</code> çağrısı sonucunda durdurulur. Bu tür bir davranışı <code>if</code>, <code>else</code> ve <code>break</code> kombinasyonlarını kullanarak uygulamak mümkündür. Eğer isterseniz bunu bir programla hemen şimdi deneyebilirsiniz. Fakat bu model o kadar yaygın biçimde kullanılmaktadır ki, Rust bunun için <code>while</code> döngüsü adında yerleşik bir dil yapısı sunar. Örnek 3-3'te geriye doğru 3 tur dönen ve her dönüşünde döngünün bulunduğu turu yazdıran, son olarak bir mesaj yazdırarak döngüden çıkan program için <code>while</code> döngüsünden yararlanıyoruz. </p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut sayı = 3;
+
+    while sayı != 0 {
+        println!(&quot;{}!&quot;, sayı);
+
+        sayı -= 1;
+    }
+    println!(&quot;Görev Tamamlandı!&quot;);
+}
+</code></pre></pre>
+<p><span class="caption">Örnek 3-3: Koşul doğru olduğu sürece çalışan kod için <code>while</code> döngüsünü kullanmak</span></p>
+<p>Bu yapı, <code>loop</code>, <code>if</code>, <code>else</code> ve <code>break</code> kullanarak yazacağınız bir programda gerekli olacak çok sayıda içiçe yuvalanmayı ortadan kaldıracağı için oldukça nettir. Ve bu kod, koşul doğru olduğu sürece çalışacak aksi halde döngüden çıkacaktır.</p>
+<h4 id="bir-koleksiyonu-for-döngüsüyle-dolaşmak"><a class="header" href="#bir-koleksiyonu-for-döngüsüyle-dolaşmak">Bir Koleksiyonu <code>for</code> Döngüsüyle Dolaşmak</a></h4>
+<p>Dizi gibi bir koleksiyonun öğeleri üzerinde yineleme yapmak için <code>while</code> yapısını kullanmak isteyebilirsiniz. Mesela Örnek 3-4'teki döngü <code>a</code> dizisindeki tüm öğeleri yazdırır:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    let mut dizin = 0;
+
+    while dizin &lt; 5 {
+        println!(&quot;Değer: {}&quot;, a[dizin]);
+
+        dizin += 1;
+    }
+}
+</code></pre></pre>
+<p><span class="caption">Örnek 3-4: Bir koleksiyonun öğelerini <code>while</code> döngüsü kullanarak dolaşmak</span></p>
+<p>Bu kod dizideki elemaları sayar. Bunu 0 dizininden başlayarak koleksiyonun sonuncu dizinine yani koşulumuz <code>dizin &lt; 5</code>'in doğru olmadığı noktaya dek döngü şeklinde tekrarlayarak yapar. Bu kod çalıştırıldığında dizideki tüm öğeler yazdırırılır:</p>
+<pre><code class="language-console">$ cargo run                                                                                                                                                                      ✔ 
+   Compiling donguler v0.1.0 (/home/rusdili/projeler/donguler)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.29s
+     Running `/home/rusdili/projeler/donguler/target/debug/donguler`
+Değer: 10
+Değer: 20
+Değer: 30
+Değer: 40
+Değer: 50
+</code></pre>
+<p>Beklendiği gibi dizideki beş elemanın her biri terminalde görünür. Bir noktada <code>dizin</code> değeri <code>5</code>'e ulaşsa bile, diziden altıncı değeri alınmadan önce döngü yürütmeyi durdurur.</p>
+<p>Ancak bu yaklaşım dizin değeri ya da test koşulunun yanlış olduğu hallerde hataya açık olup programın paniklemesine neden olur. Örneğin eğer a dizisini 4 elemandan oluşacak şekilde yeniden düzenler ve döngü koşulunu <code>dizin &lt; 4</code> şeklinde güncellemeyi unutursanız kodunuz panikleyecektir. Ayrıca bu tasarım derleyicinin, döngü boyunca her tekrarda koşulun dizi sınırlarını aşıp aşmadığını kontrol edecek ek çalışma zamanı kodları eklemesini gerektireceğinden yavaş kalacaktır.</p>
+<p>Alternatif olarak bir koleksiyondaki her öğeyi ayrı ayrı işlemek için daha kısa ve özlü olan <code>for</code> döngüsünü kullanabilirsiniz. Bir <code>for</code> döngüsü Örnek 3-5'teki koda benzer:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for öğe in a {
+        println!(&quot;Değer: {}&quot;, öğe);
+    }
+}
+</code></pre></pre>
+<p><span class="caption">Örnek 3-5: Bir koleksiyonun öğelerini <code>for</code> döngüsü kullanarak dolaşmak</span></p>
+<p>Bu kodu çalıştırdığımızda Örnek 3-4'tekiyle aynı mesajları alırız. Daha da önemlisi artık kodun güvenliğini artırmış, dizi eleman sayısının ötesine geçmek ya da gereği kadar tur yapmamaktan kaynaklı bazı öğelerin işlenememesi gibi hata olasılıklarını ortadan kaldırmış olduk.</p>
+<p>Hem ayrıca <code>for</code> döngüsü kullanımında dizi öğe sayısının değişmesi, Örnek 3-4'te olduğu gibi kodun yeniden güncellenmesini gerektirmez.</p>
+<p>Kısa ve güvenle kullanılıyor olması <code>for</code> döngüsünün Rust'ta en yaygın kullanılan döngü yapısı olmasını sağlar. Geri sayım için <code>while</code> döngüsü kullanan Örnek 3-3'te olduğu gibi pekçok Rust geliştiricisi, belli sayıda tekrarlanacak kodlar için bile <code>for</code> döngüsünden yararlanır. Geliştiriciler bunu yaparken, belli bir başlangıç ve bitiş sayısı arasında kalan tüm sayıları sırayla üreten ve standart kitaplık tarafından sağlanan bir <code>Range</code> aralığı kullanırlar.</p>
+<p>Aralığı tersine çevirebilmek içinse aşağıda gösterildiği gibi for döngüsü eşliğinde henüz görmediğimiz <code>rev</code> metodu kullanılır:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    for sayı in (1..4).rev() {
+        println!(&quot;{}&quot;, sayı);
+    }
+    println!(&quot;Görev Tamamlandı!&quot;);
+}
+</code></pre></pre>
+<p>Bu kod size daha hoş görünmüyor mu?</p>
+<h2 id="Özet"><a class="header" href="#Özet">Özet</a></h2>
+<p>Değişkenler, skaler ve bileşik veri türleri, işlevler, yorumlar, <code>if</code> ifadeleri ve döngüleri içeren oldukça büyük bir bölümü biigi sahibi olup bölümü tamamladınız. Burada tartışılan kavramları pekiştirmek amacıyla sonraki satırda önereceğimiz programları yazmayı deneyin.</p>
+<ul>
+<li>Isı değerlerini Fahrenheit ve Celsius dereceleri arasında dönüştürün.</li>
+<li>Fibonacci serisindeki n. eleman değerini hesaplayın.</li>
+<li>Bir noel şarkısı olan &quot;The Twelve Days of Christmas&quot;ın nakaratlarını kullanarak şarkının sözlerini yazdırın.</li>
+</ul>
+<p>Devam etmeye hazır olduğunuzda diğer programlama dillerinde <em>olmayan</em> Rust'ın mülkiyet kavramından bahsedeceğiz. </p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch03-04-comments.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="ch04-00-understanding-ownership.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch03-04-comments.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="ch04-00-understanding-ownership.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

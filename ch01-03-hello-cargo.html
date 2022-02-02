@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html lang="tr" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Merhaba, Cargo - Rust Progamlama Dili Türkçe Çevirisi-2021</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">Rust Programlama Dili</a></li><li class="chapter-item expanded affix "><a href="foreword.html">Önsöz</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Giriş</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Başlarken</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Kurulum</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> Merhaba, Dünya</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html" class="active"><strong aria-hidden="true">1.3.</strong> Merhaba, Cargo</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> Bir Tahmin Oyunu Programlamak</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> Ortak Programlama Kavramları</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> Değişkenler ve Değişkenlik</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> Veri Türleri</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> İşlevler</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> Yorumlar</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> Kontrol Akışı</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> Mülkiyeti Anlamak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> Mülkiyet Nedir?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> Referanslar ve Borçlanma</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> Dilim Türü</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> İlişkili Verileri Yapılandırmak için Yapıları Kullanmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> Yapıları Tanımlamak ve Örneklemek</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> Yapıları Kullanan Örnek Bir Program</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> Metod Sözdizimi</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> Enum'lar ve Örüntü Eşleme</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> Bir Enum Tanımlamak</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> Kontrol Akışı Yapısı match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> if let ile Özgün Kontrol Akışı</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-managing-growing-projects-with-packages-crates-and-modules.html"><strong aria-hidden="true">7.</strong> Büyüyen Projeleri Paketler, Sandıklar ve Modüller ile Yönetmek</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-packages-and-crates.html"><strong aria-hidden="true">7.1.</strong> Paketler ve Sandıklar</a></li><li class="chapter-item expanded "><a href="ch07-02-defining-modules-to-control-scope-and-privacy.html"><strong aria-hidden="true">7.2.</strong> Kapsam ve Gizlilik Kontrolü İçin Modül Tanımlamak</a></li><li class="chapter-item expanded "><a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html"><strong aria-hidden="true">7.3.</strong> Modül Ağacındaki Bir Öğeye Başvurmanın Yolları</a></li><li class="chapter-item expanded "><a href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html"><strong aria-hidden="true">7.4.</strong> use Anahtar Kelimesi ile Yolları Kapsama Getirmek</a></li><li class="chapter-item expanded "><a href="ch07-05-separating-modules-into-different-files.html"><strong aria-hidden="true">7.5.</strong> Modülleri Farklı Dosyalara Ayırmak</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> Ortak Koleksiyonlar</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> Değer Listelerini Vektör Kullanarak Depolamak</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> UTF-8 Kodlu Metinleri Dizgilerle Saklamak</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> İlişkili Değerlere Sahip Anahtarları Eşleme Haritalarında Saklamak</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> Hata Yönetimi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> panic! ile Kurtarılamaz Hatalar</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> Result ile Kurtarılabilir Hatalar</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> panic!lemek ya da panic!lememek</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> Generic Türler, Özellikler ve Yaşam Süreleri</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> Generic Veri Türleri</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> Özellikler: Paylaşılan Davranışı Tanımlamak</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> Referansları Yaşam Süreleri ile  Doğrulamak</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Otomatik Testler Yazmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Testler Nasıl Yazılır?</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Testlerin Nasıl Çalıştırılacağını Denetlemek</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organizasyonu</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> Bir I/O Projesi: Komut Satırı Programı Oluşturmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> Komut Satırı Argümanlarını Kabul Etmek</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> Bir Dosyayı Okumak</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> Modülerlik ve Hata Yönetimini Geliştirmek</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> Test Odaklı Geliştirme ile Kütüphane İşlevselliğini Artırmak</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> Ortam Değişkenleriyle Çalışmak</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> Hata Mesajlarını Standart Çıktı Yerine Standart Hataya Yazmak</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> İşlevsel Dil Özellikleri: Yineleyiciler ve Kapamalar</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Kapamalar: Ortam Değişkenlerini Yakalayabilen İsimsiz İşlevler</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Yineleyiciler ile Bir Dizi Öğeyi İşlemek</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> I/O Projemizi Geliştirmek</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Performansı Karşılaştırmak: Döngüler vs. Yineleyiciler</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> Cargo ve Crates.io Hakkında Daha Fazlası</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Derlemeleri Sürüm Profilleriyle Özelleştirmek</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Bir Sandığı Crates.io Üzerinde Yayınlamak</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Çalışma Alanları</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Crates.io Üzerindeki İkili Sandıkları cargo install Komutuyla Yüklemek</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Özel Komutlarla Cargo Olanaklarını Genişletmek</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> Akıllı İşaretçiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> Yığındaki Veriler İçin Box&lt;T&gt; Kullanmak</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> Akıllı İşaretçilere Deref Özelliğiyle Normal Referanslarmış Gibi Davranmak</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> Temizlik Amaçlı Kod Çalıştırmak İçin Drop Özelliğini Kullanmak</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> Referans Sayılan Akıllı İşaretçi: Rc&lt;T&gt;</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> RefCell&lt;T&gt; ve İç Değişkenlik Modeli</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> Referans Çevrimleri Bellek Sızıntısına Yol Açabilir</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Korkusuz Eşzamanlılık</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch16-01-threads.html"><strong aria-hidden="true">16.1.</strong> İş Parçacıklarını Kullanmak</a></li><li class="chapter-item expanded "><a href="ch16-02-message-passing.html"><strong aria-hidden="true">16.2.</strong> Mesajlaşma Yardımıyla Eş Zamanlı Programlama</a></li><li class="chapter-item expanded "><a href="ch16-03-shared-state.html"><strong aria-hidden="true">16.3.</strong> Paylaşılan Durum Eşzamanlılığı</a></li><li class="chapter-item expanded "><a href="ch16-04-extensible-concurrency-sync-and-send.html"><strong aria-hidden="true">16.4.</strong> Sync and Send Özellikleri ile Genişletilebilir Eşzamanlılık</a></li></ol></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> Rust'ın Nesne Yönelimli Programlama Özellikleri</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-what-is-oo.html"><strong aria-hidden="true">17.1.</strong> Nesne Yönelimli Dillerin Özellikleri</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> Farklı Türden Değerlere İzin Veren Özellik Nesnelerini Kullanmak</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> Nesne Yönelimli Tasarım Modeli Uygulamak</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Örüntüler ve Eşleme</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch18-01-all-the-places-for-patterns.html"><strong aria-hidden="true">18.1.</strong> Örüntüler Her Yerde Kullanılabilir</a></li><li class="chapter-item expanded "><a href="ch18-02-refutability.html"><strong aria-hidden="true">18.2.</strong> Çürütülebilirlik: Bir Örüntünün Eşleşmeme İhtimali</a></li><li class="chapter-item expanded "><a href="ch18-03-pattern-syntax.html"><strong aria-hidden="true">18.3.</strong> Örüntü Sözdizimi</a></li></ol></li><li class="chapter-item expanded "><a href="ch19-00-advanced-features.html"><strong aria-hidden="true">19.</strong> Gelişmiş Özellikler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch19-01-unsafe-rust.html"><strong aria-hidden="true">19.1.</strong> Güvensiz Kullanım</a></li><li class="chapter-item expanded "><a href="ch19-03-advanced-traits.html"><strong aria-hidden="true">19.2.</strong> Gelişmiş Özellikler</a></li><li class="chapter-item expanded "><a href="ch19-04-advanced-types.html"><strong aria-hidden="true">19.3.</strong> Gelişmiş Türler</a></li><li class="chapter-item expanded "><a href="ch19-05-advanced-functions-and-closures.html"><strong aria-hidden="true">19.4.</strong> Gelişmiş Kapamalar ve İşlevler</a></li><li class="chapter-item expanded "><a href="ch19-06-macros.html"><strong aria-hidden="true">19.5.</strong> Makrolar</a></li></ol></li><li class="chapter-item expanded "><a href="ch20-00-final-project-a-web-server.html"><strong aria-hidden="true">20.</strong> Son Proje: Çok İş Parçacıklı Bir Web Sunucusu Oluşturmak</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch20-01-single-threaded.html"><strong aria-hidden="true">20.1.</strong> Tek İş Parçacıklı Bir Web Sunucusu Oluşturmak</a></li><li class="chapter-item expanded "><a href="ch20-02-multithreaded.html"><strong aria-hidden="true">20.2.</strong> Tek İş Parçacıklı Sunucumuzu Çok İş Parçacıklı Bir Sunucuya Dönüştürmek</a></li><li class="chapter-item expanded "><a href="ch20-03-graceful-shutdown-and-cleanup.html"><strong aria-hidden="true">20.3.</strong> Sorunsuzca Kapatmak ve Temizlik</a></li></ol></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Ekler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> A - Anahtar Kelimeler</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> B - İşleçler ve Semboller</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> C - Türetilebilir Özellikler</a></li><li class="chapter-item expanded "><a href="appendix-04-useful-development-tools.html"><strong aria-hidden="true">21.4.</strong> D - Faydalı Geliştirme Araçları</a></li><li class="chapter-item expanded "><a href="appendix-05-editions.html"><strong aria-hidden="true">21.5.</strong> E - Sürümler</a></li><li class="chapter-item expanded "><a href="appendix-06-translation.html"><strong aria-hidden="true">21.6.</strong> F - Kitabın Çevirileri</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.7.</strong> G - Rust Nasıl “Nightly Rust” Yapılır? </a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Progamlama Dili Türkçe Çevirisi-2021</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="merhaba-cargo"><a class="header" href="#merhaba-cargo">Merhaba, Cargo</a></h2>
+<p>Cargo Rust'ın derleme sistemi ve paket yöneticisidir. Bu araç sizin için; kod oluşturmak, kodun bağımlı olduğu kütüphaneleri <em>kodunuzun ihtiyaç duyduğu kitaplıklara bağımlılık adını veriyoruz)</em> indirmek ve bunları derlemek gibi pek çok görevi yerine getirdiğinden çoğu Rustacean bu aracı Rust projelerini yönetmek için kullanır.</p>
+<p>Şu ana kadar yazdığımıza benzeyen basit Rust programları herhangi bir kütüphaneye bağımlı değildir. Bu nedenle &quot;Merhaba dünya!&quot; gibi basit bir proje Cargo ile derlendiğinde, sadece Cargo'nun aracının kod derlemeyi yöneten bölümü kullanılır. Yazılan programlar basitten karmaşığa doğru evrildikçe farklı kütüphanelere olan bağımlılıkları artacağından Cargo aracı bu bağımlılıkların yönetilmesinde size büyük kolaylıklar sağlayacaktır.</p>
+<p>Rust projelerinin büyük çoğunluğu Cargo aracını kullandığından, bu kitabın geri kalan bölümlerinde sizin de bu aracı kullandığınız varsayılacaktır. Eğer <a href="ch01-01-installation.html">&quot;Kurulum&quot;</a> bölümünde önerilen resmi yükleyicileri kullandıysanız Rust'la birlikte Cargo aracınız da yüklenmiş olmalıdır. Ancak Rust'ı farklı bir yoldan kurduysanız aşağıdaki kodları terminalinize girerek Cargo'nun sisteminizde kurulu olup olmadığını öğrenebilirsiniz.</p>
+<pre><code class="language-console">$ cargo --version
+</code></pre>
+<p>Çıktınızda bir sürüm numarası görüyorsanız bu, Cargo aracının Rust kurulumuyla birlikte yüklendiği anlamına gelir. Eğer <code>Command not found</code> gibi bir hatayla karşılaşıyorsanız Cargo'nun nasıl kurulacağına dair kullandığınız kurulum yöntemi belgelerini incelemelisiniz.</p>
+<h3 id="cargo-ile-proje-oluşturmak"><a class="header" href="#cargo-ile-proje-oluşturmak">Cargo ile Proje Oluşturmak</a></h3>
+<p>Cargo aracını kullanarak yeni bir proje oluşturup, bu yeni projenin önceki projemiz olan &quot;Merhaba dünya!&quot; ile farklılıklarını incelemeye çalışalım. Başlangıçta açtığımız <em>projeler</em> dizini -ya da kodlarınızı nereye kaydediyorsanız- o dizine geçerek kullandığınız işletim sisteminden bağımsız olarak iş gören aşağıdaki komutları çalıştırın:</p>
+<pre><code class="language-console">$ cargo new merhaba_cargo
+$ cd merhaba_cargo
+</code></pre>
+<p>İlk komut, Cargo aracının &quot;merhaba_cargo&quot; adlı yeni bir dizin açmasını ve bu dizinde bir proje için gerekli olan dosyaları oluşturmasını sağlar. </p>
+<p>Sonraki komut, Cargo aracının bizim için oluşturduğu dizine atlamamızı sağlar. Dizindeki dosyaları listelerseniz Cargo aracıyla oluşturulan <em>Cargo.toml</em> dosyası ve içinde <em>main.rs</em> dosyasını bulunduran bir <em>src</em> dizini göreceksiniz.</p>
+<p>Ek olarak Cargo aracı .gitignore dosyasını içeren yeni bir git deposunun da başlatılmasını sağlar. Eğer <code>cargo new</code> komutunu halihazırda mevcut olan bir git deposu içinde çalıştırırsanız bu git dosyaları oluşturulmaz. Bu davranışı <code>cargo new --vcs=git</code> komutunu kullanarak baskılayabilirsiniz.</p>
+<blockquote>
+<p>Not: Git yaygın olarak kullanılan bir sürüm kontrol sistemidir. Cargo'yu --vcs bayrağı aracılığıyla farklı bir 
+sürüm kontrol sistemi kullanmak ya da sürüm kontrol sistemini kullanmamak üzere ayarlayabilirsiniz. Mevcut 
+seçenekleri görmek için <code>cargo new -help</code> komutunu çalıştırabilirsiniz.</p>
+</blockquote>
+<p>Cargo.toml dosyasını metin düzenleyicinizde açtığınızda içeriği Örnek 1-2'dekine benzer biçimde görünmelidir.</p>
+<p><span class="filename">Dosya adı: Cargo.toml</span></p>
+<pre><code class="language-toml">[package]
+name = &quot;merhaba_cargo&quot;
+version = &quot;0.1.0&quot;
+edition = &quot;2021&quot;
+
+[dependencies]
+</code></pre>
+<p><span class="caption"> Örnek 1-2: <code>cargo new</code> komutuyla oluşturulan Cargo.toml dosyası içeriği</span></p>
+<p>Bu dosya, Cargo'nun yapılandırma formatı olan <a href="https://toml.io/en/">TOML</a>(Tom's Obvious, Minimal Language) biçimindedir.</p>
+<p>İlk satırda bildirilen ve altındaki ifadeler tarafından oluşturulan [package] bölüm başlığı, paketin nasıl yapılandırıldığını gösterir. Bu dosyaya daha fazla bilgi ekledikçe, başka bölümler de ekleyeceğiz. </p>
+<p>Sonraki üç satır, programınızın Cargo tarafından derlenebilmesi için gereken: İsim, programınızın sürüm bilgisi ve Rust sürümü gibi yapılandırma bilgilerinden oluşur. <code>edition</code> (Rust sürümü) anahtarı konusunu <a href="appendix-05-editions.html">Ek E</a> bölümünde işleyeceğiz.</p>
+<p>Son satırda projenizin bağımlılıklarını listelemeye yarayan [dependencies] bölümü yer alır. Rust'ta kodların paketler halinde tutulduğu yapılara <code>crate</code> yani sandık adı verilir. Bu proje için harici bir sandığa ihtiyaç duymayacak fakat 2. Bölümde gerçekleştireceğimiz ilk projede bağımlılıklar bölümünü kullanacağız.</p>
+<p>Şimdi <em>src/main.rs</em> dosyasını açalım ve inceleyelim:</p>
+<p><span class="filename">Dosya adı: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+     // &quot;Merhaba, Cargo&quot; olarak değiştirebilirsiniz.
+    println!(&quot;Hello, world!&quot;); 
+}
+</code></pre></pre>
+<p>Cargo sizin için tıpkı Örnek 1-1'de olduğu gibi ekranınıza &quot;Merhaba, dünya!&quot; metnini bastıran bir program oluşturdu. Önceki projemiz ile Cargo tarafından üretilen bu proje arasındaki farklar ise, Cargonun projeyi <em>src</em> adlı dizine yerleştirmesi ve üst dizinde ise bir <em>Cargo.toml</em> dosyası yaratması olarak özetlenebilir.</p>
+<p>Cargo kaynak dosyalarının <em>src</em> dizininde bulundurulmasını bekler. Projenin ana dizin içeriği, sadece README dosyaları, lisans bilgileri, yapılandırma bilgileri ve kodunuzu ilgilendiren diğer şeyler içindir. Dolayısıyla Cargo, her şeyi ait olduğu dizine yerleştirerek düzenli projeler oluşturmanızı sağlar.</p>
+<p>&quot;Merhaba, dünya!&quot; örneğinde yaptığımız gibi Cargo kullanılmadan başlatılan bir projeyi, tıpkı Cargo ile oluşturulmuş gibi düzenleyebilirsiniz. Bunun için proje kaynak kodunu <em>src</em> dizinine taşıyarak, projenin ana dizinde <em>Cargo.toml</em> dosyası oluşturmanız yeterlidir.</p>
+<h3 id="bir-cargo-projesini-derleyip-Çalıştırmak"><a class="header" href="#bir-cargo-projesini-derleyip-Çalıştırmak">Bir Cargo Projesini Derleyip Çalıştırmak</a></h3>
+<p>Şimdi &quot;Merhaba, dünya!&quot; programını Cargo kullanarak derleyip çalıştırdığımızda oluşan farklılıkları gözlemleyelim. Terminalinizde <em>merhaba_cargo</em> dizinine gelerek aşağıdaki komut yardımıyla projenizi oluşturun: </p>
+<pre><code class="language-console">$ cargo build
+    Compiling merhaba_cargo v0.1.0 (/home/rusdili/projeler/merhaba_cargo)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.82s
+</code></pre>
+<p>Bu komut, <em>target/debug/merhaba_cargo</em> (veya Windows ortamında <em>target\debug\merhaba_cargo.exe</em>) 
+konumunda çalıştırılabilir bir dosya oluşturur. Bu dosyayı şu komutla çalıştırabilirsiniz:</p>
+<pre><code class="language-console">$ ./target/debug/merhaba_cargo # veya Windows ortamında .\target\debug\merhaba_cargo.exe
+Merhaba, Cargo!
+</code></pre>
+<p>Her şey yolunda giderse terminalinizde &quot;Merhaba, Cargo!&quot; yazısı görünecektir. Cargo uygulamasının ilk kez çalıştırılması projenizin ana dizininde <em>Cargo.lock</em> adında yeni bir dosya oluşturulmasına neden olur. Bu dosya projenizdeki bağımlılıkların tam sürümlerini takip eder. Halihazırda bu proje harici bir kasaya bağımlı olmadığından bu dosya epey boş görünecektir. Bu dosya içeriği Cargo tarafından otomatik olarak yönetildiğinden burada değişiklik yapmanız gerekmez.</p>
+<p>Sadece <em>cargo build</em> komutu ile derlediğimiz ve <em>./target/debug/merhaba_cargo</em> komutu ile çalıştırdığımız bu projeyi, aynı anda derleyip çalıştırabilmek için <code>cargo run</code> komutunu kullanabiliriz. </p>
+<pre><code class="language-console">$ cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `target/debug/merhaba_cargo`
+Merhaba, Cargo!
+</code></pre>
+<p>Ancak bu defa Cargo'nun, <code>merhaba_cargo</code> programını derlediğini bildiren çıktının gösterilmediğine dikkat edin. Bu durum Cargo'nun kaynak kodun değiştilmediğini bilmesinden kaynaklanır. Kaynak kodunda değişiklik yaptığınmız programı Cargo ile yeniden derleyip çalıştıracak olursanız aşağıdakine benzer bir çıktı görürsünüz:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling merhaba_cargo v0.1.0 (/home/rusdili/projeler/merhaba_cargo)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.25s
+     Running `target/debug/merhaba_cargo`
+Merhaba, Kargo!
+</code></pre>
+<p>Yine Cargo tarafından sağlanan ve kodunuzun çalıştırılabilir olup olmadığını denetleyen, fakat çalıştırılabilir dosyasını oluşturmayan <code>cargo check</code> adında bir komut daha vardır:</p>
+<pre><code class="language-console">$ cargo check
+    Checking merhaba_cargo v0.1.0 (/home/rusdili/projeler/merhaba_cargo)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.13s
+</code></pre>
+<p>Bazı durumlarda çalıştırılabilir dosya oluşturmanız gerekmez. <code>cargo check</code> komutu yürütülebilir dosya oluşturma adımını atladığından çoğu zaman <code>cargo build</code> işleminden daha hızlı olacaktır. Geliştirme aşamasında kodunuzun çalışıp çalışmadığını düzenli olarak kontrol ediyorsanız <code>cargo check</code> komutu üretim sürecinizi hızlandıracaktır. Pek çok Rustacean geliştirme aşamasında, programlarının derlendiğinden emin olabilmek için düzenli olarak <code>cargo check</code> kontrolü yapar. Ancak çalıştırılabilir dosyayı kullanmaya hazır olduklarında <code>cargo build</code> komutunu çalıştırırlar. </p>
+<p>Cargo hakkında şimdiye kadar öğrendiklerimizi özetleyecek olursak:</p>
+<ul>
+<li>Bir projeyi derlemek için <code>cargo build</code> komutunu kullanabiliriz.</li>
+<li>Bir projeyi tek bir adımla derleyip çalıştırabilmek için <code>cargo run</code> komutunu kullanabiliriz.</li>
+<li>Bir projenin hatalarını ikili kod üretmeden derleyerek kontrol edebilmek için  <code>cargo check</code> komutundan yararlanabiliriz.</li>
+<li>Cargo, derleme sonucunda oluşturulan çalıştırılabilir ikili dosyayı, kaynak koduyla aynı dizine koymak yerine <em>target/debug</em> dizinine kaydeder.</li>
+</ul>
+<p>Cargo kullanmanın ek bir avantajı da, hangi işletim sisteminde çalışırsanız çalışın, kullanacağınız komutların değişmiyor olmasıdır. O nedenle bu noktadan itibaren Linux, macOS veya Windows işletim sistemlerinin her biri için ayrı talimatlar vermeyeceğiz.</p>
+<h3 id="sürüm-amaçlı-derleme"><a class="header" href="#sürüm-amaçlı-derleme">Sürüm Amaçlı Derleme</a></h3>
+<p>Yayına hazır olan projenizi en iyileştirme olanakları ile derleyebilmek için <code>cargo build --release</code> komutunu kullanabilirsiniz. Bu komut çalıştırılabilir dosyanızı <em>target/debug</em> dizini yerine <em>target/release</em> dizinine çıkaracaktır. Fakat en iyileştirmeler, Rust kodlarının daha hızlı çalışmalarını sağlamakla birlikte, programın derlenmesi için gereken süreyi de uzatır. O nedenle en iyileştirme olanaklarında: İlki, hızlı ve sık derleme işlemleri için kullanılan geliştirme profili, diğeriyse tekrar tekrar derlenmeyecek ve çalışır halini olabilecek en kısa sürede kullanıcıya teslim edebileceğiniz nihai programı oluşturan olmak üzere iki farklı profil sunulur.</p>
+<p>Eğer kodunuzun çalışma süresini ölçmek istiyorsanız, <em>target/release</em> dizininde bulunan çalıştırılabilir dosyayı <code>cargo build --release</code> komutu ile test ettiğinizden emin olun.</p>
+<h3 id="konvansiyonel-cargo"><a class="header" href="#konvansiyonel-cargo">Konvansiyonel Cargo</a></h3>
+<p>Cargo basit projelerde rustc kullanımından olduğundan fazla yarar sağlamıyor olsa da geliştirme süreci karmaşıklaştıkça değerini kanıtlayacak bir araç setidir. O nedenle birden çok sandıktan oluşan karmaşık projelerde koordinasyonu Cargo'ya devretmek oldukça faydalıdır.</p>
+<p>Her ne kadar <code>merhaba_cargo</code> projesi basit bir projeymiş gibi görünüyor olsa da Rust kariyeriniz boyunca karşılaşacağınız gerçek araçların pek çoğunu kullanıyor. Var olan herhangi bir Rust projesinde çalışırken Git aracılığıyla kodu kontrol etmek, proje dizininine geçip kodu derlemek için aşağıdaki komutları kullanabilirsiniz. </p>
+<pre><code class="language-console">$ git clone herhangibirurl.com/herhangibirproje
+$ cd herhangibirproje
+$ cargo build
+</code></pre>
+<p>Cargo hakkında daha fazla bilgi edinmek istiyorsanız <a href="https://doc.rust-lang.org/cargo/">Cargo belgelerini</a> inceleyiniz. </p>
+<h2 id="Özet"><a class="header" href="#Özet">Özet</a></h2>
+<p>Güzel başlayan Rust yolculuğunuzda aşağıdakileri öğrendiniz:</p>
+<ul>
+<li>Rust'ı, <code>rustup</code> kullanarak en son kararlı sürümüyle yüklemek.</li>
+<li>Rust'ı daha yeni bir sürümüne yükseltmek.</li>
+<li>Yerel olarak yüklenen belgelere erişmek.</li>
+<li>Bir &quot;Merhaba, dünya!&quot; programını yazarak bunu <code>rustc</code> kullanarak doğrudan çalıştırmak.</li>
+<li>Yeni bir projeyi Cargo komut ve kurallarını kullanarak derleyip çalıştırmak.</li>
+</ul>
+<p>Şimdi Rust kodu okuyup yazma becerilerimizi geliştirebilmek için daha sağlam bir program yazmamız gerekiyor. Bu nedenle 2. Bölümde bir tahmin oyunu programı yazacak ve inceleyeceğiz. Eğer öğrenme sürecinize &quot;Ortak Programlama Kavramları&quot;nın nasıl çalıştığını öğrenerek devam etmek istiyorsanız 3. Bölüme ilerleyebilir, ardından 2. Bölüme geri dönebilirsiniz.    </p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch01-02-hello-world.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="ch02-00-guessing-game-tutorial.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch01-02-hello-world.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="ch02-00-guessing-game-tutorial.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
