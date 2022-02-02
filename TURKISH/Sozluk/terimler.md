@@ -1,6 +1,5 @@
 # Teknik terimlerin Türkçe karşılıklar
 
-ı
 <!--
 | İngilizce | Türkçe | Açıklama |
 | ------- | ------ | ------ |
