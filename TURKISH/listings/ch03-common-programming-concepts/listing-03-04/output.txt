@@ -1,9 +1,0 @@
-$ cargo run                                                                                                                                                                      ✔ 
-   Compiling donguler v0.1.0 (/home/rusdili/projeler/donguler)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.29s
-     Running `/home/rusdili/projeler/donguler/target/debug/donguler`
-Değer: 10
-Değer: 20
-Değer: 30
-Değer: 40
-Değer: 50

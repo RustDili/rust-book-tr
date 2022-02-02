@@ -1,5 +1,0 @@
-$ cargo run                                                                                                                            ✔
-   Compiling dallar v0.1.0 (/home/rusdili/projeler/dallar)
-    Finished dev [unoptimized + debuginfo] target(s) in 1.82s
-     Running `target/debug/dallar`
-Koşul doğru.

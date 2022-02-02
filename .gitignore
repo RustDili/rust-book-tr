@@ -5,3 +5,8 @@ book/
 target
 tmp
 
+.cargo
+.github
+2018-edition
+TURKISH
+ci

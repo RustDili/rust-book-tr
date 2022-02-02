@@ -1,5 +1,0 @@
-$ cargo run                                                                                                                          ✔ 
-   Compiling islevler v0.1.0 (/home/rusdili/projeler/islevler)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.25s
-     Running `target/debug/islevler`
-X'in değeri: 5
