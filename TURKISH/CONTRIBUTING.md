@@ -4,7 +4,7 @@
 
 ### Çevirilecek Terimler
 
-Bazı temel İngilizce teknik terimlerin Türkçe karşılıklarını sunmamız gerekiyor. Çevirileriniz sırasında karşılaştığınız terimlerin Türkçe karşılığını öncelikle bu tabloda arayınız. [Terimin Türkçe karşılığı tabloda yoksa yahut daha iyi bir öneriniz varsa bunu bizimle paylaşabilirsiniz.](https://github.com/RustDili/rust-book-tr/discussions/2)
+Bazı temel İngilizce teknik terimlerin Türkçe karşılıklarını sunmamız gerekiyor. Çevirileriniz sırasında karşılaştığınız terimlerin Türkçe karşılığını öncelikle bu tabloda arayınız. Terimin Türkçe karşılığı tabloda yoksa yahut daha iyi bir öneriniz varsa bunu [bizimle paylaşabilirsiniz.](https://github.com/RustDili/rust-book-tr/discussions/2)
 
 ### Rust Kodlarının Çevrilmesi
 
@@ -26,7 +26,7 @@ Dosya isimleri çevrilmeyip olduğu gibi bırakılacaktır. Çevirdiğiniz dosya
 
 01. Üzerinde çalıştığınız bölüm başlığını [Çalışılmakta olan bölümlere](https://github.com/RustDili/rust-book-tr/issues/3) ekleyin. 
   - Çalışmak için önceden bildirilmiş ve üzerinde aktif olarak çalışılan bölümler yerine farklı bir bölüm seçin.
-  - Eğer [rust-book-tr]() reposunu edinmemişseniz kendi hesabınız üzerinden repoyu çatallayın.
+  - Eğer [rust-book-tr](https://github.com/RustDili/rust-book-tr) reposunu edinmemişseniz kendi hesabınız üzerinden repoyu çatallayın.
 
 02. Ardından `git clone https://github.com/<çatal_adınız>.git` biçimini kullanarak reponuzu yerel çalışma ortamınıza aktarın.
 
