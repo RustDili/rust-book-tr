@@ -1,7 +1,7 @@
 ---
 name: New translation
 about: Let us know of a new language translation you're working on
-title: 
+title: ''
 labels: ''
 assignees: ''
 

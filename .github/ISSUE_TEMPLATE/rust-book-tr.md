@@ -1,6 +1,6 @@
 ---
 name: rust-book-tr
-about: Let us knowRust Programlama Dili Türkçe Çevirisi -2022
+about: Rust Programlama Dili Türkçe Çevirisi -2022
 title: ''
 labels: ''
 assignees: doganid
