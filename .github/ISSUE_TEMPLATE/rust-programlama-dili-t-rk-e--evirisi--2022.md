@@ -8,5 +8,6 @@ assignees: ''
 ---
 
 Çeviri dili: Türkçe
-Çalışılan bölüm: ch01-02-hello-world.md 
+Gözden geçirilen bölümler:
+Üzerinde çalışılan bölümler: ch01-02-hello-world.md 
 Çevirinin bulunduğu repo: [TURKISH](https://github.com/RustDili/rust-book-tr/tree/main/TURKISH/src/ch01-02-hello-world.md)
