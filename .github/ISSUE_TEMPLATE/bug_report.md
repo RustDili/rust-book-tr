@@ -1,6 +1,10 @@
 ---
 name: Bug report
 about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
+
 ---
 
 - [ ] I have checked the latest `main` branch to see if this has already been fixed
