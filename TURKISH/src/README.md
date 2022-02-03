@@ -1,4 +1,5 @@
-# Çevirisi devam eden bölümler
+# Çevirisi Tamamlanan Bölümler
+
 # Rust Programlama Dili
 
 [Rust Programlama Dili](title-page.md)
