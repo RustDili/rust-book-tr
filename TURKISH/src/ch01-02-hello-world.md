@@ -107,7 +107,7 @@ Ve sonuncusu: Satırın noktalı virgül (`;`) ile bitiyor olması, bu ifadenin 
 
 ### Derlemek ve Çalıştırmak Ayrı Birer Adımdır
 
-Az önce oluşturduğunuz yeni programınızın çalışma sürecindeki adımlarını incelelim 
+Az önce oluşturduğunuz yeni programınızın çalışma sürecindeki adımlarını inceleyelim 
 
 Bir Rust programı çalıştırılmadan önce Rust derleyicisi kullanılarak ve `rustc` komutuna aşağıdaki gibi kaynak dosyası adı verilerek derlenmelidir:
 
@@ -124,7 +124,7 @@ $ ls
 main main.rs
 ```
 
-Eğer Windows üzerinde CMD kullanıyorsanız aşağıdaki komutu girmeniz gereklidir:
+Eğer Windows üzerinde CMD kullanıyorsanız aşağıdaki komutu girmelisiniz:
 
 ```cmd
 > dir /B %= Buradaki /B seçeneği yalnızca dosya isimlerinin görüntülenmesini sağlar =%
@@ -143,6 +143,6 @@ $ ./main # ya da windows için .\main.exe
 
 Eğer `main.rs` dosyanız "Merhaba, dünya!" programınızı içeriyorsa terminalinize `"Merhaba, dünya!"` metni yazdıracaktır.
 
-Programlama tecrübeniz Ruby, Python veya JavaScript gibi dinamik dillerden oluşuyorsa bu programın ayrı adımlar halinde derleyip çalıştırılmasına alışkın olmayabilirsiniz. Ancak Rust *ahead-of-time compiled* (öncesinde derlenmiş)  bir dildir. Bu derlenmiş bir Rust programının yürütülebilir dosyasının dağıtılabileceği ve dağıtılan bu dosyanın Rust kurulumuna ihtiyaç duymadan çalıştırılabileceği anlamına gelir. Ancak bir `rb, .py`, veya `.js` dosyası dağıttığınızda bu dosyanın kullanılacağı ortamda bir Ruby, Python veya JavaScript uygulamasının yüklü olması gerekir. Bununla birlikte bu dillerden biriyle yazılmış olan bir programı çalıştırabilmek için yalnızca bir komutun kullanılması yeterlidir. Dil tasarımında her şey bir değiş tokuştur.
+Programlama tecrübeniz Ruby, Python veya JavaScript gibi dinamik dillerden oluşuyorsa bu programın ayrı adımlar halinde derleyip çalıştırılmasına alışkın olmayabilirsiniz. Ancak Rust *ahead-of-time compiled* (öncesinde derlenmiş)  bir dildir. Bu derlenmiş bir Rust programının yürütülebilir dosyasının dağıtılabileceği ve dağıtılan bu dosyanın Rust kurulumuna ihtiyaç duymadan çalıştırılabileceği anlamına gelir. Ancak bir `rb, .py`, veya `.js` dosyası dağıttığınızda bu dosyanın kullanılacağı ortamda bir Ruby, Python veya JavaScript uygulamasının yüklü olması gerekir. Bununla birlikte bu dillerden biriyle yazılmış bir programı çalıştırabilmek içinse tek bir komut yeterlidir. Dil tasarımında her şey bir değiş tokuştur.
 
 Her ne kadar basit programların `rustc` ile derlenmesi yeterliymiş gibi görünse de projeniz büyüdükçe seçeneklerin tümünü yönetmek ve kodun dağıtılmasının kolaylaştırmak isteyeceksiniz. Sonraki bölümde sizi gerçek dünyada daha sık kullanılan ve daha karmaşık Rust programları yazmanıza yardım edecek olacak Cargo aracıyla tanıştıracağız.
