@@ -65,7 +65,7 @@ Programınız genelinde kullanılan sabit olarak kodlanmış değerleri sabit ol
 
 ### Gölgeleme
 
-Bir önceki ["Tahmin Sayısının Gizli Sayı ile Karşılaştırılması"][comparing-the-guess-to-the-secret-number]<!-- ignore --> bölümünden hatırlayacağınız üzere daha önce tanımlanmış bir değişken adıyla yeni bir değişken tanımlayabilirsiniz. Rust geliştiricileri tarafından önce tanımlanan değişkenin sonraki tarafından gölgelendiği ifade edilen bu durum, değişkenin kullanılması durumunda ikinci değişkene ait değerin elde edileceği anlamına gelmektedir. Aşağıdaki örnekte gösterildiği gibi, bir değişkeni aynı isimle ve `let` anahtar kelimesi tekrar kullanarak gölgeleyebiliriz.
+Bir önceki ["Tahmin Sayısının Gizli Sayı ile Karşılaştırılması"][comparing-the-guess-to-the-secret-number]<!-- ignore --> bölümünden hatırlayacağınız üzere daha önce tanımlanmış bir değişken adıyla yeni bir değişken tanımlayabilirsiniz. Rust geliştiricileri tarafından önce tanımlanan değişkenin sonraki tarafından gölgelendiği ifade edilen bu durum, değişkenin kullanılması halinde ikinci değişkene ait değerin elde edileceği anlamına gelmektedir. Aşağıdaki örnekte gösterildiği gibi, bir değişkeni aynı isimle ve `let` anahtar kelimesi tekrar kullanarak gölgeleyebiliriz.
 
 <span class="filename">Dosya adı: src/main.rs</span>
 
