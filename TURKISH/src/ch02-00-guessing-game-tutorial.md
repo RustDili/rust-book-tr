@@ -163,7 +163,7 @@ Bu aşamada `expect` metodunu çağırmasanız bile programınız derlenir fakat
 
 Rust `read_line` tarafından döndürülen `Result` değerini kullanmadığınızı ve programın olası bir hatayı işlemediğini bildirmektedir.
 
-Her ne kadar uyarıları bastırmanın doğru yolu bir hata işleyici yazmak olsada, şu aşamada sorun oluştuğunda programın çökmesini istediğimizden `expect` metodunu kullanmak zorundayız. Hata işlemek konusunu kitabın [9. Bölümünde][recover]<!-- ignore -->.  ayrıntılarıyla inceleyeceğiz.
+Her ne kadar uyarıları bastırmanın doğru yolu bir hata işleyici yazmak olsa da, şu aşamada sorun oluştuğunda programın çökmesini istediğimizden `expect` metodunu kullanmak zorundayız. Hata işlemek konusunu kitabın [9. Bölümünde][recover]<!-- ignore -->.  ayrıntılarıyla inceleyeceğiz.
 
 ### `Println!` Yer Tutucuları ile Değerleri Yazdırmak
 
