@@ -45,9 +45,9 @@ Programı bu şekilde çalıştırdığımızda aşağıdaki çıktıyı elde ed
 
 Değişmez değişkenler gibi sabitler de bir isme bağlı olan ve değiştirilmesine izin verilmeyen değerlerdir, ancak sabitler ve değişkenler arasında bazı farklılıklar bulunur.
 
-Bunlardan ilki, `mut` anahtar kelimesinin sabitler ile kullanılmasına izin verilmez. Sabitler sadece varsayılan olarak değil daima değişmez olarak kabul edilirler. Sabitleri `let` anahtar sözcüğü yerine `const` anahtar sözcüğü kullanarak bildirebilirsiniz. Bu bildirim sırasında depoladıkları değer türünü açıkça belirtmelisiniz. Türler ve tür ek açıklamaları konusunu bir sonraki konumuz olan [Veri Türleri][data-types]<!-- ignore --> bölümünde inceleyeceğimizden bu konunun ayrıntıları hakkında endişelenmeniz gerekmez. Şimdilik sabitleri bildirdiğiniz esnada türün açıkça belirtilmesi gerektiğini anımsamanız yeterlidir.
+Birincisi, `mut` anahtar kelimesinin sabitler ile kullanılmasına izin verilmez. Sabitler sadece varsayılan olarak değil daima değişmez olarak kabul edilirler. Sabitleri `let` anahtar sözcüğü yerine `const` anahtar sözcüğü kullanarak bildirebilirsiniz. Bu bildirim sırasında depoladıkları değer türünü açıkça belirtmelisiniz. Türler ve tür ek açıklamaları konusunu bir sonraki konumuz olan [Veri Türleri][data-types]<!-- ignore --> bölümünde inceleyeceğimizden bu konunun ayrıntıları hakkında endişelenmeniz gerekmez. Şimdilik sabitleri bildirdiğiniz esnada türün açıkça belirtilmesi gerektiğini anımsamanız yeterlidir.
 
-İkinci olarak sabitler, küresel kapsam dahil herhangi bir kapsamda bildirilebilirler. Bu da onların, kodun farklı bölümlerinde bilinen değerler olarak kullanılmasını sağlar.
+İkincisi sabitler, küresel kapsam dahil herhangi bir kapsamda bildirilebilirler. Bu da onların, kodun farklı bölümlerinde bilinen değerler olarak kullanılmasını sağlar.
 
 Son olarak sabitler yalnızca bir işlev çağrısı sonucu olmayan sabit bir ifadeye veya çalışma zamanında hesaplanabilen başka bir değere ayarlanabilirler. 
 
