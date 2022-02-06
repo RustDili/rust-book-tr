@@ -81,7 +81,7 @@ Bu program ilk olarak `x` değişkenini 5 değerine bağlar. Ardından `let x =`
 
 Gölgeleme, bir değişkeni `mut` olarak işaretlemekten farklıdır. Bir değişkeni `let` anahtar kelimesi kullanmadan yeniden atamaya çalışmak derleme zamanı hatasıyla sonuçlanır. Bir değer üzerinde `let` anahtar kelimesi kullanarak bazı dönüşümler yapabiliyor olsak bile, bu dönüşümler bittiğinde değişken yine bir değişmez olarak kalacaktır.   
 
-Gölgeleme ve `mut` arasındaki bir diğer fark ise `let` anahtar kelimesini tekrar kullanmakla etkili bir şekilde yeni bir değişken oluşturduğumuzdan, değerin türünü değiştirebilir ve değişkeni aynı adla kullanmaya devam edebiliriz. Örneğin kullanıcılara gösterilecek metinler arasında kaç boşluk olması gerektiğini soran ve girilen bu boşluk değerlerini sayı olarak saklamak istediğimizi düşünelim:
+Gölgeleme ve `mut` arasındaki bir diğer fark ise `let` anahtar kelimesini tekrar kullanmakla etkili bir şekilde yeni bir değişken oluşturduğumuzdan, değerin türünü değiştirebilir ve değişkeni aynı adla kullanmaya devam edebiliriz. Örneğin kullanıcılara gösterilecek metinler arasında kaç karakterlik boşluk görmek istediklerini sorduğumuzu ve yanıtı sayı olarak saklamak istediğimizi düşünelim:
 
 ```rust
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-04-shadowing-can-change-types/src/main.rs:here}}
