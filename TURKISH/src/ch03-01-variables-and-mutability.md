@@ -23,7 +23,7 @@ Hata mesajındaki `` cannot assign twice to immutable variable `x` `` uyarısı 
 Değişmez olarak belirlenmiş bir değeri değiştirmeye çalışmak programda hatalara neden olabileceğinden böyle bir derleme zamanı hatası almamız önemlidir. Kodumuzun bir bölümünün bir değerin asla değişmeyeceği varsayımıyla hareket ettiği oysa başka bir bölümün bu değeri değiştirdiğini düşündüğünüzde kodun ilk bölümünün tasarlandığı gibi çalışmayacağı ortadadır. Değişken değerleri değiştirildikçe bu şekilde ortaya çıkan hataların kaynağını saptamak epey zorlaşacaktır. 
 Rust'ta bir değerin değişmeyeceğini bildirdiğinizde derleyici bu değerin değişmeyeceğini garanti eder. Bu garanti değerlerin nerede ve nasıl değişeceğini dert etmeyeceğiniz anlamına geldiğinden okuma ve yazma esnasında kodun kolayca anlaşılmasını sağlayacaktır.
 
-Ancak değişebilirlik pratik kod yazmak gibi çok sayıda fayda sağlar. Değişkenler yalnızca varsayılan olarak değişmez olduklarından, tıpkı 2. Bölümde yaptığımız gibi önlerine `mut` kelimesini ekleyerek onları değişebilirsinizr. Anahtar kelime `mut`'un eklenmesi ileride bu kodu okuyacaklara, bu değişken değerinin kodun diğer bölümleri tarafından değiştirileceğini de gösterir.
+Ancak değişebilirliğin de pratik kod yazmak gibi güzel bir avantajı vardır. Değişkenler yalnızca varsayılan olarak değişmez olduklarından onları, tıpkı 2. Bölümde yaptığımız gibi `mut` anahtar kelimesiyle bildirerek değiştirebiliriz. İfadeye `mut`'un eklenmesi kodu anlamaya çalışanlara, buradaki değerin kodun başka bölümleri tarafından değiştirileceğini gösterir.
 
 Örneğin *src/main.rs* dosyasını aşağıdaki şekilde değiştirelim:
 
