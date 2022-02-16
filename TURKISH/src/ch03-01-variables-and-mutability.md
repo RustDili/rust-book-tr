@@ -45,7 +45,7 @@ Programı bu şekilde çalıştırdığımızda aşağıdaki çıktıyı elde ed
 
 Değişmez değişkenler gibi sabitler de bir isme bağlı olan ve değiştirilmesine izin verilmeyen değerlerdir, ancak sabitler ve değişkenler arasında bazı farklılıklar bulunur.
 
-Birincisi, `mut` anahtar kelimesinin sabitler ile kullanılmasına izin verilmez. Sabitler sadece varsayılan olarak değil daima değişmez olarak kabul edilirler. Sabitleri `let` anahtar sözcüğü yerine `const` anahtar sözcüğü kullanarak bildirebilirsiniz. Bu bildirim sırasında depoladıkları değer türünü açıkça belirtmelisiniz. Türler ve tür ek açıklamaları konusunu bir sonraki konumuz olan [Veri Türleri][data-types]<!-- ignore --> bölümünde inceleyeceğimizden bu konunun ayrıntıları hakkında endişelenmeniz gerekmez. Şimdilik sabitleri bildirdiğiniz esnada türün açıkça belirtilmesi gerektiğini anımsamanız yeterlidir.
+Birincisi, `mut` anahtar kelimesinin sabitler ile kullanılmasına izin verilmez. Sabitler sadece varsayılan olarak değil daima değişmez olarak kabul edilirler. Sabitleri `let` anahtar sözcüğü yerine `const` anahtar sözcüğü kullanarak bildirebilirsiniz. Bu bildirim sırasında depoladıkları değer türünü açıkça belirtmelisiniz. Türler ve tür ek açıklamaları konusuna sonraki [Veri Türleri][data-types]<!-- ignore --> başlığımızda değineceğimizden, şimdilik sabit tanımlarında türün açıkça belirtilmesi gerektiğini anımsamanız yeterlidir.
 
 İkincisi sabitler, küresel kapsam dahil herhangi bir kapsamda bildirilebilirler. Bu da onların, kodun farklı bölümlerinde bilinen değerler olarak kullanılmasını sağlar.
 
@@ -57,7 +57,7 @@ Aşağıda bir sabit örneği yer almaktadır:
 const ÜÇ_SAATTEKİ_SANİYELER: u32 = 60 * 60 * 3;
 ```
 
-`ÜÇ_SAATTEKİ_SANİYELER` adlı sabit üç saatin içinde kaç saniye olduğu bilgisini tutar. Ve değeri bir dakia içindeki saniye sayısı (60) ile bir saat içindeki dakika sayısı (60) ve saat sayısı olan (3)'ün çarpımına ayarlıdır. Rust'ın sabitler için adlandırma kuralı, kelimele aralarının alt çizgi ile ayrılması ve tüm harflerin büyük olarak kullanılmasıdır. Derleyicinin derleme zamanında bir dizi işlemi yürütme kabiliyeti bulunduğundan, değişkenin 10,800 gibi hazır değerler yerine, anlaşılması ve doğrulaması daha kolay biçimde yazılmasına izin verilir. Sabit bildiriminde kullanılabilecek işlemler hakkında bilgilenmek için [Rust Reference bölümündeki sabit değerlendirme][const-eval] bölümünü inceleyebilirsiniz.
+`ÜÇ_SAATTEKİ_SANİYELER` adlı sabit, üç saatin içinde kaç saniye olduğu bilgisini tutar. Ve değeri bir dakika içindeki saniye sayısı (60) ile bir saat içindeki dakika sayısı (60) ve saat sayısı olan (3)'ün çarpımına ayarlıdır. Rust'ın sabitler için adlandırma kuralı, kelime aralarının alt çizgi ile ayrılması ve tüm harflerin büyük olarak kullanılması şeklindedir. Derleyicinin derleme zamanında bir dizi işlemi yürütme kabiliyeti bulunduğundan, değişkenin 10,800 gibi hazır değerler yerine, anlaşılması ve doğrulaması daha kolay biçimde yazılmasına izin verilir. Sabit bildiriminde kullanılabilecek işlemler hakkında bilgilenmek için [Rust Reference bölümündeki sabit değerlendirme][const-eval] bölümünü inceleyebilirsiniz.
 
 Sabitler, bir programın çalıştığı süre boyunca, bildirildikleri kapsam dahilinde geçerlidir. Bu durum onları, uygulamanızın farklı bölümlerinden erişilebilen, bir oyuncunun alabileceği maksimum puan sayısı veya ışık hızı gibi belirgin değerlerin bilinmesi gerektiğinde oldukça kullanışlı bir seçenek haline getirir.
 
