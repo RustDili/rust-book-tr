@@ -16,7 +16,7 @@ Programınızı kaydedip `cargo run` komutuyla çalıştırdığınızda aşağ�
 {{#include ../listings/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/output.txt}}
 ```
 
-Bu örnek, derleyicinin programlarınızdaki hataları bulmanıza nasıl yardımcı olacağını gösterir. Deneyimli Rust geliştiricilerinin bile karşılaşmaktan muaf olmadığı bu sinir bozucu görünen derleyici hataları, sizin kötü programcı olduğunuzu değil, programınızın yapması gereken şeyleri henüz güvenli bir şekilde gerçekleştiremediğini söylemektedir.   
+Bu örnek, derleyicinin programlarınızdaki hataları bulmanıza nasıl yardımcı olacağını gösterir. Deneyimli Rust geliştiricilerinin bile sık sık karşılaştığı bu sinir bozucu görünen derleyici hataları, sizin kötü programcı olduğunuzu değil, programınızın yapması gereken şeyleri henüz güvenli bir şekilde gerçekleştiremediğini anlatmaktadır.   
 
 Hata mesajındaki `` cannot assign twice to immutable variable `x` `` uyarısı hatanın sebebi olarak **değişmez olarak bildirilen `x` değişkenine ikinci kez değer atanamayacağını** ancak bizim `x` değişkenine yeni bir değer atamaya çalıştığımızı bildirmektedir.
 
