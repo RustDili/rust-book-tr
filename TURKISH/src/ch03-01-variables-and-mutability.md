@@ -1,8 +1,8 @@
 ## Değişkenler ve Değişkenlik
 
-[“Değerleri Değişkenlerde Saklamak”][storing-values-with-variables]<!-- ignore --> bölümünden hatırlayacağınız üzere Rust'ta değişkenler varsayılan olarak değişmez kabul edilmekteydi. Bu kabul kodlarınızı, Rust'ın getirdiği güvenlik ve eşzamanlılık avantajlarından yararlanacak şekilde yazmanızı teşvik eden birçok Rust yaklaşımından biridir. Ancak yine de değişkenlerinizi değişebilir yapma seçeğine her zaman sahipsiniz. Şimdi gelin Rust'ın sizi değişmezliğe nasıl ve neden yönlendirdiğini ve bazen bu değişemezlikten neden vazgeçmemiz gerektiğini birlikte inceleyelim.
+[“Değerleri Değişkenlerde Saklamak”][storing-values-with-variables]<!-- ignore --> bölümünden hatırlayacağınız üzere Rust'ta değişkenler varsayılan olarak değişmez kabul edilmekteydi. Bu kabul kodlarınızı, Rust'ın getirdiği güvenlik ve eşzamanlılık avantajlarından yararlanacak şekilde yazmanızı teşvik eden birçok Rust yaklaşımından biridir. Ancak yine de değişkenlerinizi değişebilir yapma seçeğine her zaman sahipsiniz. Şimdi gelin Rust'ın sizi değişmezliğe nasıl ve neden yönlendirdiğini ve bu değişemezliğin neden vazgeçilmez olduğunu birlikte inceleyelim.
 
-Bir değişmez haldeki bir değişkene isim verilerek değer atandığında o değişkenin değerini artık değiştiremezsiniz. Bu konuya açıklık getirebilmek için projeler dizininde `cargo new degiskenler` komutunu kullanarak *degiskenler* adında yeni bir proje oluşturalım. Ardından *degiskenler* dizinindekki *src/main.rs* dosyasını açarak içindeki kodları şu an için derlenmeyen aşağıdaki kodlarla değiştirelim: 
+Bir değeri değişmez olarak bildirilmiş bir değişkene bağladığınızda o değeri bir daha değiştiremezsiniz. Bu konuyu daha iyi kavrayabilmeniz için *projeler* dizininize gidip `cargo new degiskenler` komutunu kullanarak *degiskenler* adında yeni bir proje oluşturun. Ardından *degiskenler* dizinindeki *src/main.rs* dosyasını açarak içindeki kodları şu an için derlenmeyen aşağıdaki kodlarla değiştirin: 
 
 <span class="filename">Dosya adı: src/main.rs</span>
 
