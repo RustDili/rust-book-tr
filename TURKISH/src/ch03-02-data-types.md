@@ -1,6 +1,6 @@
 ## Veri Türleri
 
-Rust'taki düm değerlerin belirli bir veri türüne ait olması Rust'a ne tür verilerin bildirildiği ve bu verilerin nasıl işleneceğini söyler. Bu başlıkta skaler ve bileşik olmak üzere iki *veri türü* alt kümesine odaklanacağız.
+Her değerin belirli bir veri türüne ait olması Rust'a ne tür verilerin bildirildiği ve bu verilerin nasıl işleneceğini söyler. Bu başlıkta skaler ve bileşik olmak üzere iki *veri türü* alt kümesine odaklanacağız.
 
 Rust'ın *statik olarak yazılmış* bir dil olduğunu ve tüm değişken türlerinin derleme sırasında  biliniyor olması gerektiğini unutmayın. Derleyici genellikle değere ve onu nasıl kullandığımıza bağlı olarak kullanmak istediğimiz türü anlayabilir. Ancak çıkarsanabilecek farklı türlerin olması durumunda, kitabımızın 2. bölümünde yer alan ["Tahmin Sayısının Gizli Sayı ile Karşılaştırılması"][comparing-the-guess-to-the-secret-number]<!-- ignore -->  bölümünde String türünü sayısal bir türe dönüştürürken yaptığımız gibi tür ek açıklaması eklememiz gerekir:
 
