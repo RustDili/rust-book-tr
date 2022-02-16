@@ -65,7 +65,7 @@ Programınız genelinde kullanılan sabit olarak kodlanmış değerleri sabit ol
 
 ### Gölgeleme
 
-Bir önceki ["Tahmin Sayısının Gizli Sayı ile Karşılaştırılması"][comparing-the-guess-to-the-secret-number]<!-- ignore --> bölümünden hatırlayacağınız üzere daha önce tanımlanmış bir değişken adıyla yeni bir değişken tanımlayabilirsiniz. Rust geliştiricileri tarafından önce tanımlanan değişkenin sonraki tarafından gölgelendiği ifade edilen bu durum, değişkenin kullanılması halinde ikinci değişkene ait değerin elde edileceği anlamına gelmektedir. Aşağıdaki örnekte gösterildiği gibi, bir değişkeni aynı isimle ve `let` anahtar kelimesi tekrar kullanarak gölgeleyebiliriz.
+Bir önceki ["Tahmin Sayısının Gizli Sayı ile Karşılaştırılması"][comparing-the-guess-to-the-secret-number]<!-- ignore --> bölümünden hatırlayacağınız üzere daha önce tanımlanmış bir değişken adını kullanarak yeni bir değişken tanımlayabiliyorduk. Rust geliştiricileri tarafından "Daha önce tanımlanmış bir değişkenin sonraki tarafından gölgelendiği" şeklinde ifade edilen bu durum, değişkenin kullanılması halinde sonraki değişkene ait değerin elde edileceği anlamına gelmektedir. Aşağıdaki örnekte gösterildiği gibi, bir değişkeni aynı isim ve `let` anahtar kelimesiyle yeniden tanımlayarak gölgeleyebiliriz.
 
 <span class="filename">Dosya adı: src/main.rs</span>
 
@@ -73,7 +73,7 @@ Bir önceki ["Tahmin Sayısının Gizli Sayı ile Karşılaştırılması"][comp
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-03-shadowing/src/main.rs}}
 ```
 
-Bu program ilk olarak `x` değişkenini 5 değerine bağlar. Ardından `let x =` ifadesini tekrarlanması sonucu `x` değişkenini, `x`'in orijinal değerini alıp üzerine `1` ekleyerek `6` olacak şekilde gölgeler. Ardından gelen iç kapsamda ise değer üçüncü kez gölgelenerek önceki değer `2` ile çarpılır ve `x` değişkeni `12` değerini almış olur. İç kapsamdan çıkıldığında içeride yapılmış olan gölgeleme de sona ereceğinden x yeniden `6` değerine döner. Program çalıştırıldığında aşağıdaki çıktıyı verecektir:
+Bu program ilk olarak `x` değişkenini 5 değerine bağlar. Ardından `let x =` ifadesini tekrarlanması sonucu `x` değişkenini, `x`'in ilk değerini alıp üzerine `1` ekleyerek `6` olacak şekilde gölgeler. Ardından gelen iç kapsamda ise `x` bir kez daha, son değerinin `2` ile çarpılaması sonucu `12` değeriyle yeniden gölgelenir. İç kapsamdan çıkıldığında içeride yapılmış olan gölgeleme de sona ereceğinden x yeniden `6` değerine döner. Program çalıştırıldığında aşağıdaki çıktıyı verecektir:
 
 ```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-03-shadowing/output.txt}}
@@ -81,26 +81,26 @@ Bu program ilk olarak `x` değişkenini 5 değerine bağlar. Ardından `let x =`
 
 Gölgeleme, bir değişkeni `mut` olarak işaretlemekten farklıdır. Bir değişkeni `let` anahtar kelimesi kullanmadan yeniden atamaya çalışmak derleme zamanı hatasıyla sonuçlanır. Bir değer üzerinde `let` anahtar kelimesi kullanarak bazı dönüşümler yapabiliyor olsak bile, bu dönüşümler bittiğinde değişken yine bir değişmez olarak kalacaktır.   
 
-Gölgeleme ve `mut` arasındaki bir diğer fark ise `let` anahtar kelimesini tekrar kullanmakla etkili bir şekilde yeni bir değişken oluşturduğumuzdan, değerin türünü değiştirebilir ve değişkeni aynı adla kullanmaya devam edebiliriz. Örneğin kullanıcılara gösterilecek metinler arasında kaç karakterlik boşluk görmek istediklerini sorduğumuzu ve yanıtı sayı olarak saklamak istediğimizi düşünelim:
+Gölgeleme ve `mut` arasındaki bir diğer fark ise `let` anahtar kelimesinini tekrar kullanmakla yeni bir değişken oluşturduğumuzdan, istersek değerin türünü değiştirebilir ve değişkeni aynı adla kullanmaya devam edebiliriz. Örneğin kullanıcılara gösterilecek metinler arasında boşluğun kaç karakterden oluşacağını sorduğumuzu ve gelen yanıtı sayı olarak sakladığımızı düşünelim:
 
 ```rust
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-04-shadowing-can-change-types/src/main.rs:here}}
 ```
 
-İlk `boşluk` değişkeni `string` (dizgi), alt satırdaki birinciyle aynı adı taşıyan fakat yepyeni bir değişken olan `boşluk` değişkeniyse tam sayı türünde olduğundan bu yapıya izin verilir. Gölgelemenin bu avantajı sayesinde `boşluk_dizgi` ve `boşluk_sayı` gibi farklı değişkenler oluşturmadan, `boşluk` adını tekrar kullanmakla bu sorunlardan kurtuluvermiş oluruz. Eğer bunun yerine `mut` anahtar sözcüğünü aşağıdaki gibi kullanmaya kalkarsak bir derleme zamanı hatası alırız.
+İlk `boşluk` değişkeni `string`, alt satırdaki birinciyle aynı adı taşıyan fakat yepyeni bir değişken olan `boşluk` değişkeniyse tam sayı türünde olduğundan bu yapıya izin verilir. Gölgeleme sayesinde `boşluk_dizgi` ve `boşluk_sayı` gibi farklı değişken isimlerine gerek duymadan, `boşluk` adını yeniden kullanarak sorunlardan kurtuluruz. Bu örnekte gölgeleme yapmak yerine aşağıda gösterildiği şekilde değişkenlikten yararlanmak isteseydik derleme zamanı hatasıyla karşılaşmış olurduk.
 
 
 ```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/src/main.rs:here}}
 ```
 
-Hata bize bir değişken türünün değiştirilmesine izin verilmediğini bildiriyor. 
+Hata raporunda bize değişken türünün değiştirilmesine izin verilmediği bildiriliyor. 
 
 ```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/output.txt}}
 ```
 
-Artık değişkenlerin nasıl çalıştığını anladığımıza göre alabilecekleri veri türlerini inceleyebiliriz. 
+Artık değişkenlerin nasıl çalıştığını anladığımıza göre depolayabilecekleri veri türlerini inceleyebiliriz. 
 
 
 [comparing-the-guess-to-the-secret-number]:
