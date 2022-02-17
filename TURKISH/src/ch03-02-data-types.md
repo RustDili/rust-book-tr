@@ -130,7 +130,7 @@ Rust'ın karakter türü dilin en temel alfabetik türüdür ve kullanılışı 
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-09-char/src/main.rs}}
 ```
 
-Çift Tırnak kullanan dizgi değişmezlerinin tersine `char` değişmezleri tek tırnakla bildirilir. Rust'ın `char` türü dört baytlık bir Unicode skaler değerini temsil ettiğinden ASCII karakter tablosunda bulunandan daha çok karakteri temsil eder. Aksanlı harfler, Çin, Japon, Kore, Türk dilindeki karakterler, emoji ve sıfır genişlik boşukların tamamı Rust'ta geçerli `char` değerlerdir. Unicode skaler değerleri `U+0000` ile `U+D7FF` ve `U+E000` ile `U+10FFFF` arasında değişir. Ancak "karakter" kavramı Unicode için gerçek bir kavram olmadığından, karakterin anlamına dair insan sezgisi ile Rust'taki karakterin anlamı tam olarak uyuşamayabilir. Bu konuyu 8. Bölümde ["UTF-8 Kodlu Metni Dizgilerde Saklamak"][strings]<!-- ignore --> bölümünde ayrıntılarıyla inceleyeceğiz.
+Çift Tırnak kullanan dizgi değişmezlerinin tersine `char` değişmezleri tek tırnakla bildirilir. Rust'ın `char` türü dört baytlık bir Unicode skaler değeriyle temsil edildiğinden, ASCII karakter tablosunda bulunandan daha fazla karakteri barındırır. Aksanlı harfler, Türk, Çin, Japon, Kore dilindeki karakterler, emoji ve sıfır genişlik boşukların tamamı Rust'ta geçerli `char` değerlerdir. Unicode skaler değerleri `U+0000` ile `U+D7FF` ve `U+E000` ile `U+10FFFF` arasında değişir. Ancak "karakter" kavramı Unicode için gerçek bir kavram olmadığından, karakterin anlamına dair insan sezgisi ile Rust'taki karakterin anlamı tam olarak uyuşamayabilir. Bu konuyu 8. Bölümde ["UTF-8 Kodlu Metni Dizgilerde Saklamak"][strings]<!-- ignore --> bölümünde ayrıntılarıyla inceleyeceğiz.
 
 ### Bileşik Veri Türleri
 
