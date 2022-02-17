@@ -138,9 +138,9 @@ Bunlar çok sayıda değeri tek bir tür olarak gruplayabilen türlerdir. Rust't
 
 #### Çokuzlu Türü
 
-Çeşitli türlerden oluşan bir dizi değeri, tek bir bileşik tür halinde guruplamanın genel yoludur. Sabit uzunluktaki bu tür bir kez bildirildikten sonra büyüyüp küçülemez.
+Çeşitli türlerden oluşan bir dizi değeri, tek bir bileşik tür halinde bir araya getirmenin genel yoludur. Bu türün boyutları sabittir ve bildirildikten sonra değiştirilemez.
 
-Parantez içinde virgülle ayrılmış değerler listesi yazarak oluşturulur ve çokuzlunun her konumu bir türü temsil eder. Bununla birlikte içerdiği farklı değerlerin aynı türden olmaları gerekmez. Örnekteki tür ek açıklamaları isteğe bağlı olarak eklenmiştir:
+Virgülle ayrılmış değerler listesinin parantez içine yazılmasıyla oluşturulur. İçeriğin her konumu bir türü temsil ettiğinden, bir araya getirilen değerler farklı türlerden seçilebilir. Örnekteki tür açıklamaları isteğe bağlı olarak eklenmiştir:
 
 <span class="filename">Dosya adı: src/main.rs</span>
 
@@ -148,7 +148,7 @@ Parantez içinde virgülle ayrılmış değerler listesi yazarak oluşturulur ve
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-10-tuples/src/main.rs}}
 ```
 
-Çokuzlu tek bir bileşik öğe olarak kabul edildiğinden `çokuz` değişkeni tüm çokuzluya bağlanır. Bir çokuzluyu çözerek içerdiği her öğeye erişebilmek için örüntü eşlemeyi kullanabiliriz.
+Çokuzlu tek bir bileşik öğe olarak kabul edildiğinden tüm değerler `çokuz` değişkenine bağlanır. Çokuzluyu oluşturan her öğeye ayrı ayrı erişebilmek için onu çözmekte kullanılan bir tür örüntü eşlemeden yararlanırız.
 
 <span class="filename">Dosya adı: src/main.rs</span>
 
@@ -156,7 +156,7 @@ Parantez içinde virgülle ayrılmış değerler listesi yazarak oluşturulur ve
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-11-destructuring-tuples/src/main.rs}}
 ```
 
-Bu program ilk önce bir çokuzlu oluşturarak onu `çokuz` değişkenine bağlar. Ardından `çokuz` değişkeni alınıp, `x`, `y` ve `z` adlarında üç ayrı değişkene dönüştürüleceği `let` ifadesi kullanan bir modelden yararlanılır. Bu işleme, bir çokuzluyu alarak üç parçaya ayırıp, her parçayı ayrı bir değişkene dönüştürmesinden dolayı *çözme, yıkma* anlamına gelen *destructuring* adı verilir. Nihayetinde program `y` değerinin karşılığı olan `6.4`'ü ekrana yazdırmış olur.
+Bu programda önce bir çokuzlu oluşturarak onu `çokuz` değişkenine bağlarız. Sonra bu çokuzluyu, `x`, `y` ve `z` adlarında üç ayrı değişkene dönüştürübilmek için `let` ifadesiyle oluşturduğumuz bir modelden yararlanırız. Bu işlem, çokuzlunun öğelerine ayrılarak, her öğesinin ayrı bir değişkene atanmasından dolayı *çözme, yıkma* anlamına gelen *destructuring* olarak adlandırılır. Nihayetinde elde ettiğimiz değişkenlerden `y`'nin tuttuğu değer olan `6.4`'ü son satırda yazdırarak programı tamamlarız.
 
 Bu yöntemine ek olarak çokuzlunun öğelerine isminden hemen sonra bir  (`.`) nokta ve öğe dizin numarası yazarak doğrudan erişebiliriz. Örneğin:
 
