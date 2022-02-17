@@ -59,27 +59,27 @@ Tam sayı türlerini seçerken kararsız kaldığınızı hissederseniz Rust'ın
 > ##### Tamsayı Taşması
 >
 > 0 ile 255 arasında değerlere sahip olabilen `u8` türünde bir değişkeniniz olduğunu varsayalım. Değişkeni bu aralığın
-> dışında, örneğin 256 gibi türün tutabileceği en yüksek değerden fazla bir değere ayarlamaya çalışırsanız tamsayı taşması
-> oluşacaktır. Rust'ın hata ayıklama (debug) modu derleme seçeneği, böyle bir davranışın oluşması halinde programı çalışma
-> zamanında paniğe yol açacak şekilde tamsayı taşması denetimlerini içermektedir. Rust'ta *panik* terimi, bir  hata nedeniyle
-> programdan çıkıldığı anlamına gelir. 
-> Bu konuyu kitabımızın 9. Bölümünde ["`panic!` ile Düzeltilemeyen Hatalar"][unrecoverable-errors-with-panic]<!-- ignore -->
-> başlığında yakından inceleyeceğiz.
+> dışında, örneğin 256 gibi türün tutabileceği en yüksek değerden fazla bir değere ayarlamaya kalkışırsanız tamsayı taşmasına
+> neden olursunuz. Bu gibi davranışlar karşısında Rust derleme seçeneklerinde yer alan `debug` *(hata ayıklama)* seçeneği, programı çalışma
+> zamanında panikletmek üzere tamsayı taşması kontrolleriyle donatılmıştır. Rust'ta *panic yapmak* veya *programın paniklemetilmesi*, 
+> oluşan bir hata sebebiyle programdan çıkılması anlamına gelmektedir.
+>  
+> Bu konuya kitabımızın 9. Bölümünde ["`panic!` ile Düzeltilemeyen Hatalar"][unrecoverable-errors-with-panic]<!-- ignore -->
+> başlığında odaklanacağız.
 >
-> Tamsayı taşması kontrolleri yayın modunda `--release` bayrağıyla yapılan derlemelerde gerçekleştirilmez. Ancak taşma 
+> Tam sayı taşması kontrolleri `--release` *(yayın seçeneği)* ile yapılan derlemelerde gerçekleştirilmez. Ancak taşma 
 > oluşması halinde taşan değerler Rust tarafından ikinin tümleyeni yöntemiyle sarmalanarak, türün sahip olduğu en küçük 
 > değerden başlayıp ileriye doğru kaydırılır. Taşmanın `u8` türünde olduğunu varsaydığımızda bu kaydırmalar, 256 değeri 
-> için 0'a, 257değeri içinse 1'e evrilir ve rakam yükseldikçe bu böyle devam eder. Program panikleyerek sonlanmaz 
-> fakat değişken olasılıkla beklenmeyen bir değere sahip olur. Tamsayı taşmaları için sarmalama yöntemine güvenmek bir hata
-> olarak kabul edilir.
+> için 0'a, 257 değeri içinse 1'e evrilir ve rakam yükseldikçe bu böyle devam eder. Nihayetinde program paniklemeyecek ancak değişken
+> büyük bir ihtimalle beklenmeyen bir değere sahip olacaktır. Tam sayı taşmaları için sarmalama yöntemine güvenmek hata olarak 
+> kabul edilmektedir.
 >
-> Taşma olasılıklarının açıkça yönetilebilmesi amacıyla standart kütüphanenin temel türlere özgü sağladığı Aşağıdaki 
-> gibi metotlardan yararlanabilirsiniz: 
+> Standart kitaplık tarafından sağlanan aşağıdaki yöntemleri temel türlerdeki taşma olasılıklarını yönetmek amacıyla kullanabilirsiniz. 
 >
 > - Tüm modları `wrapping_add` gibi [`wrapping_*`][wrapping]<!-- ignore --> metodlarıyla sarmalayın.
 > - Taşmanın gerçekleşebileceği durumları `checked_*` metodlarıyla denetleyip `None` değeri döndürecek şekilde yönetin.
-> - Taşmanın meydana gelip gelmediğini bir boolean değer döndürerek gösteren `overflowing_*` metodlarından yararlanın.
-> - En yüksek ve en düşük değerleri doyurucu aritmetik işlemlerinden yararlanan  `saturating_*` metodlarını kullanarak doyurun.
+> - `overflowing_*` gibi taşma oluşup oluşmadığını, bir *boolean* değer döndürerek gösteren metodlarından yararlanın.
+> - `saturating_*` gibi en yüksek ve en düşük değerleri için doyurucu aritmetik işlemlerinden yararlanan metodlardan faydalanın.
 
 #### Kayan Noktalı Türler
 
