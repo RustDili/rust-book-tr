@@ -83,7 +83,7 @@ Tam sayı türlerini seçerken kararsız kaldığınızı hissederseniz Rust'ın
 
 #### Kayan Noktalı Türler
 
-Ondalık sayılar olarak bildiğimiz kayan noktalı sayılar için Rust'ta iki temel tür bulunur. Bunlar sırasıyla 32 bit boyutunda olan `f32` ve 64 bit boyutunda olan `f64` türleridir. Modern CPU'larda `f32` ve `f64` türleri aynı hızda çalıştığından Rust'ın kayan noktalı sayılar için varsayılanı daha yüksek bir hassasiyete sahip olan `f64` türüdür. Kayan noktalı türlerin tümü işaretlidir.
+Rust, ondalık sayılar olarak bildiğimiz kayan noktalı sayılar için iki temel tür sağlar. Bunlar sırasıyla 32 bit boyutunda olan `f32` ve 64 bit boyutunda olan `f64` türleridir. Her iki tür de modern CPU'larda eşit hızlarda çalıştığından, kayan noktalı sayılar için Rust'ın varsayılanı daha yüksek duyarlıktaki `f64` türüdür. Her iki kayan noktalı sayı türü de işaretlidir.
 
 Aşağıdaki örnek kayan noktalı sayıların işleyişini göstermektedir:
 
@@ -97,7 +97,7 @@ Kayan noktalı sayılar IEEE-754 standardına göre temsil edilir. Buna göre `f
 
 #### Sayısal İşlemler
 
-Rust, tüm sayı türleri için; toplama, çıkarma, çarpma, bölme, kalan gibi ihtiyaç duyacağınız temel matematik işlemlerini destekler. Tam sayılar bölündüğünde bir altındaki en yakın sayıya yuvarlanır. Aşağıdaki örnek türlerin `let` ifadeleriyle nasıl kullanılabileceğini göstermektedir: 
+Rust tüm sayı türleri için ihtiyaç duyabileceğiniz, toplama, çıkarma, çarpma, bölme, kalan gibi temel matematik işlemlerini destekler. Tam sayılar bölündüğünde bir altındaki en yakın sayıya yuvarlanır. Aşağıdaki örnek türlerin `let` ifadeleriyle nasıl kullanılabileceğini göstermektedir: 
 
 
 <span class="filename">Dosya adı: src/main.rs</span>
