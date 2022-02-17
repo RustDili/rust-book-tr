@@ -219,7 +219,7 @@ Dizi, yığın üzerinde depolanan tek bir bellek bloğudur. Dizi öğelerine a�
 
 örnekteki `birinci` değişkeni, dizinin indeks başlangıcı olan [0] pozisyonunda `1` değeri bulunduğundan `1` değerini, `ikinci`adındaki değişkense `[1]` pozisyonunda `2` değeri bulunduğundan `2` değerini alacaktır.
 
-##### Geçersiz Dizi Öğesine Erişmek
+##### Geçersiz Dizi Öğesine Erişim
 
 Dizi sınırları dışında kalan bir öğe numarasına erişmek isterseniz ne olur? 2. Bölümdeki sayı tahmin oyununa benzer bir kod kullanan aşağıdaki örneği kullanıcıdan bir dizin numarası alacak şekilde değiştirdiğimizi varsayalım: 
 
