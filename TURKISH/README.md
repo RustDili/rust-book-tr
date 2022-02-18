@@ -6,6 +6,9 @@ Rust Programlama Dili kitabının Türkçe çevirisi [The Rust Programming Langu
 
 Türkçe bölümü asıl kitabın `/` çevrilmiş bir kopyası olup kök dizin olduğu gibi kalacak, ana bölümde güncelleme oldukça bu güncellemeler Türkçe bölümüne çevirilerek yansıtılacaktır.
 
+
+Kitabın çevirisinde kullanılan terimler sözlüğü [`/TURKISH/Sozluk`][] dizininde,
+
 Çevirisi tamamlanan sayfalar [`/TURKISH/src/`][] dizininde,
 
 Türkçe düzenlenmiş kodlar ise [`/TURKISH/listings/`][] dizininde yer almaktadır.
@@ -13,6 +16,9 @@ Türkçe düzenlenmiş kodlar ise [`/TURKISH/listings/`][] dizininde yer almakta
 Katkıda bulunmak istiyorsanız [`/TURKISH/CONTRIBUTING.md`][] bölümünü okuyarak başlamalısınız.
 
 <!-- Bağlantılar : -->
+
+[`/TURKISH/Sozluk`]:
+https://github.com/RustDili/rust-book-tr/tree/main/TURKISH/Sozluk
 
 [`/TURKISH/src/`]:
 https://github.com/RustDili/rust-book-tr/tree/main/TURKISH/src
