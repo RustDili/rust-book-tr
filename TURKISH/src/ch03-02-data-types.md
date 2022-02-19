@@ -48,7 +48,7 @@ Tamsayı değişmezlerinizi tablo 3-2'de gösterilen biçimlerden herhangi biriy
 
 | Sayısal Değişmez | Örnek         |
 |------------------|---------------|
-| Ondalık          | `98_222`      |
+| Onluk            | `98_222`      |
 | Onaltılık        | `0xff`        |
 | Sekizlik         | `0o77`        |
 | İkilik           | `0b1111_0000` |
@@ -83,7 +83,7 @@ Tam sayı türlerini seçerken kararsız kaldığınızı hissederseniz Rust'ın
 
 #### Kayan Noktalı Türler
 
-Rust, ondalık sayılar olarak bildiğimiz kayan noktalı sayılar için iki temel tür sağlar. Bunlar sırasıyla 32 bit boyutunda olan `f32` ve 64 bit boyutunda olan `f64` türleridir. Her iki tür de modern CPU'larda eşit hızlarda çalıştığından, kayan noktalı sayılar için Rust'ın varsayılanı daha yüksek duyarlıktaki `f64` türüdür. Her iki kayan noktalı sayı türü de işaretlidir.
+Rust ayrıca ondalık basamaklı sayılar olarak bildiğimiz kayan noktalı sayılar için iki temel tür sağlar. Bunlar sırasıyla 32 bit boyutunda olan `f32` ve 64 bit boyutunda olan `f64` türleridir. Her iki tür de modern CPU'larda eşit hızlarda çalıştığından, kayan noktalı sayılar için Rust'ın varsayılanı daha yüksek duyarlıktaki `f64` türüdür. Her iki kayan noktalı sayı türü de işaretlidir.
 
 Aşağıdaki örnek kayan noktalı sayıların işleyişini göstermektedir:
 
