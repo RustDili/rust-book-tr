@@ -168,9 +168,9 @@ function-like) all work in a similar fashion.
 
 When creating procedural macros, the definitions must reside in their own crate
 with a special crate type. This is for complex technical reasons that we hope
-to eliminate in the future. Using procedural macros looks like the code in
+to eliminate in the future. Defining procedural macros looks like the code in
 Listing 19-29, where `some_attribute` is a placeholder for using a specific
-macro.
+macro variety.
 
 <span class="filename">Filename: src/lib.rs</span>
 
@@ -182,7 +182,7 @@ pub fn some_name(input: TokenStream) -> TokenStream {
 }
 ```
 
-<span class="caption">Listing 19-29: An example of using a procedural
+<span class="caption">Listing 19-29: An example of defining a procedural
 macro</span>
 
 The function that defines a procedural macro takes a `TokenStream` as an input
@@ -484,11 +484,11 @@ Function-like macros define macros that look like function calls. Similarly to
 `macro_rules!` macros, they’re more flexible than functions; for example, they
 can take an unknown number of arguments. However, `macro_rules!` macros can be
 defined only using the match-like syntax we discussed in the section
-[“Declarative Macros with `macro_rules!` for General Metaprogramming”][decl]
-earlier. Function-like macros take a `TokenStream` parameter and their
-definition manipulates that `TokenStream` using Rust code as the other two
-types of procedural macros do. An example of a function-like macro is an `sql!`
-macro that might be called like so:
+[“Declarative Macros with `macro_rules!` for General
+Metaprogramming”][decl]<!-- ignore --> earlier. Function-like macros take a
+`TokenStream` parameter and their definition manipulates that `TokenStream`
+using Rust code as the other two types of procedural macros do. An example of a
+function-like macro is an `sql!` macro that might be called like so:
 
 [decl]: #declarative-macros-with-macro_rules-for-general-metaprogramming
 

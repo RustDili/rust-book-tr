@@ -291,7 +291,7 @@ location</span>
 
 We don’t own the memory at this arbitrary location, and there is no guarantee
 that the slice this code creates contains valid `i32` values. Attempting to use
-`slice` as though it’s a valid slice results in undefined behavior.
+`values` as though it’s a valid slice results in undefined behavior.
 
 #### Using `extern` Functions to Call External Code
 
@@ -442,7 +442,7 @@ The final action that works only with `unsafe` is accessing fields of a
 used in a particular instance at one time. Unions are primarily used to
 interface with unions in C code. Accessing union fields is unsafe because Rust
 can’t guarantee the type of the data currently being stored in the union
-instance. You can learn more about unions in [the reference][reference].
+instance. You can learn more about unions in [the Rust Reference][reference].
 
 ### When to Use Unsafe Code
 
