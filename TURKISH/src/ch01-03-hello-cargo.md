@@ -124,6 +124,7 @@ Bazı durumlarda çalıştırılabilir dosya oluşturmanız gerekmez. `cargo che
 
 Cargo hakkında şimdiye kadar öğrendiklerimizi özetleyecek olursak:
 
+* `cargo new` Komutunu kullanarak yeni bir proje başlatabiliriz.
 * Bir projeyi derlemek için `cargo build` komutunu kullanabiliriz.
 * Bir projeyi tek bir adımla derleyip çalıştırabilmek için `cargo run` komutunu kullanabiliriz.
 * Bir projenin hatalarını ikili kod üretmeden derleyerek kontrol edebilmek için  `cargo check` komutundan yararlanabiliriz.
