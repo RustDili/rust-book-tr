@@ -136,9 +136,9 @@ Rust'ın karakter türü dilin en temel alfabetik türüdür ve kullanılışı 
 
 Bunlar çok sayıda değeri tek bir tür olarak gruplayabilen türlerdir. Rust'ta diziler ve çokuzlular olmak üzere iki temel *bileşik tür* bulunur.
 
-#### Çokuzlu Türü
+#### Demet Türü
 
-Çeşitli türlerden oluşan bir dizi değeri, tek bir bileşik tür halinde bir araya getirmenin genel yoludur. Bu türün boyutları sabittir ve bildirildikten sonra değiştirilemez.
+Demetler, çeşitli türlerden oluşan bir dizi değeri, tek bir bileşik tür halinde bir araya getirmenin genel yoludur. Bu türün boyutları sabittir ve bildirildikten sonra değiştirilemez.
 
 Virgülle ayrılmış değerler listesinin parantez içine yazılmasıyla oluşturulur. İçeriğin her konumu bir türü temsil ettiğinden, bir araya getirilen değerler farklı türlerden seçilebilir. Örnekteki tür açıklamaları isteğe bağlı olarak eklenmiştir:
 
@@ -148,7 +148,7 @@ Virgülle ayrılmış değerler listesinin parantez içine yazılmasıyla oluşt
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-10-tuples/src/main.rs}}
 ```
 
-Çokuzlu tek bir bileşik öğe olarak kabul edildiğinden tüm değerler `çokuz` değişkenine bağlanır. Çokuzluyu oluşturan her öğeye ayrı ayrı erişebilmek için onu çözmekte kullanılan bir tür örüntü eşlemeden yararlanırız.
+Demetler tek bir bileşik tür olarak kabul edildiğinden tüm değerler `demet` değişkenine bağlanır. Demeti oluşturan her öğeye ayrı ayrı erişebilmek için onu çözmekte kullanılan bir çeşit örüntü eşleme modeli olan *destructuring* yönteminden yararlanırız.
 
 <span class="filename">Dosya adı: src/main.rs</span>
 
@@ -156,9 +156,9 @@ Virgülle ayrılmış değerler listesinin parantez içine yazılmasıyla oluşt
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-11-destructuring-tuples/src/main.rs}}
 ```
 
-Bu programda önce bir çokuzlu oluşturarak onu `çokuz` değişkenine bağlarız. Sonra bu çokuzluyu, `x`, `y` ve `z` adlarında üç ayrı değişkene dönüştürübilmek için `let` ifadesiyle oluşturduğumuz bir modelden yararlanırız. Bu işlem, çokuzlunun öğelerine ayrılarak, her öğesinin ayrı bir değişkene atanmasından dolayı *çözme, yıkma* anlamına gelen *destructuring* olarak adlandırılır. Nihayetinde elde ettiğimiz değişkenlerden `y`'nin tuttuğu değer olan `6.4`'ü son satırda yazdırarak programı tamamlarız.
+Bu programda önce bir demet oluşturarak onu `demet` değişkenine bağlarız. Ardından bu demeti, `x`, `y` ve `z` adlarında üç ayrı değişkene dönüştürebilmek için `let` ifadesinden yararlanırız. Bu işlem, demetin öğelerine ayrılmasına ve her öğesinin ayrı bir değişkene atanmasına sebep olduğundan *çözme, yıkma* anlamına gelen *destructuring* olarak adlandırılır. Nihayetinde son satırda, elde ettiğimiz değişkenlerden `y`'nin tuttuğu değer olan `6.4`'ü yazdırarak programı tamamlarız.
 
-Bu yöntemine ek olarak çokuzlunun öğelerine isminden hemen sonra bir  (`.`) nokta ve öğe dizin numarası yazarak doğrudan erişebiliriz. Örneğin:
+Bu yöntemine ek olarak demet elemanlarına isminden hemen sonra bir  (`.`) nokta ve öğe dizin numarası yazarak yani nokta gösterimini kullanarak doğrudan da erişebiliriz. Aşağıdaki örnek bununla ilgilidir:
 
 <span class="filename">Dosya adı: src/main.rs</span>
 
@@ -166,9 +166,9 @@ Bu yöntemine ek olarak çokuzlunun öğelerine isminden hemen sonra bir  (`.`) 
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-12-tuple-indexing/src/main.rs}}
 ```
 
-Bu program `x` adında bir çokuzlu oluştur ve ardından her öğenin dizin numarasını kullanarak onlardan yeni değişkenler üretir. Bir çokuzlunun dizin numarası çoğu programlama dilinde olduğu gibi 0'dan başlar.
+Bu programda `x` adında bir demet oluşturup bu demetin her elemanını için bir dizin numarası kullanarak onlardan yeni değişkenler üretiriz. Bir demetin dizin numarası çoğu programlama dilinde olduğu gibi 0'dan başlar.
 
-Hiç bir değere sahip olmayan `()` boş bir çokuzlu yalnızca bir değere sahip özel bir türdür ve `()` şeklinde yazılabilir. Bu türe *birim türü* değerine ise *birim değer* adı verilir. Hiç bir değer döndürmeyen ifadeler örtük olarak birim değer döndür.
+Hiç bir değere sahip olmayan `()` boş bir demet yalnızca bir değere sahip özel bir türdür ve `()` şeklinde yazılabilir. Bu türe *birim türü* değerine ise *birim değeri* adı verilir. Hiç bir değer döndürmeyen ifadeler örtük olarak birim değer döndür.
 
 #### Dizi Türü
 
